@@ -1,0 +1,39 @@
+@use "variables" as v;
+
+
+* {
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+ .next {
+	position: absolute;
+	top: 200px;
+	width: 50px;
+	height: 50px;
+ }
+ .prev {
+	position: absolute;
+	top: 400px;
+	width: 50px;
+	height: 50px;
+ }
+ article {
+	background-size: cover;
+	position: absolute;
+	opacity: 0;
+	transition: all 1s linear;
+ }
+ article.activeSlide {
+	opacity: 1;
+	transform: translateX(0);
+ }
+ article.lastSlide {
+	transform: translateX(100%);
+ }
+ article.nextSlide {
+	transform: translateX(-100%);
+ }
