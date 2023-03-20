@@ -1,39 +1,240 @@
 @use "variables" as v;
+@import "./mixins.scss";
 
+// ----------------------------------------------------------------> slider section
 
-* {
-	margin: 0 auto;
-	padding: 0;
+.slider {
+	display: flex;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	transition: opacity 0.5s ease-in-out;
+	opacity: 0;
 	width: 100%;
-	height: 100%;
-	overflow: hidden;
+	height: 45rem;
+	position: absolute;
+	top: 0;
 }
 
- .next {
-	position: absolute;
-	top: 200px;
-	width: 50px;
-	height: 50px;
- }
- .prev {
-	position: absolute;
-	top: 400px;
-	width: 50px;
-	height: 50px;
- }
- article {
-	background-size: cover;
-	position: absolute;
-	opacity: 0;
-	transition: all 1s linear;
- }
- article.activeSlide {
+.wrapper {
+	position: relative;
+}
+
+.slider.active {
 	opacity: 1;
-	transform: translateX(0);
+}
+.container {
+	margin: 0 auto;
+	max-width: v.$container-lg;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 999;
+	position: inherit;
+	&__logo {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		padding: 30px 0;
+	}
+}
+.dropdown__toggle {
+	display: inline-block;
+	color: #f1f1f1;
+   text-align: center;
+   font-size: 1rem;
+	background-color: #30302e;
+	border: 1px solid #30302e;
+   @include btn-style;
+	&:after {
+		content: "";
+	display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+	}
+}
+
+.main {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	&__menu {
+		display: contents;
+	}
+}
+.input__group {
+	display: flex;
+	flex: 1 1 auto;
+	&_form {
+		width: 100%;
+		@include btn-style;
+		font-size: 1rem;
+		line-height: 1.5;
+		color: #495057;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid #ced4da;
+		&:focus {
+			outline: none;
+		}
+  }
+}
+.btn-secondary {
+	@include btn-style;
+	position: relative;
+	right: 2px;
+}
+
+.nav__link {
+	@include btn-style;
+	background-color: #f1f1f1;
+	color: #222;
+	&:after {
+		content: "";
+		display: inline-block;
+		 width: 0;
+		 height: 0;
+		 margin-left: 0.255em;
+		 vertical-align: 0.255em;
+		 border-top: 0.3em solid;
+		 border-right: 0.3em solid transparent;
+		 border-bottom: 0;
+		 border-left: 0.3em solid transparent;
+	}
+	&_text {
+		margin: 0 5px;
+	}
+}
+.header__box {
+	flex: 0 1 auto;
+	&_switcher {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+}
+.slider_btn__section {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	top: 10rem;
+}
+.next-button {
+		border: none;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 10px;
+		background-color: rgb(242,222,172,.8);
+  }
+  .banner__text {
+	position: relative;
+	top: 5rem;
+	color: #fff;
+	z-index: 1;
+	font-size: 1.8rem;
+	display: flex;
+	justify-content: center;
+	font-family: Poppins, sans-serif;
+ &_title {
+ position: absolute;
+ text-transform: uppercase;
+ font-weight: 700;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
  }
- article.lastSlide {
-	transform: translateX(100%);
+}
+  @media (max-width: 1165px) {
+	.container {
+		max-width: v.$container-md;
+		transition: max-width 1s;
+	}
+	.banner__text {
+		font-size: 1.5rem;
+		transition: font-size 0.5s;
+	}
+	.slider {
+		height: 35rem;
+		transition: height 1s;
+	}
+}
+  @media (max-width: 985px) {
+	.container {
+	  max-width: v.$container-sm;
+	}
+	.main {
+		gap: 1rem;
+	}
+	.banner__text {
+		font-size: 1.3rem;
+	}
+	.slider {
+		height: 30rem;
+	}
  }
- article.nextSlide {
-	transform: translateX(-100%);
- }
+ @media (max-width: 760px) {
+	
+	.dropdown__toggle {display: none;}
+	.container {
+		max-width: v.$container-xs;
+	}
+	.header__box_switcher {
+		gap: 1rem;
+	}
+	.banner__text {
+		font-size: 1.1rem;
+	}
+}
+
+  @media (max-width: 640px) {
+		.container {
+			width: 100%;
+			padding: 0 45px;
+		}
+		.main {
+			flex-wrap: wrap-reverse;
+			gap: 0.3rem;
+		}
+		.nav__link {
+			background-color: transparent;
+			color: #fff;
+			padding: 0.3rem 0.15rem;
+	  }
+		.header__box {
+			flex: 1 1 auto;
+			margin-bottom: 1rem;
+			&_switcher {
+				justify-content: space-between;
+			}
+		}
+		.banner__text {
+			font-size: 0.9rem;
+		}
+		.slider_btn__section {
+			top: 8rem;
+		}
+   }
+	@media (max-width: 420px) {
+		.container {
+			width: 100%;
+			padding: 0 15px;
+		}
+		.main__menu > img {
+			height: 35px;
+		}
+		.banner__text {
+			font-size: 0.5rem;
+	  }
+	  .input__group {
+		flex-basis: 80%;
+	   }
+	 }
+// ----------------------------------------------------------------> slider section ends

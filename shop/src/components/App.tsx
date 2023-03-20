@@ -1,17 +1,12 @@
-import '../styles/style.scss';
-import Carousel from './Carousel';
-
-const users: number[] = [1,4,6,10,6,7];
-
+import "../styles/style.scss";
+import Slider from "./Slider";
 
 function App() {
   return (
-	<div className='wrapper'>
-    <Carousel/>
-	 </div>
-  )
+    <>
+      <Slider />
+    </>
+  );
 }
 
-export default App
-
-
+export default App;
