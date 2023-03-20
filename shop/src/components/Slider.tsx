@@ -1,40 +1,28 @@
 import { useState, useEffect } from "react";
 import "../styles/style.scss";
-import banner from "../assets/images/banner.png";
-import jackets from "../assets/images/jackets.png";
-import star from "../assets/images/star.png";
-import logo from "../assets/images/icons/logo.png";
-import menu from "../assets/images/icons/menu.png";
-import search from "../assets/images/icons/search.png";
-import ukFlag from "../assets/images/icons/flag-uk.png";
-import cart from "../assets/images/icons/cart.png";
-import leftArrow from "../assets/images/icons/left_arrow.png";
-import rightArrow from "../assets/images/icons/right_arrow.png";
 
-const images = [
-  {
-    id: 1,
-    image: `${banner}`,
-    title: "Get start",
-    subTitle: "Your favorite shopping",
-  },
-  {
-    id: 2,
-    image: `${jackets}`,
-    title: "",
-    subTitle: "Great deals are waiting",
-  },
-  {
-    id: 3,
-    image: `${star}`,
-    title: "",
-    subTitle: "your favorite shopping",
-  },
-];
+import logo from "../assets/images/logo.png";
+import ukFlag from "../assets/images/flag-uk.png";
+import { images } from "../helpers/images";
+
+import {
+  LeftArrow,
+  RightArrow,
+  Search,
+  Menu,
+  Cart,
+} from "../assets/images/icons/Icons";
 
 const Slider = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const totalImages = images.length;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage(currentImage === totalImages - 1 ? 0 : currentImage + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [currentImage]);
 
   const nextImage = () => {
     setCurrentImage(currentImage === totalImages - 1 ? 0 : currentImage + 1);
@@ -51,8 +39,8 @@ const Slider = () => {
           <img src={logo}></img>
         </div>
         <div className="main">
-          <span className="main__menu">
-            <img src={menu}></img>
+          <span className="main__menu" style={{ color: "#fff" }}>
+            <Menu />
           </span>
           <div className="dropdown">
             <button className="btn dropdown__toggle">All Category</button>
@@ -69,7 +57,7 @@ const Slider = () => {
                 type="button"
                 style={{ backgroundColor: "#f26522", borderColor: "#f26522" }}
               >
-                <img src={search} />
+                <Search />
               </button>
             </div>
           </div>
@@ -80,7 +68,7 @@ const Slider = () => {
                 <span className="nav__link_text">English</span>
               </a>
               <div className="cart">
-                <img src={cart} style={{ marginRight: "15px" }} />
+                <Cart className="cart__icon" />
                 CART
               </div>
             </div>
@@ -88,10 +76,10 @@ const Slider = () => {
         </div>
         <div className="slider_btn__section">
           <button className="next-button" onClick={prevImage}>
-            <img src={leftArrow} alt="" />
+            <LeftArrow />
           </button>
           <button className="next-button" onClick={nextImage}>
-            <img src={rightArrow} alt="" />
+            <RightArrow />
           </button>
         </div>
       </div>

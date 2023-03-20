@@ -32,18 +32,12 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
-
-ul[class],
-ol[class],
-li
-{
-  list-style: none;
-}
-
 a {
   text-decoration: none;	
 }
-
+button, a, svg {
+	cursor: pointer;
+}
 img {
   max-width: 100%;
 }
