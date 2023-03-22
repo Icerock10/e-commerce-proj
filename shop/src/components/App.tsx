@@ -1,5 +1,4 @@
-import "../styles/style.scss";
-import Slider from "./Slider";
+import Slider from "./slider/Slider";
 
 function App() {
   return (

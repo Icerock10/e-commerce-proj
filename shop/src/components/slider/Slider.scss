@@ -1,5 +1,5 @@
-@use "variables" as v;
-@import "./mixins.scss";
+@import "../../styles/variables";
+@import "../../styles/mixins.scss";
 
 // ----------------------------------------------------------------> slider section
 
@@ -25,7 +25,7 @@
 }
 .container {
 	margin: 0 auto;
-	max-width: v.$container-lg;
+	max-width: $container-lg;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -40,11 +40,11 @@
 }
 .dropdown__toggle {
 	display: inline-block;
-	color: v.$main-color;
+	color: $main-color;
    text-align: center;
    font-size: 1rem;
-	background-color: v.$primary-color;
-	border: 1px solid v.$primary-color;
+	background-color: $primary-color;
+	border: 1px solid $primary-color;
    @include btn-style;
 	&:after {
 		content: "";
@@ -77,9 +77,9 @@
 		font-size: 1rem;
 		line-height: 1.5;
 		color: #495057;
-		background-color: v.$main-color;
+		background-color: $main-color;
 		background-clip: padding-box;
-		border: 1px solid v.$main-color;
+		border: 1px solid $main-color;
 		&:focus {
 			outline: none;
 			box-shadow:
@@ -95,13 +95,14 @@
 	padding: 0.4rem 0.4rem;
 	right: 2px;
 	display: flex;
-	color: v.$main-color;
+	color: $main-color;
 }
 
-.nav__link {
+.lang {
 	@include btn-style;
-	background-color: v.$main-color;
+	background-color: $main-color;
 	color: #222;
+	cursor: pointer;
 	&:after {
 		content: "";
 		display: inline-block;
@@ -144,7 +145,7 @@
   .banner__text {
 	position: relative;
 	top: 5rem;
-	color: v.$main-color;
+	color: $main-color;
 	z-index: 1;
 	font-size: 1.8rem;
 	display: flex;
@@ -161,19 +162,51 @@
 }
 .cart {
 	display: flex;
-	color: v.$main-color;
+	color: $main-color;
+	align-items: center;
 	cursor: pointer;
 	&:hover {
-		color: v.$secondary-color;
+		color: $secondary-color;
 		transition: color ease-in-out 1s;
 	}
 	&__icon {
 		margin-right: 16px;
 	}
 }
+.sidebar {
+	position: fixed;
+	width: 250px;
+	height: 100%;
+	background-color: $primary-color;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.language__list {
+	display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+	 &_item {
+		display: flex;
+    background-color: #fff;
+    padding: 0.6rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid #fff;
+    max-width: 7rem;
+    margin: -0.3rem 7rem 0.4rem 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+&_item > img {
+	margin-right: 5px;
+}
+}
+
   @media (max-width: 1165px) {
 	.container {
-		max-width: v.$container-md;
+		max-width: $container-md;
 		transition: max-width 1s;
 	}
 	.banner__text {
@@ -187,7 +220,7 @@
 }
   @media (max-width: 985px) {
 	.container {
-	  max-width: v.$container-sm;
+	  max-width: $container-sm;
 	}
 	.main {
 		gap: 1rem;
@@ -203,7 +236,7 @@
 	
 	.dropdown__toggle {display: none;}
 	.container {
-		max-width: v.$container-xs;
+		max-width: $container-xs;
 	}
 	.header__box_switcher {
 		gap: 1rem;
@@ -222,9 +255,9 @@
 			flex-wrap: wrap-reverse;
 			gap: 0.3rem;
 		}
-		.nav__link {
+		.lang {
 			background-color: transparent;
-			color: v.$main-color;
+			color: $main-color;
 			padding: 0.3rem 0.15rem;
 	  }
 		.header__box {
