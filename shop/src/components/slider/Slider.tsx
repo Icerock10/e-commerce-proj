@@ -8,8 +8,10 @@ const Slider = () => {
   const [currentFrame, setCurrentFrame] = useState(0);
   const { t, i18n } = useTranslation();
   const totalFrames = frames.length;
-  const titles: [] = i18n.t("titles", { returnObjects: true });
-  const subTitles: [] = i18n.t("subTitles", { returnObjects: true });
+  const frameTitles: { titles: []; subTitles: [] } = i18n.t("frameTitles", {
+    returnObjects: true,
+  });
+  const { titles, subTitles } = frameTitles;
 
   const framesWithMultiLanguageTitles = frames.map((frame, index) => ({
     ...frame,

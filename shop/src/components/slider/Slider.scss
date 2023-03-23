@@ -3,6 +3,10 @@
 
 // ----------------------------------------------------------------> slider section
 
+.wrapper {
+	position: relative;
+}
+
 .slider {
 	display: flex;
 	background-repeat: no-repeat;
@@ -14,10 +18,6 @@
 	height: 45rem;
 	position: absolute;
 	top: 0;
-}
-
-.wrapper {
-	position: relative;
 }
 
 .slider.active {
@@ -38,27 +38,31 @@
 		padding: 30px 0;
 	}
 }
-.dropdown__toggle {
-	display: inline-block;
-	color: $main-color;
-   text-align: center;
-   font-size: 1rem;
-	background-color: $primary-color;
-	border: 1px solid $primary-color;
-   @include btn-style;
-	&:after {
-		content: "";
-	display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 0.255em;
-    vertical-align: 0.255em;
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
+.dropdown {
+	flex: 0 0 auto;
+	&__toggle {
+		display: inline-block;
+		color: $main-color;
+		text-align: center;
+		font-size: 1rem;
+		background-color: $primary-color;
+		border: 1px solid $primary-color;
+		@include btn-style;
+		&:after {
+			content: "";
+		display: inline-block;
+		 width: 0;
+		 height: 0;
+		 margin-left: 0.255em;
+		 vertical-align: 0.255em;
+		 border-top: 0.3em solid;
+		 border-right: 0.3em solid transparent;
+		 border-bottom: 0;
+		 border-left: 0.3em solid transparent;
+		}
 	}
 }
+
 
 .main {
 	display: flex;
@@ -120,10 +124,10 @@
 	}
 }
 .header__box {
-	flex: 0 1 auto;
+	flex: 0 0 auto;
 	&_switcher {
 		display: flex;
-		gap: 2rem;
+		gap: 1rem;
 		align-items: center;
 	}
 }
@@ -133,7 +137,7 @@
 	position: relative;
 	top: 10rem;
 }
-.next-button {
+.slider__btn {
 		border: none;
 		border-radius: 50%;
 		display: flex;
@@ -141,6 +145,10 @@
 		align-items: center;
 		padding: 10px 10px;
 		background-color: rgb(242,222,172,.8);
+		transition: color .5s ease-in-out;
+		&:hover {
+			color: $main-color;
+		}
   }
   .banner__text {
 	position: relative;
@@ -172,6 +180,9 @@
 	&__icon {
 		margin-right: 16px;
 	}
+	&__text {
+		font-size: 1.5rem;
+	}
 }
 .sidebar {
 	position: fixed;
@@ -187,27 +198,80 @@
 	display: inline-flex;
     flex-direction: column;
     align-items: flex-end;
+	 margin-right: 6.7rem;
 	 &_item {
-		display: flex;
+	 display: flex;
     background-color: #fff;
+	 cursor: pointer;
     padding: 0.6rem 2rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border: 1px solid #fff;
-    max-width: 7rem;
-    margin: -0.3rem 7rem 0.4rem 1rem;
     align-items: center;
     justify-content: center;
+	 &:hover {
+		background-color: $secondary-color;
+		color: $main-color;
+	 }
 }
 
 &_item > img {
-	margin-right: 5px;
+	margin-right: 15px;
+ }
 }
+.selected {
+	background-color: rgb(231 218 218);
 }
+.switcher__group {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.switcher__group_wrapper {
+	position: absolute;
+	top: 2.8rem;
+	&:after {
+		position: absolute;
+		top: -7px;
+		left: 10%;
+		width: 0;
+		height: 0;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-bottom: 8px solid #fff;
+		content: '';
+		display: block;
+		z-index: 2;
+		transition: all 200ms linear;
+  }
+}
+
+	.buynow__btn {
+			width: 10rem;
+			font-size: 16px;
+			border: none;
+			color: #fff;
+			background-color: #252525;
+			text-align: center;
+			padding: 10px 0;
+			border-radius: 5px;
+			text-transform: uppercase;
+			font-weight: 700;
+			top: 15rem;
+			position: relative;
+			transition: background-color .5s ease-in-out;
+			&:hover {
+				background-color: $secondary-color;
+				
+			}
+	}
 
   @media (max-width: 1165px) {
 	.container {
 		max-width: $container-md;
-		transition: max-width 1s;
+		transition: max-width 400ms ease-in-out 0s;
+	}
+	.buynow__btn {
+		top: 9rem;
+		transition: top 1s;
 	}
 	.banner__text {
 		font-size: 1.5rem;
@@ -221,6 +285,9 @@
   @media (max-width: 985px) {
 	.container {
 	  max-width: $container-sm;
+	}
+	.slider_btn__section {
+		top: 7rem;
 	}
 	.main {
 		gap: 1rem;
@@ -249,7 +316,10 @@
   @media (max-width: 640px) {
 		.container {
 			width: 100%;
-			padding: 0 45px;
+			padding: 0 35px;
+		}
+		.buynow__btn {
+			top: 8rem;
 		}
 		.main {
 			flex-wrap: wrap-reverse;
@@ -261,17 +331,18 @@
 			padding: 0.3rem 0.15rem;
 	  }
 		.header__box {
-			flex: 1 1 auto;
+			flex: 1 1 100%;
 			margin-bottom: 1rem;
 			&_switcher {
 				justify-content: space-between;
 			}
 		}
 		.banner__text {
-			font-size: 0.9rem;
+			font-size: 0.7rem;
+			top: 4rem;
 		}
 		.slider_btn__section {
-			top: 8rem;
+			top: 5rem;
 		}
    }
 	@media (max-width: 420px) {
@@ -288,5 +359,11 @@
 	  .input__group {
 		flex-basis: 80%;
 	   }
+	 }
+
+	 @media (max-width: 340px) {
+		.main__menu > svg {
+			width: 15%;
+		}
 	 }
 // ----------------------------------------------------------------> slider section ends

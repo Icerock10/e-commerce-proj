@@ -1,4 +1,9 @@
 {
-	"titles": ["Get start", "There's more", "We are not looking", "We are the ones who", "Ready to"],
-	"subTitles": ["Your favorite shopping", "here than you expect", "for a reason to make gifts", "certainly justify the trust!", "provide everything you need!"]
+	"frameTitles": {
+		"titles": ["Get start", "There's more", "Selling only", "We make", "Ready to"],
+		"subTitles": ["Your favorite shopping", "here than you expect", "the best things online", "selling superbly easy", "provide everything you need"]
+	},
+	"categories": "All Categories",
+	"search": "Search this blog...",
+	"cart": "Cart"
 }

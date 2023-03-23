@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/images/logo.png";
-import ukFlag from "../../assets/images/flag-uk.png";
 import { languages } from "../../helpers/languages";
 import {
   LeftArrow,
@@ -17,7 +16,6 @@ export const HeaderSlider = ({ next, prev, t, i18n }: any) => {
   const [languageText, setlanguageText] = useState(() =>
     currentLanguage === "fr" ? "French" : "English"
   );
-
   const showList = () => {
     setisListShown(!isListShown);
   };
@@ -44,13 +42,13 @@ export const HeaderSlider = ({ next, prev, t, i18n }: any) => {
             <Menu />
           </div>
           <div className="dropdown">
-            <button className="btn dropdown__toggle">All Category</button>
+            <button className="btn dropdown__toggle">{t("categories")}</button>
           </div>
           <div className="input__group">
             <input
               type="text"
               className="input__group_form"
-              placeholder="Search this blog"
+              placeholder={t("search")}
             />
             <div className="input-group-append">
               <button
@@ -64,36 +62,43 @@ export const HeaderSlider = ({ next, prev, t, i18n }: any) => {
           </div>
           <div className="header__box">
             <div className="header__box_switcher">
-              <span onClick={showList} className="lang">
-                <img src={languages[languageText]} />
-                <span className="lang_text">{languageText}</span>
-              </span>
+              <div className="switcher__group">
+                <span onClick={showList} className="lang">
+                  <img src={languages[languageText]} />
+                  <span className="lang_text">{languageText}</span>
+                </span>
+                {isListShown && (
+                  <div className="switcher__group_wrapper">
+                    {Object.keys(languages).map((language, i) => {
+                      return (
+                        <span
+                          key={`key-${i}`}
+                          className={`language__list_item ${
+                            languageText === language && "selected"
+                          }`}
+                          onClick={() => change(language)}
+                        >
+                          <img src={languages[language]} alt="flags" />
+                          {language}
+                        </span>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
               <div className="cart">
                 <Cart className="cart__icon" />
-                CART
+                <span className="cart__text">{t("cart")}</span>
               </div>
             </div>
           </div>
         </div>
-        {isListShown &&
-          Object.keys(languages).map((language, i) => {
-            return (
-              <ul key={`key-${i}`} className="language__list">
-                <li
-                  className="language__list_item"
-                  onClick={() => change(language)}
-                >
-                  {language}
-                  <img src={languages[language]} alt="flags" />
-                </li>
-              </ul>
-            );
-          })}
         <div className="slider_btn__section">
-          <button className="next-button" onClick={prev}>
+          <button className="slider__btn" onClick={prev}>
             <LeftArrow />
           </button>
-          <button className="next-button" onClick={next}>
+          <button className="buynow__btn">Buy Now</button>
+          <button className="slider__btn" onClick={next}>
             <RightArrow />
           </button>
         </div>

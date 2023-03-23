@@ -1,4 +1,9 @@
 {
-	"titles": ["Commencer", "Il y a plus", "Nous ne cherchons pas", "Nous sommes ceux qui", "Prêt à"],
-	"subTitles": ["Vos courses préférées", "ici que vous ne le pensez", "pour une raison de faire des cadeaux", "justifie certainement la confiance!", "fournissez tout ce dont vous avez besoin!"]
+	"frameTitles": {
+	"titles": ["Commencer", "Il y a plus", "Vendre uniquement", "Nous rendons la", "Prêt à fournissez"],
+	"subTitles": ["Vos courses préférées", "ici que vous ne le pensez", "les meilleures choses", "vente en ligne facile", "tout ce dont vous"]
+	},
+	"categories": "Catégories",
+	"search": "Cherchez dans ce blog...",
+	"cart": "Panier"
 }
