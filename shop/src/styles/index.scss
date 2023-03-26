@@ -31,7 +31,9 @@ body {
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
  }
-
+#root {
+	position: relative;
+}
 a {
   text-decoration: none;	
 }

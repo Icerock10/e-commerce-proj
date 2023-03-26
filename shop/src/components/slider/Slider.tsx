@@ -1,43 +1,26 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import "./Slider.scss";
-import { frames } from "../../helpers/Frames";
-import { HeaderSlider } from "./HeaderSlider";
-import { useTranslation } from "react-i18next";
+import { useSlider } from "./useSlider";
+import { LeftArrow, RightArrow } from "../../assets/images/icons/Icons";
 
 const Slider = () => {
-  const [currentFrame, setCurrentFrame] = useState(0);
-  const { t, i18n } = useTranslation();
-  const totalFrames = frames.length;
-  const frameTitles: { titles: []; subTitles: [] } = i18n.t("frameTitles", {
-    returnObjects: true,
-  });
-  const { titles, subTitles } = frameTitles;
-
-  const framesWithMultiLanguageTitles = frames.map((frame, index) => ({
-    ...frame,
-    title: titles[index],
-    subTitle: subTitles[index],
-  }));
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFrame(currentFrame === totalFrames - 1 ? 0 : currentFrame + 1);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [currentFrame]);
-
-  const nextImage = () => {
-    setCurrentFrame(currentFrame === totalFrames - 1 ? 0 : currentFrame + 1);
-  };
-
-  const prevImage = () => {
-    setCurrentFrame(currentFrame === 0 ? totalFrames - 1 : currentFrame - 1);
-  };
+  const [
+    { framesWithMultiLanguageTitles, nextFrame, prevFrame, currentFrame },
+  ] = useSlider();
 
   return (
-    <div className="wrapper">
-      <HeaderSlider next={nextImage} prev={prevImage} t={t} i18n={i18n} />
-
+    <>
+      <div className="container container_btn__section">
+        <div className="slider_btn__section">
+          <button className="slider__btn" onClick={prevFrame}>
+            <LeftArrow />
+          </button>
+          <button className="buynow__btn">Buy Now</button>
+          <button className="slider__btn" onClick={nextFrame}>
+            <RightArrow />
+          </button>
+        </div>
+      </div>
       {framesWithMultiLanguageTitles.map(
         ({ id, image, subTitle, title }, index) => (
           <div key={id}>
@@ -54,7 +37,7 @@ const Slider = () => {
           </div>
         )
       )}
-    </div>
+    </>
   );
 };
 

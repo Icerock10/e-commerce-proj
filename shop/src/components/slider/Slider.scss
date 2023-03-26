@@ -2,11 +2,6 @@
 @import "../../styles/mixins.scss";
 
 // ----------------------------------------------------------------> slider section
-
-.wrapper {
-	position: relative;
-}
-
 .slider {
 	display: flex;
 	background-repeat: no-repeat;
@@ -135,6 +130,8 @@
 	display: flex;
 	justify-content: space-between;
 	position: relative;
+}
+.container_btn__section {
 	top: 10rem;
 }
 .slider__btn {
@@ -286,7 +283,7 @@
 	.container {
 	  max-width: $container-sm;
 	}
-	.slider_btn__section {
+	.container_btn__section {
 		top: 7rem;
 	}
 	.main {
@@ -319,7 +316,7 @@
 			padding: 0 35px;
 		}
 		.buynow__btn {
-			top: 8rem;
+			top: 7rem;
 		}
 		.main {
 			flex-wrap: wrap-reverse;
@@ -341,7 +338,7 @@
 			font-size: 0.7rem;
 			top: 4rem;
 		}
-		.slider_btn__section {
+		.container_btn__section {
 			top: 5rem;
 		}
    }
