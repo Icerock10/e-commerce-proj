@@ -2,28 +2,29 @@ import React, { useRef, useEffect, useState } from "react";
 import { products } from "../../helpers/products";
 
 function useSwiper() {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [startX, setStartX] = useState<number>(0);
   const [offsetX, setOffsetX] = useState<number>(0);
   const [isDragging, setIsDragging] = useState(false);
   const [px, setPx] = useState<number>(0);
-  const step: number = Math.floor(products.length / 3);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const productsPerSwipe: number = Math.floor(products.length / 3);
   const maxDistance: number = offsetX + px;
 
   useEffect(() => {
-    const handleMouseMove = (event: any) => {
+    const handleMouseMove = (e: any) => {
       if (!isDragging) return;
-      const x = event.clientX;
+      const x = e.clientX;
       const distance = x - startX;
       setOffsetX(distance * 2);
     };
 
     const handleMouseUp = () => {
-      const elemWidth: any = containerRef.current!.children[0];
-      const containerWidth = containerRef.current!.offsetWidth;
-      const totalElemWidth = elemWidth * products.length;
-      let remainingSpace = containerWidth - totalElemWidth;
-
+      const elemWidth: number = containerRef.current!.children[0].clientWidth;
+      const containerWidth: number = containerRef.current!.offsetWidth;
+      const totalElemWidth: number = elemWidth * products.length;
+      const remainingSpace: number = containerWidth - totalElemWidth;
+      const pixelGap: number = 150;
       if (maxDistance > 18) {
         setIsDragging(false);
         setOffsetX(0);
@@ -33,10 +34,9 @@ function useSwiper() {
       if (maxDistance < remainingSpace) {
         setIsDragging(false);
         setOffsetX(0);
-        setPx(remainingSpace - 150); //gaps
+        setPx(remainingSpace - pixelGap);
         return;
       }
-
       setIsDragging(false);
       setPx((prev) => prev + offsetX);
       setOffsetX(0);
@@ -51,15 +51,30 @@ function useSwiper() {
     };
   }, [isDragging, startX, offsetX, px]);
 
-  const handleMouseDown = (event: any) => {
-    event.preventDefault();
-    setStartX(event.clientX);
+  const handleMouseDown = (e: any) => {
+    e.preventDefault();
+    setStartX(e.clientX);
     setIsDragging(true);
   };
-  //   const handleNext = (index: number): void => {
-  // 	const itemsPerScroll = (containerRef.current.lastChild.offsetWidth + 15) * step;
-  // 	setPx(index * -itemsPerScroll)
-  //   }
+  const scrollToSelectedPage = (index: number): void => {
+    const scrollPixelGap: number = 15;
+    const productPerScroll: number =
+      (containerRef.current!.children[0].clientWidth + scrollPixelGap) *
+      productsPerSwipe;
+    setCurrentPage(index);
+    setPx(index * -productPerScroll);
+  };
+  return [
+    {
+      scrollToSelectedPage,
+      handleMouseDown,
+      containerRef,
+      px,
+      offsetX,
+      productsPerSwipe,
+      currentPage,
+    },
+  ];
 }
 
 export default useSwiper;
