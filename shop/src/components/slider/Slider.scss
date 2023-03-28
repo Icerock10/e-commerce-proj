@@ -274,10 +274,6 @@
 		font-size: 1.5rem;
 		transition: font-size 0.5s;
 	}
-	.slider {
-		height: 35rem;
-		transition: height 1s;
-	}
 }
   @media (max-width: 985px) {
 	.container {
@@ -292,9 +288,7 @@
 	.banner__text {
 		font-size: 1.3rem;
 	}
-	.slider {
-		height: 30rem;
-	}
+
  }
  @media (max-width: 760px) {
 	

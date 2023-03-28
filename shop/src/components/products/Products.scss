@@ -1,0 +1,28 @@
+.container__products {
+	top: 35rem;
+}
+
+.card__container {
+	display: flex;
+	gap: 1rem;
+	overflow: hidden;
+	padding: 2rem;
+ }
+ 
+ .elem {
+	/* border: 5px solid #5e5373; */
+	transition: transform 0.5s;
+	flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+	box-shadow: 0 0 30px 10px #f0f0f0;
+	text-align: center;
+	height: 600px;
+	background-color: #fff;
+	padding: 1rem 1rem;
+ }
+ 
+ .card__footer {
+	padding-bottom: 2rem;
+	display: flex;
+	justify-content: space-evenly;
+ }

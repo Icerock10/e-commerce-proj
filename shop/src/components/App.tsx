@@ -3,6 +3,7 @@ import Slider from "./slider/Slider";
 import { Header } from "./header/Header";
 import { useTranslation } from "react-i18next";
 import { LanguageContext } from ".././helpers/languageContext";
+import Products from "./products/Products";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -11,6 +12,7 @@ function App() {
     <LanguageContext.Provider value={{ t, i18n }}>
       <Header />
       <Slider />
+      <Products />
     </LanguageContext.Provider>
   );
 }
