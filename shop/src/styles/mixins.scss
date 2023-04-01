@@ -5,5 +5,25 @@
    padding: 0.3rem 0.75rem;
 }
 
- 
- 
+@mixin custom-scrollbar($track-color, $thumb-color, $thumb-hover-color) {
+	&::-webkit-scrollbar {
+	  width: 0.5em;
+	  height: 0.5em;
+	}
+	
+	&::-webkit-scrollbar-track {
+	  background-color: $track-color;
+	}
+	
+	&::-webkit-scrollbar-thumb {
+	  background-color: $thumb-color;
+	  border-radius: 1em;
+	}
+	
+	&::-webkit-scrollbar-thumb:hover {
+	  background-color: $thumb-hover-color;
+	}
+	&::-webkit-scrollbar-button {
+	  display: none;
+	}
+ }

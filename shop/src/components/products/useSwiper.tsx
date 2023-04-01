@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
-import { products } from "../../helpers/products";
+import { ProductsSchema } from "../../helpers/products";
 
-function useSwiper() {
+function useSwiper(products: ProductsSchema[]) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [startX, setStartX] = useState<number>(0);
   const [offsetX, setOffsetX] = useState<number>(0);
@@ -64,6 +64,11 @@ function useSwiper() {
     setCurrentPage(index);
     setPx(index * -productPerScroll);
   };
+
+  const customStyle = {
+    transform: `translate3d(${px + offsetX}px, 0px, 0px)`,
+  };
+
   return [
     {
       scrollToSelectedPage,
@@ -71,8 +76,9 @@ function useSwiper() {
       containerRef,
       px,
       offsetX,
-      productsPerSwipe,
       currentPage,
+      productsPerSwipe,
+      customStyle,
     },
   ];
 }

@@ -1,16 +1,24 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/images/logo.png";
 import { LanguageContext } from "../../helpers/languageContext";
-import { Search, Menu, Cart } from "../../assets/images/icons/Icons";
+import { Search, Menu } from "../../assets/images/icons/Icons";
 import Switcher from "./Switcher";
+import "./Header.scss";
+import { Sidebar } from "./Sidebar";
+import SidebarLogic from "./SidebarLogic";
 
 export const Header = () => {
-  const [isSidebarShown, setisSidebarShown] = useState<boolean>(false);
+  const { isSidebarShown, setisSidebarShown } = SidebarLogic();
   const { t } = useContext(LanguageContext);
 
   return (
     <>
-      {isSidebarShown && <div className="sidebar"></div>}
+      {isSidebarShown && (
+        <Sidebar
+          isSidebarShown={isSidebarShown}
+          setisSidebarShown={setisSidebarShown}
+        />
+      )}
       <div className="container">
         <div className="container__logo">
           <img src={logo}></img>

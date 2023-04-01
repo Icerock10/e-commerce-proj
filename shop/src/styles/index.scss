@@ -1,8 +1,11 @@
+@import './mixins.scss';
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 
 ul,li
  {
@@ -30,6 +33,7 @@ body {
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	@include custom-scrollbar(#f1f1f1, #888, #555);
  }
 #root {
 	position: relative;

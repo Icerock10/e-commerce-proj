@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { frames } from "../../helpers/Frames";
+import { frames } from "../../helpers/frames";
 import { LanguageContext } from "../../helpers/languageContext";
 
 export const useSlider = () => {

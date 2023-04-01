@@ -1,0 +1,30 @@
+@import '../.././styles/variables';
+
+
+.sidebar {
+	position: fixed;
+	width: 250px;
+	height: 100%;
+	background-color: $primary-color;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	&__menu {
+		color: #fff;
+		font-size: 2rem;
+		position: relative;
+		top: 5rem;
+		> li:hover {
+			cursor: pointer;
+			color: $secondary-color;
+		}
+	}
+	&__close {
+		color: #fff;
+		display: flex;
+		justify-content: flex-end;
+		padding: 2rem;
+		cursor: pointer;
+		
+	}
+}
