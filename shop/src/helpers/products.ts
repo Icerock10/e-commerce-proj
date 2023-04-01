@@ -27,9 +27,7 @@ export interface ProductsSchema {
 	heading: string,
 	price: string,
 	image: string,
-	
 }
-
 
 export const products: ProductsSchema[] = [
 	{
@@ -106,7 +104,7 @@ export const products: ProductsSchema[] = [
 	 },
 	{
 		id: 10,
-		category: "phone",
+		category: "phones",
 		heading: "LAST CHILD",
 		price: "$124",
 		image:
@@ -114,7 +112,7 @@ export const products: ProductsSchema[] = [
 	 },
 	 {
 		id: 11,
-		category: "phone",
+		category: "phones",
 		heading: "LAST CHILD",
 		price: "$124",
 		image:
@@ -122,7 +120,7 @@ export const products: ProductsSchema[] = [
 	 },
 	 {
 		id: 12,
-		category: "phone",
+		category: "phones",
 		heading: "LAST CHILD",
 		price: "$124",
 		image:
@@ -130,7 +128,7 @@ export const products: ProductsSchema[] = [
 	 },
 	{
 	  id: 1,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "1st ELEM Scart",
 	  price: "$30",
 	  image:
@@ -138,7 +136,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 2,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "2nd ELEM Scart",
 	  price: "$30",
 	  image:
@@ -146,7 +144,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 3,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "3rd ELEM Scart",
 	  price: "$30",
 	  image:
@@ -154,7 +152,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 4,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "4th ELEM Scart",
 	  price: "$100",
 	  image:
@@ -162,7 +160,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 5,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "5th ELEM Scart",
 	  price: "$55",
 	  image:
@@ -170,7 +168,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 6,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "6th ELEM Scart",
 	  price: "$124",
 	  image:
@@ -178,7 +176,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 7,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "7th ELEM Scart",
 	  price: "$124",
 	  image:
@@ -186,7 +184,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 8,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "8th ELEM Scart",
 	  price: "$124",
 	  image:
@@ -194,7 +192,7 @@ export const products: ProductsSchema[] = [
 	},
 	{
 	  id: 9,
-	  category: "laptop",
+	  category: "laptops",
 	  heading: "LAST CHILD",
 	  price: "$124",
 	  image:
@@ -202,23 +200,4 @@ export const products: ProductsSchema[] = [
 	}
  ];
 
- const categorizedProducts = products.reduce<{
-	phones: ProductsSchema[];
-	laptops: ProductsSchema[];
-	headphones: ProductsSchema[];
- }>(
-	(acc, product) => {
-	  if (product.category === "phone") {
-		 acc.phones.push(product);
-	  } else if (product.category === "laptop") {
-		 acc.laptops.push(product);
-	  }
-	  else if (product.category === "headphones") {
-		acc.headphones.push(product);
-	 }
-	  return acc;
-	},
-	{ phones: [], laptops: [], headphones: [] }
- );
-
- export const { phones,  laptops, headphones} = categorizedProducts;
+ export const getUniqueCategories = [...new Set(products.map(item => item.category))];

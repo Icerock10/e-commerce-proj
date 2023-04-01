@@ -19,8 +19,6 @@ const Phones: FC<Title> = ({ title, products }) => {
     },
   ] = useSwiper(products);
 
-  const [prod, setProd] = useState(products);
-
   return (
     <div className="container container__products">
       <h1 style={{ textAlign: "center" }} className="fashion_title">

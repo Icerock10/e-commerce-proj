@@ -1,18 +1,20 @@
 import React, { cloneElement, useState } from "react";
 import "./Products.scss";
 import Phones from "./Phones";
-import { phones, laptops, headphones, products } from "../../helpers/products";
+import { products, getUniqueCategories } from "../../helpers/products";
 
 function Products() {
-  const Laptops = cloneElement(<Phones title={"Laptops"} products={laptops} />);
-  const Headphones = cloneElement(
-    <Phones title={"Headphones"} products={headphones} />
-  );
   return (
     <>
-      <Phones title={"Phones"} products={phones} />
-      {Laptops}
-      {Headphones}
+      {getUniqueCategories.map((category) => (
+        <Phones
+          key={category}
+          title={category.charAt(0).toUpperCase() + category.slice(1)}
+          products={products.filter(
+            (product) => product.category === category.toLowerCase()
+          )}
+        />
+      ))}
     </>
   );
 }
