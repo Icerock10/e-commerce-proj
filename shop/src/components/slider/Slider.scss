@@ -97,35 +97,8 @@
 	color: $main-color;
 }
 
-.lang {
-	@include btn-style;
-	background-color: $main-color;
-	color: #222;
-	cursor: pointer;
-	&:after {
-		content: "";
-		display: inline-block;
-		 width: 0;
-		 height: 0;
-		 margin-left: 0.255em;
-		 vertical-align: 0.255em;
-		 border-top: 0.3em solid;
-		 border-right: 0.3em solid transparent;
-		 border-bottom: 0;
-		 border-left: 0.3em solid transparent;
-	}
-	&_text {
-		margin: 0 5px;
-	}
-}
-.header__box {
-	flex: 0 0 auto;
-	&_switcher {
-		display: flex;
-		gap: 1rem;
-		align-items: center;
-	}
-}
+
+
 .slider_btn__section {
 	display: flex;
 	justify-content: space-between;
@@ -182,56 +155,6 @@
 	}
 }
 
-.language__list {
-	display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end;
-	 margin-right: 6.7rem;
-	 &_item {
-	 display: flex;
-    background-color: #fff;
-	 cursor: pointer;
-    padding: 0.6rem 2rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    align-items: center;
-    justify-content: center;
-	 &:hover {
-		background-color: $secondary-color;
-		color: $main-color;
-	 }
-}
-
-&_item > img {
-	margin-right: 15px;
- }
-}
-.selected {
-	background-color: rgb(231 218 218);
-}
-.switcher__group {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
-.switcher__group_wrapper {
-	position: absolute;
-	top: 2.8rem;
-	&:after {
-		position: absolute;
-		top: -7px;
-		left: 10%;
-		width: 0;
-		height: 0;
-		border-left: 8px solid transparent;
-		border-right: 8px solid transparent;
-		border-bottom: 8px solid #fff;
-		content: '';
-		display: block;
-		z-index: 2;
-		transition: all 200ms linear;
-  }
-}
-
 	.buynow__btn {
 			width: 10rem;
 			font-size: 16px;
@@ -245,11 +168,7 @@
 			font-weight: 700;
 			top: 15rem;
 			position: relative;
-			transition: background-color .5s ease-in-out;
-			&:hover {
-				background-color: $secondary-color;
-				
-			}
+			@include hover-animation(background-color, $secondary-color);
 	}
 
   @media (max-width: 1250px) {

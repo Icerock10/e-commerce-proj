@@ -7,10 +7,6 @@ import Products from "./products/Products";
 
 function App() {
   const { t, i18n } = useTranslation();
-  //   React.useEffect(() => {
-  //     const bodyRect = document.body.getBoundingClientRect();
-  //     console.log(bodyRect);
-  //   }, []);
 
   return (
     <LanguageContext.Provider value={{ t, i18n }}>

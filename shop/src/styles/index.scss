@@ -1,5 +1,5 @@
 @import './mixins.scss';
-
+@import './variables';
 *,
 *::before,
 *::after {
@@ -30,6 +30,7 @@ dd {
 }
 body {
 	min-height: 100vh;
+	font-family: $fontFamily;
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;

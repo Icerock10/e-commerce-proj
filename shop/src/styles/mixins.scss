@@ -27,3 +27,21 @@
 	  display: none;
 	}
  }
+
+ @mixin hover-animation($property, $propertyColor) {
+	transition: all .5s ease-in-out;
+	cursor: pointer;
+	&:hover {
+	  #{$property}: #{$propertyColor};
+	}
+ }
+
+ @mixin hover-animation-switcher() {
+	transition: all .5s ease-in-out;
+	cursor: pointer;
+	&:hover {
+		background-color: $secondary-color;
+		color: $main-color;
+		opacity: 0.9;
+	 }
+ }

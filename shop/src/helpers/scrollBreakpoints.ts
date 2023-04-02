@@ -9,15 +9,15 @@ export const scrollBreakpoints: scrollBreakpointsTypes[] = [
 	  scrollTo: 0,
 	},
 	{
+	  menu: "headPhones",
+	  scrollTo: 725,
+	},
+	{
 	  menu: "phones",
-	  scrollTo: 543,
+	  scrollTo: 1560,
 	},
 	{
 	  menu: "laptops",
-	  scrollTo: 1290,
-	},
-	{
-	  menu: "headPhones",
-	  scrollTo: 2027,
+	  scrollTo: 2296,
 	},
  ];

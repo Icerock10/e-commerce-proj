@@ -31,17 +31,9 @@ export interface ProductsSchema {
 
 export const products: ProductsSchema[] = [
 	{
-		id: 11,
-		category: "headphones",
-		heading: "LAST CHILD",
-		price: "$124",
-		image:
-		razer_black
-	 },
-	 {
 		id: 12,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "Razer Green 2",
 		price: "$124",
 		image:
 		razer_green
@@ -49,7 +41,7 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 13,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "Razer Pink 21S",
 		price: "$124",
 		image:
 		razer_pink
@@ -57,7 +49,7 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 14,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "Razer White 3",
 		price: "$124",
 		image:
 		razer_white
@@ -65,15 +57,23 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 15,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "Razer White 4",
 		price: "$124",
 		image:
 		razer_white2
 	 },
 	 {
+		id: 11,
+		category: "headphones",
+		heading: "Razer Black",
+		price: "$124",
+		image:
+		razer_black
+	 },
+	 {
 		id: 16,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "Senheiser Black",
 		price: "$124",
 		image:
 		senheiser_black
@@ -81,7 +81,7 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 17,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "HyperX Black",
 		price: "$124",
 		image:
 		hyperx_black
@@ -89,7 +89,7 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 18,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "HyperX Blue",
 		price: "$124",
 		image:
 		hyperx_blue
@@ -97,7 +97,7 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 19,
 		category: "headphones",
-		heading: "LAST CHILD",
+		heading: "HyperX Red",
 		price: "$124",
 		image:
 		hyperx_red
@@ -105,7 +105,7 @@ export const products: ProductsSchema[] = [
 	{
 		id: 10,
 		category: "phones",
-		heading: "LAST CHILD",
+		heading: "Iphone 11 Red",
 		price: "$124",
 		image:
 		phone_red
@@ -113,7 +113,7 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 11,
 		category: "phones",
-		heading: "LAST CHILD",
+		heading: "Iphone 12 Red",
 		price: "$124",
 		image:
 		phone_red2
@@ -121,7 +121,7 @@ export const products: ProductsSchema[] = [
 	 {
 		id: 12,
 		category: "phones",
-		heading: "LAST CHILD",
+		heading: "Iphone 14 Red",
 		price: "$124",
 		image:
 		phone_red3
@@ -129,7 +129,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 1,
 	  category: "laptops",
-	  heading: "1st ELEM Scart",
+	  heading: "Acer Black",
 	  price: "$30",
 	  image:
 	  black
@@ -137,7 +137,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 2,
 	  category: "laptops",
-	  heading: "2nd ELEM Scart",
+	  heading: "Asus Black",
 	  price: "$30",
 	  image:
 	  black_2
@@ -145,7 +145,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 3,
 	  category: "laptops",
-	  heading: "3rd ELEM Scart",
+	  heading: "Acer Blue",
 	  price: "$30",
 	  image:
 	  black_3
@@ -153,7 +153,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 4,
 	  category: "laptops",
-	  heading: "4th ELEM Scart",
+	  heading: "Acer White",
 	  price: "$100",
 	  image:
 	  white
@@ -161,7 +161,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 5,
 	  category: "laptops",
-	  heading: "5th ELEM Scart",
+	  heading: "Asus White",
 	  price: "$55",
 	  image:
 	  white_2
@@ -169,7 +169,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 6,
 	  category: "laptops",
-	  heading: "6th ELEM Scart",
+	  heading: "Acer White",
 	  price: "$124",
 	  image:
 	  white_3
@@ -177,7 +177,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 7,
 	  category: "laptops",
-	  heading: "7th ELEM Scart",
+	  heading: "Acer Golden",
 	  price: "$124",
 	  image:
 	  golden
@@ -185,7 +185,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 8,
 	  category: "laptops",
-	  heading: "8th ELEM Scart",
+	  heading: "Asus Golden",
 	  price: "$124",
 	  image:
 	  golden_2
@@ -193,7 +193,7 @@ export const products: ProductsSchema[] = [
 	{
 	  id: 9,
 	  category: "laptops",
-	  heading: "LAST CHILD",
+	  heading: "Acer Golden 3",
 	  price: "$124",
 	  image:
 	  golden_3

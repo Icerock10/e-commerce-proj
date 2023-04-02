@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import SidebarLogic from "./SidebarLogic";
+import { Close } from "../.././assets/images/icons/Icons";
 
 interface SidebarProps {
   isSidebarShown: boolean;
@@ -18,7 +19,7 @@ export const Sidebar: FC<SidebarProps> = ({
         onClick={() => setisSidebarShown(!isSidebarShown)}
         className="sidebar__close"
       >
-        X
+        <Close />
       </div>
       <ul className="sidebar__menu">
         {scrollBreakpoints.map(({ menu }, index) => {

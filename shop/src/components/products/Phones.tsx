@@ -16,6 +16,7 @@ const Phones: FC<Title> = ({ title, products }) => {
       currentPage,
       productsPerSwipe,
       customStyle,
+      isDragging,
     },
   ] = useSwiper(products);
 
@@ -28,18 +29,25 @@ const Phones: FC<Title> = ({ title, products }) => {
         className="card__container"
         ref={containerRef}
         onMouseDown={handleMouseDown}
+        style={{ cursor: `${isDragging ? "grabbing" : "grab"}` }}
       >
         {products.map(({ id, heading, price, image }) => {
           return (
-            <div className="elem" key={id} style={customStyle}>
-              <h4>{heading}</h4>
-              <p>
-                Price <span>{price}</span>
-              </p>
-              <img src={image} alt="img" />
-              <div className="card__footer">
-                <span>Buy Now</span>
-                <span>See More</span>
+            <div className="product" key={id} style={customStyle}>
+              <div className="product__container">
+                <h4>{heading}</h4>
+                <p className="price__container">
+                  <span className="product__price">Price</span>
+                  <span>{price}</span>
+                </p>
+                <div className="product__image">
+                  <img src={image} alt="img" />
+                </div>
+
+                <div className="card__footer">
+                  <span>Buy Now</span>
+                  <span>See More</span>
+                </div>
               </div>
             </div>
           );

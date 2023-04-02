@@ -14,7 +14,7 @@ function Products() {
           key={category}
           title={category.charAt(0).toUpperCase() + category.slice(1)}
           products={productsState.filter(
-            (product: any) => product.category === category.toLowerCase()
+            (product) => product.category === category.toLowerCase()
           )}
         />
       ))}

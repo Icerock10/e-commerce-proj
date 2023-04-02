@@ -79,6 +79,7 @@ function useSwiper(products: ProductsSchema[]) {
       currentPage,
       productsPerSwipe,
       customStyle,
+      isDragging,
     },
   ];
 }
