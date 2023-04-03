@@ -188,11 +188,7 @@
 	display: flex;
 	color: $main-color;
 	align-items: center;
-	cursor: pointer;
-	&:hover {
-		color: $secondary-color;
-		transition: color ease-in-out 1s;
-	}
+	@include hover-animation(color, $secondary-color);
 	&__icon {
 		margin-right: 16px;
 	}

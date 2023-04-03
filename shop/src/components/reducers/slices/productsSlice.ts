@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "./store";
-import {products, ProductFields} from '../.././helpers/products';
+import type { RootState } from "../store";
+import {products, ProductFields} from '../../../helpers/products';
 
 
 const initialState: ProductFields[] = products;
 
-export const counterSlice = createSlice({
+export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
@@ -15,8 +15,8 @@ export const counterSlice = createSlice({
   }
 });
 
-export const { clearArray } = counterSlice.actions;
+export const { clearArray } = productsSlice.actions;
 
 export const selectAllProducts = (state: RootState) => state.products; 
 
-export default counterSlice.reducer;
+export default productsSlice.reducer;

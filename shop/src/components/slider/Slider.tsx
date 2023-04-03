@@ -5,18 +5,23 @@ import { LeftArrow, RightArrow } from "../../assets/images/icons/Icons";
 
 const Slider = () => {
   const [
-    { framesWithMultiLanguageTitles, nextFrame, prevFrame, currentFrame },
+    {
+      framesWithMultiLanguageTitles,
+      goToNextFrame,
+      goToPrevFrame,
+      currentFrame,
+    },
   ] = useSlider();
 
   return (
     <>
       <div className="container container_btn__section">
         <div className="slider_btn__section">
-          <button className="slider__btn" onClick={prevFrame}>
+          <button className="slider__btn" onClick={goToPrevFrame}>
             <LeftArrow />
           </button>
           <button className="buynow__btn">Buy Now</button>
-          <button className="slider__btn" onClick={nextFrame}>
+          <button className="slider__btn" onClick={goToNextFrame}>
             <RightArrow />
           </button>
         </div>

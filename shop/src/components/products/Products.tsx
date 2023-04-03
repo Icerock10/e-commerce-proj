@@ -3,7 +3,7 @@ import "./Products.scss";
 import ProductList from "./ProductList";
 import { getUniqueCategories } from "../../helpers/products";
 import { useAppSelector } from "../reducers/hooks";
-import { selectAllProducts } from "../reducers/productsSlice";
+import { selectAllProducts } from "../reducers/slices/productsSlice";
 
 function Products() {
   const productsState = useAppSelector(selectAllProducts);

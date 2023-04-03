@@ -1,11 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import { frames } from "../../helpers/frames";
 import { LanguageContext } from "../../helpers/languageContext";
+import { useAppSelector, useAppDispatch } from "../reducers/hooks";
+import {
+  getFramesAsync,
+  getCurrentFrame,
+} from "../reducers/slices/sliderSlice";
 
 export const useSlider = () => {
-  const [currentFrame, setCurrentFrame] = useState<number>(0);
+  const currentFrame = useAppSelector(getCurrentFrame);
+  const dispatch = useAppDispatch();
+
   const { t } = useContext(LanguageContext);
-  const totalFrames = frames.length;
+  const totalFrames: number = frames.length;
   interface FrameTitles {
     titles: string[];
     subTitles: string[];
@@ -21,22 +28,25 @@ export const useSlider = () => {
     title: titles[index],
     subTitle: subTitles[index],
   }));
+  const goToNextFrame = (): void => {
+    dispatch(getFramesAsync(totalFrames, "next"));
+  };
+  const goToPrevFrame = (): void => {
+    dispatch(getFramesAsync(totalFrames, "prev"));
+  };
   useEffect(() => {
     const framesInterval = setInterval(() => {
-      setCurrentFrame(currentFrame === totalFrames - 1 ? 0 : currentFrame + 1);
+      goToNextFrame();
     }, 3000);
     return (): void => clearInterval(framesInterval);
   }, [currentFrame]);
 
-  const nextFrame = (): void => {
-    setCurrentFrame(currentFrame === totalFrames - 1 ? 0 : currentFrame + 1);
-  };
-
-  const prevFrame = (): void => {
-    setCurrentFrame(currentFrame === 0 ? totalFrames - 1 : currentFrame - 1);
-  };
-
   return [
-    { framesWithMultiLanguageTitles, nextFrame, prevFrame, currentFrame },
+    {
+      framesWithMultiLanguageTitles,
+      goToNextFrame,
+      goToPrevFrame,
+      currentFrame,
+    },
   ];
 };
