@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ProductsSchema } from "../../helpers/products";
+import { ProductFields } from "../../helpers/products";
 
-function useSwiper(products: ProductsSchema[]) {
+function useSwiper(products: ProductFields[]) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [startX, setStartX] = useState<number>(0);
   const [offsetX, setOffsetX] = useState<number>(0);

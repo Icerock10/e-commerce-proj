@@ -22,10 +22,10 @@ export const useSlider = () => {
     subTitle: subTitles[index],
   }));
   useEffect(() => {
-    const interval = setInterval(() => {
+    const framesInterval = setInterval(() => {
       setCurrentFrame(currentFrame === totalFrames - 1 ? 0 : currentFrame + 1);
     }, 3000);
-    return (): void => clearInterval(interval);
+    return (): void => clearInterval(framesInterval);
   }, [currentFrame]);
 
   const nextFrame = (): void => {

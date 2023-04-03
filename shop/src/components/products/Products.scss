@@ -26,27 +26,29 @@
 	padding: 1rem 1rem;
 	display: flex;
 	flex-direction: column;
+	&__price {
+		color: $secondary-color;
+	font-weight: 700;
+	margin-right: 1rem;
+	}
+	&__image {
+			min-height: 370px;
+			transition: all .5s;
+			&:hover {
+				transform: scale(1.1);
+				transition: all .5s;
+			}
+	}
  }
+ 
+ 
  h4 {
 	font-size: 20px;
     text-align: center;
     font-weight: 700;
     padding-bottom: 5px;
  }
- .product__price {
-	color: $secondary-color;
-	font-weight: 700;
-	margin-right: 1rem;
- }
- .product__image {
-	min-height: 370px;
-	transition: all .5s;
-	&:hover {
-		transform: scale(1.1);
-		transition: all .5s;
-	}
- }
-
+ 
  .card__footer {
 	padding-top: 3rem;
 	display: flex;

@@ -13,12 +13,10 @@ export const Header = () => {
 
   return (
     <>
-      {isSidebarShown && (
-        <Sidebar
-          isSidebarShown={isSidebarShown}
-          setisSidebarShown={setisSidebarShown}
-        />
-      )}
+      <Sidebar
+        isSidebarShown={isSidebarShown}
+        setisSidebarShown={setisSidebarShown}
+      />
       <div className="container">
         <div className="container__logo">
           <img src={logo}></img>

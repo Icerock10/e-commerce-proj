@@ -1,7 +1,7 @@
 import React from "react";
 import "./Products.scss";
-import Phones from "./Phones";
-import { products, getUniqueCategories } from "../../helpers/products";
+import ProductList from "./ProductList";
+import { getUniqueCategories } from "../../helpers/products";
 import { useAppSelector } from "../reducers/hooks";
 import { selectAllProducts } from "../reducers/productsSlice";
 
@@ -10,7 +10,7 @@ function Products() {
   return (
     <>
       {getUniqueCategories.map((category) => (
-        <Phones
+        <ProductList
           key={category}
           title={category.charAt(0).toUpperCase() + category.slice(1)}
           products={productsState.filter(

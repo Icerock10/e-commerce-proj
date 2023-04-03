@@ -21,7 +21,7 @@ import hyperx_blue from '../assets/images/products/hyperx_blue.jpg';
 import hyperx_red from '../assets/images/products/hyperx_red.jpg';
 
 
-export interface ProductsSchema {
+export interface ProductFields {
 	id: number,
 	category: string,
 	heading: string,
@@ -29,7 +29,7 @@ export interface ProductsSchema {
 	image: string,
 }
 
-export const products: ProductsSchema[] = [
+export const products: ProductFields[] = [
 	{
 		id: 12,
 		category: "headphones",

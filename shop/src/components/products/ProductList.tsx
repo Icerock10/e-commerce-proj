@@ -1,13 +1,13 @@
 import React, { FC, useState } from "react";
 import useSwiper from "./useSwiper";
-import { ProductsSchema } from "../../helpers/products";
+import { ProductFields } from "../../helpers/products";
 
 interface Title {
   title: string;
-  products: ProductsSchema[];
+  products: ProductFields[];
 }
 
-const Phones: FC<Title> = ({ title, products }) => {
+const ProductList: FC<Title> = ({ title, products }) => {
   const [
     {
       scrollToSelectedPage,
@@ -72,4 +72,4 @@ const Phones: FC<Title> = ({ title, products }) => {
   );
 };
 
-export default Phones;
+export default ProductList;

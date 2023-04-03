@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
-import {products, ProductsSchema} from '../.././helpers/products';
+import {products, ProductFields} from '../.././helpers/products';
 
 
-const initialState: ProductsSchema[] = products;
+const initialState: ProductFields[] = products;
 
 export const counterSlice = createSlice({
   name: "products",
