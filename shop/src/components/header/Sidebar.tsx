@@ -1,24 +1,21 @@
-import React, { FC } from "react";
+import React from "react";
 import SidebarLogic from "./SidebarLogic";
 import { Close } from "../.././assets/images/icons/Icons";
 
-interface SidebarProps {
-  isSidebarShown: boolean;
-  setisSidebarShown: (key: boolean) => void;
-}
-
-export const Sidebar: FC<SidebarProps> = ({
-  isSidebarShown,
-  setisSidebarShown,
-}) => {
-  const { scrollToSection, scrollBreakpoints } = SidebarLogic();
+export const Sidebar = () => {
+  const {
+    scrollToSection,
+    scrollBreakpoints,
+    isSidebarShown,
+    toggleSidebarVisibility,
+  } = SidebarLogic();
 
   return (
     <>
       {isSidebarShown && (
         <div className="sidebar">
           <div
-            onClick={() => setisSidebarShown(!isSidebarShown)}
+            onClick={() => toggleSidebarVisibility()}
             className="sidebar__close"
           >
             <Close />

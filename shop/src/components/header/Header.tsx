@@ -8,15 +8,11 @@ import { Sidebar } from "./Sidebar";
 import SidebarLogic from "./SidebarLogic";
 
 export const Header = () => {
-  const { isSidebarShown, setisSidebarShown } = SidebarLogic();
   const { t } = useContext(LanguageContext);
-
+  const { toggleSidebarVisibility } = SidebarLogic();
   return (
     <>
-      <Sidebar
-        isSidebarShown={isSidebarShown}
-        setisSidebarShown={setisSidebarShown}
-      />
+      <Sidebar />
       <div className="container">
         <div className="container__logo">
           <img src={logo}></img>
@@ -25,7 +21,7 @@ export const Header = () => {
           <div
             className="main__menu"
             style={{ color: "#fff" }}
-            onClick={() => setisSidebarShown(!isSidebarShown)}
+            onClick={() => toggleSidebarVisibility()}
           >
             <Menu />
           </div>
