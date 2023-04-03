@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState, AppThunk } from '../store';
 
 
-export const sliderSlice = createSlice({
-	name: "slider",
+export const frameSlice = createSlice({
+	name: "frames",
 	initialState: 0,
 	reducers: {
 	  nextFrame: (state, action: PayloadAction<number>) => {
@@ -15,9 +15,9 @@ export const sliderSlice = createSlice({
 	}
  });
 
- export const { nextFrame, prevFrame } = sliderSlice.actions;
- export const getCurrentFrame = (state: RootState) => state.slider;
- export default sliderSlice.reducer;
+ export const { nextFrame, prevFrame } = frameSlice.actions;
+ export const getCurrentFrame = (state: RootState) => state.frames;
+ export default frameSlice.reducer;
 
 
  export const getFramesAsync =

@@ -1,12 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import productsSlice from "./slices/productsSlice";
-import sliderSlice from './slices/sliderSlice';
+import frameSlice from './slices/frameSlice';
 
 
 export const store = configureStore({
   reducer: {
     products: productsSlice,
-	 slider: sliderSlice
+	 frames: frameSlice,
   }
 });
 

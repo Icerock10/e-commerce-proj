@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { frames } from "../../helpers/frames";
 import { LanguageContext } from "../../helpers/languageContext";
 import { useAppSelector, useAppDispatch } from "../reducers/hooks";
-import {
-  getFramesAsync,
-  getCurrentFrame,
-} from "../reducers/slices/sliderSlice";
+import { getFramesAsync, getCurrentFrame } from "../reducers/slices/frameSlice";
 
 export const useSlider = () => {
   const currentFrame = useAppSelector(getCurrentFrame);
