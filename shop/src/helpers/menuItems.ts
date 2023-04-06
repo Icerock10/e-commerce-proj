@@ -11,7 +11,7 @@ export const menuItems: Menu[] = [
   {
     submenu: [
       {
-        title: "Phones",
+        title: "phones",
         submenu: [
           {
             title: "Iphone",
@@ -22,7 +22,7 @@ export const menuItems: Menu[] = [
         ],
       },
       {
-        title: "Laptops",
+        title: "laptops",
 		  submenu: [
 			{
 			  title: "Acer",
@@ -33,7 +33,7 @@ export const menuItems: Menu[] = [
 		 ],
       },
       {
-        title: "Headphones",
+        title: "headphones",
         submenu: [
           {
             title: "Razer",

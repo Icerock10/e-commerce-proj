@@ -199,5 +199,3 @@ export const products: ProductFields[] = [
 	  golden_3
 	}
  ];
-
- export const getUniqueCategories = [...new Set(products.map(item => item.category))];

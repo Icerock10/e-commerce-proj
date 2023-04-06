@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Dropdown } from "./Dropdown";
 import { useSubmenu } from "./useSubmenu";
 interface SubmenuOptions {
@@ -11,29 +11,29 @@ interface SubmenuOptions {
 
 export const Submenu: FC<SubmenuOptions> = ({ items, depthLevel }) => {
   const { submenu, title } = items;
-  const { toggleDropDown, dropdown } = useSubmenu();
+  const { toggleDropDown, isDropDownShown } = useSubmenu();
 
   return (
     <li
       className="menu__items"
       onMouseEnter={toggleDropDown}
       onMouseLeave={toggleDropDown}
-      onClick={(e) => toggleDropDown(e)}
+      onClick={toggleDropDown}
     >
-      <button className={`${title === undefined ? "hover__disabled" : ""}`}>
-        <span>{title}</span>
+      <div className={`${title === undefined ? "hover__disabled" : ""}`}>
+        {title}
         {submenu &&
           (depthLevel === 0 ? (
             <div className="drop__toggle">{"categories"}</div>
           ) : (
             <span>&raquo;</span>
           ))}
-      </button>
+      </div>
       {submenu && (
         <Dropdown
           depthLevel={depthLevel}
           submenus={submenu}
-          dropdown={dropdown}
+          dropdown={isDropDownShown}
         />
       )}
     </li>

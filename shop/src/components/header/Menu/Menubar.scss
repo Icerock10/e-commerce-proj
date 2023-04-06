@@ -39,9 +39,8 @@
 		@include custom-border;
 	}
  }
-
  
- .menu__items button {
+ .menu__items > div {
 	display: flex;
 	padding: 0.7rem 1rem;
 	align-items: center;
@@ -58,7 +57,7 @@
  
  .dropdown {
 	position: absolute;
-	left: 1.3rem;
+	left: 1rem;
 	box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08), 0 4px 6px -2px rgba(71, 63, 79, 0.16);
 	font-size: 0.875rem;
 	min-width: 10rem;

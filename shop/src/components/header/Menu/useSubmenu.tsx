@@ -1,48 +1,22 @@
 import React, { useState } from "react";
-import {
-  getVisibilityState,
-  dropdownToggler,
-} from "../../reducers/slices/visibilitySlice";
-import { useAppSelector, useAppDispatch } from "../../reducers/hooks";
+import { useAppDispatch, useAppSelector } from "../../reducers/hooks";
+import { sortByCategory } from "../../reducers/slices/productsSlice";
+import SidebarLogic from "../SidebarLogic";
 
 export const useSubmenu = () => {
-  //   const { dropdown } = useAppSelector(getVisibilityState);
-  //   const dispatch = useAppDispatch();
-
-  const [dropdown, setDropdown] = useState(false);
+  const dispatch = useAppDispatch();
+  const { scrollToSection } = SidebarLogic();
+  const [isDropDownShown, setIsDropDownShown] = useState(false);
 
   const toggleDropDown = ({ type, target: { textContent } }: any): void => {
     if (type === "click") {
-      return setDropdown(!dropdown);
+      const categoryWithoutArrow = textContent.slice(textContent, -1);
+      dispatch(sortByCategory(categoryWithoutArrow));
+      scrollToSection(1);
+      return setIsDropDownShown(!isDropDownShown);
     }
-    if (type === "mouseleave") return setDropdown(false);
-    setDropdown(true);
+    if (type === "mouseleave") return setIsDropDownShown(false);
+    setIsDropDownShown(true);
   };
-
-  return { toggleDropDown, dropdown };
+  return { toggleDropDown, isDropDownShown };
 };
-
-// const toggleDropDown = ({ type, target: { textContent } }: any): void => {
-// 	if (type === "click") {
-// 	  return setDropdown(!dropdown);
-// 	}
-// 	if (type === "mouseleave") return setDropdown(false);
-// 	setDropdown(true);
-//  };
-
-// export const useSubmenu = () => {
-// 	const { dropdown } = useAppSelector(getVisibilityState);
-// 	//   const [dropdown, setDropdown] = useState(false);
-// 	const dispatch = useAppDispatch();
-
-// 	const toggleDropDown = ({ type, target: { textContent } }: any): void => {
-// 	  dispatch(dropdownToggler(true));
-// 	  if (type === "click") {
-// 		 dispatch(dropdownToggler(!dropdown));
-// 	  }
-// 	  if (type === "mouseleave") {
-// 		 dispatch(dropdownToggler(false));
-// 	  }
-// 	};
-// 	return { toggleDropDown, dropdown };
-//  };
