@@ -2,12 +2,15 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import productsSlice from "./slices/productsSlice";
 import frameSlice from './slices/frameSlice';
 import switcherSlice from './slices/switcherSlice';
+import visibilitySlice from './slices/visibilitySlice';
+
 
 export const store = configureStore({
   reducer: {
     products: productsSlice,
 	 frames: frameSlice,
-	 switcher: switcherSlice
+	 switcher: switcherSlice,
+	 visibility: visibilitySlice
   }
 });
 

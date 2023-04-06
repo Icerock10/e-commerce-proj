@@ -1,4 +1,3 @@
-
 interface MenuItem {
 	title: string;
 	submenu?: MenuItem[];

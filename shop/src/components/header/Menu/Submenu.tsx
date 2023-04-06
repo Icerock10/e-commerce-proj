@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Dropdown } from "./Dropdown";
-
-interface isSubmenu {
+import { useSubmenu } from "./useSubmenu";
+interface SubmenuOptions {
   items: {
     title: string;
     submenu: string[];
@@ -9,19 +9,10 @@ interface isSubmenu {
   depthLevel: number;
 }
 
-export const Submenu: FC<isSubmenu> = ({ items, depthLevel }) => {
+export const Submenu: FC<SubmenuOptions> = ({ items, depthLevel }) => {
   const { submenu, title } = items;
+  const { toggleDropDown, dropdown } = useSubmenu();
 
-  const [dropdown, setDropdown] = useState(false);
-
-  const toggleDropDown = (e: any): void => {
-    if (e.type === "click") {
-      console.log(e.target.textContent);
-      return setDropdown(!dropdown);
-    }
-    if (e.type === "mouseleave") return setDropdown(false);
-    setDropdown(true);
-  };
   return (
     <li
       className="menu__items"

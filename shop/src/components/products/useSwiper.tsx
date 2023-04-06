@@ -12,10 +12,9 @@ function useSwiper(products: ProductFields[]) {
   const maxDistance: number = offsetX + px;
 
   useEffect(() => {
-    const handleMouseMove = (e: any) => {
+    const handleMouseMove = ({ clientX }: any) => {
       if (!isDragging) return;
-      const x = e.clientX;
-      const distance = x - startX;
+      const distance = clientX - startX;
       setOffsetX(distance * 2);
     };
 

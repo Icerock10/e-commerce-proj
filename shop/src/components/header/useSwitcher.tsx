@@ -2,24 +2,27 @@ import React, { useContext } from "react";
 import { LanguageContext } from "../../helpers/languageContext";
 import { useAppSelector, useAppDispatch } from "../reducers/hooks";
 import {
-  setIsLangListShown,
-  setLanguageText,
+  changeLanguage,
+  getLanguageText,
 } from ".././reducers/slices/switcherSlice";
+import {
+  getVisibilityState,
+  toggleVisibility,
+} from ".././reducers/slices/visibilitySlice";
 
 function useSwitcher() {
+  const { isLangListShown } = useAppSelector(getVisibilityState);
+  const languageText = useAppSelector(getLanguageText);
   const dispatch = useAppDispatch();
-  const { isLangListShown, languageText } = useAppSelector(
-    (state) => state.switcher
-  );
   const { t, i18n } = useContext(LanguageContext);
 
   const showLanguagesList = () => {
-    dispatch(setIsLangListShown(!isLangListShown));
+    dispatch(toggleVisibility("isLangListShown"));
   };
   const getLanguageSwitched = (language: string): void => {
     const languageAbbreviation = language.slice(0, 2).toLowerCase();
     i18n.changeLanguage(languageAbbreviation);
-    dispatch(setLanguageText(language));
+    dispatch(changeLanguage(language));
     showLanguagesList();
   };
   return [
