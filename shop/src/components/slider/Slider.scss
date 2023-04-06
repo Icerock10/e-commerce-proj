@@ -26,6 +26,7 @@
 }
 .container_btn__section {
 	top: 10rem;
+	z-index: 2;
 }
 .slider__btn {
 		border: none;
@@ -41,10 +42,10 @@
 		}
   }
   .banner__text {
+	z-index: 1;
 	position: relative;
 	top: 5rem;
 	color: $main-color;
-	z-index: 1;
 	font-size: 1.8rem;
 	display: flex;
 	justify-content: center;

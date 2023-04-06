@@ -60,6 +60,7 @@ const ProductList: FC<Title> = ({ title, products }) => {
               <input
                 onClick={() => scrollToSelectedPage(index)}
                 checked={currentPage === index}
+                readOnly
                 type="radio"
                 className={`radio_container__item`}
               />

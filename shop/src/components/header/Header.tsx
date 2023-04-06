@@ -6,6 +6,7 @@ import Switcher from "./Switcher";
 import "./Header.scss";
 import { Sidebar } from "./Sidebar";
 import SidebarLogic from "./SidebarLogic";
+import { Menubar } from "./Menu/Menubar";
 
 export const Header = () => {
   const { t } = useContext(LanguageContext);
@@ -13,7 +14,7 @@ export const Header = () => {
   return (
     <>
       <Sidebar />
-      <div className="container">
+      <div className="container" style={{ zIndex: 3 }}>
         <div className="container__logo">
           <img src={logo}></img>
         </div>
@@ -25,9 +26,7 @@ export const Header = () => {
           >
             <Menu />
           </div>
-          <div className="dropdown">
-            <button className="btn dropdown__toggle">{t("categories")}</button>
-          </div>
+          <Menubar />
           <div className="input__group">
             <input
               type="text"
