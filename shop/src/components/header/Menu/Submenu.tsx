@@ -1,6 +1,11 @@
 import React, { FC } from "react";
 import { Dropdown } from "./Dropdown";
 import { useSubmenu } from "./useSubmenu";
+import {
+  ChevronDoubleRight,
+  ChevronDoubleDown,
+} from "../../../assets/images/icons/Icons";
+
 interface SubmenuOptions {
   items: {
     title: string;
@@ -29,12 +34,14 @@ export const Submenu: FC<SubmenuOptions> = ({
         className={`${title === undefined ? "hover__disabled" : ""}`}
         role={`${dropdownClass ? "subCategory" : "category"}`}
       >
-        {title}
+        <span className="menu__items_title">{title}</span>
         {submenu &&
           (depthLevel === 0 ? (
             <div className="drop__toggle">{"categories"}</div>
           ) : (
-            <span>&raquo;</span>
+            <span style={{ opacity: 0.7 }} className="menu__items_title">
+              {isDropDownShown ? <ChevronDoubleDown /> : <ChevronDoubleRight />}
+            </span>
           ))}
       </div>
       {submenu && (

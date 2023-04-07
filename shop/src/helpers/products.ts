@@ -32,8 +32,8 @@ export interface ProductFields {
 
 export const products: ProductFields[] = [
 	{
-		id: 12,
-		category: "headphones",
+		id: 1,
+		category: "Headphones",
 		heading: "Razer Green 2",
 		subCategory: "Razer",
 		price: "$124",
@@ -41,8 +41,8 @@ export const products: ProductFields[] = [
 		razer_green
 	 },
 	 {
-		id: 13,
-		category: "headphones",
+		id: 2,
+		category: "Headphones",
 		heading: "Razer Pink 21S",
 		subCategory: "Razer",
 		price: "$124",
@@ -50,8 +50,8 @@ export const products: ProductFields[] = [
 		razer_pink
 	 },
 	 {
-		id: 14,
-		category: "headphones",
+		id: 3,
+		category: "Headphones",
 		heading: "Razer White 3",
 		subCategory: "Razer",
 		price: "$124",
@@ -59,8 +59,8 @@ export const products: ProductFields[] = [
 		razer_white
 	 },
 	 {
-		id: 15,
-		category: "headphones",
+		id: 4,
+		category: "Headphones",
 		heading: "Razer White 4",
 		subCategory: "Razer",
 		price: "$124",
@@ -68,8 +68,8 @@ export const products: ProductFields[] = [
 		razer_white2
 	 },
 	 {
-		id: 11,
-		category: "headphones",
+		id: 5,
+		category: "Headphones",
 		heading: "Razer Black",
 		subCategory: "Razer",
 		price: "$124",
@@ -77,8 +77,8 @@ export const products: ProductFields[] = [
 		razer_black
 	 },
 	 {
-		id: 16,
-		category: "headphones",
+		id: 6,
+		category: "Headphones",
 		heading: "Senheiser Black",
 		subCategory: "Senheiser",
 		price: "$124",
@@ -86,35 +86,35 @@ export const products: ProductFields[] = [
 		senheiser_black
 	 },
 	 {
-		id: 17,
-		category: "headphones",
+		id: 7,
+		category: "Headphones",
 		heading: "HyperX Black",
-		subCategory: "HyperX",
+		subCategory: "Hyperx",
 		price: "$124",
 		image:
 		hyperx_black
 	 },
 	 {
-		id: 18,
-		category: "headphones",
+		id: 8,
+		category: "Headphones",
 		heading: "HyperX Blue",
-		subCategory: "HyperX",
+		subCategory: "Hyperx",
 		price: "$124",
 		image:
 		hyperx_blue
 	 },
 	 {
-		id: 19,
-		category: "headphones",
+		id: 9,
+		category: "Headphones",
 		heading: "HyperX Red",
-		subCategory: "HyperX",
+		subCategory: "Hyperx",
 		price: "$124",
 		image:
 		hyperx_red
 	 },
 	{
 		id: 10,
-		category: "phones",
+		category: "Phones",
 		heading: "Iphone 11 Red",
 		subCategory: "Iphone",
 		price: "$124",
@@ -123,7 +123,7 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 11,
-		category: "phones",
+		category: "Phones",
 		heading: "Iphone 12 Red",
 		subCategory: "Iphone",
 		price: "$124",
@@ -132,16 +132,16 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 12,
-		category: "phones",
-		heading: "Iphone 14 Red",
-		subCategory: "Iphone",
+		category: "Phones",
+		heading: "Android 5 Red",
+		subCategory: "Android",
 		price: "$124",
 		image:
 		phone_red3
 	 },
 	{
-	  id: 1,
-	  category: "laptops",
+	  id: 13,
+	  category: "Laptops",
 	  heading: "Acer Black",
 	  subCategory: "Acer",
 	  price: "$30",
@@ -149,8 +149,8 @@ export const products: ProductFields[] = [
 	  black
 	},
 	{
-	  id: 2,
-	  category: "laptops",
+	  id: 14,
+	  category: "Laptops",
 	  heading: "Asus Black",
 	  subCategory: "Asus",
 	  price: "$30",
@@ -158,8 +158,8 @@ export const products: ProductFields[] = [
 	  black_2
 	},
 	{
-	  id: 3,
-	  category: "laptops",
+	  id: 15,
+	  category: "Laptops",
 	  heading: "Acer Blue",
 	  subCategory: "Acer",
 	  price: "$30",
@@ -167,8 +167,8 @@ export const products: ProductFields[] = [
 	  black_3
 	},
 	{
-	  id: 4,
-	  category: "laptops",
+	  id: 16,
+	  category: "Laptops",
 	  heading: "Acer White",
 	  subCategory: "Acer",
 	  price: "$100",
@@ -176,8 +176,8 @@ export const products: ProductFields[] = [
 	  white
 	},
 	{
-	  id: 5,
-	  category: "laptops",
+	  id: 17,
+	  category: "Laptops",
 	  heading: "Asus White",
 	  subCategory: "Asus",
 	  price: "$55",
@@ -185,8 +185,8 @@ export const products: ProductFields[] = [
 	  white_2
 	},
 	{
-	  id: 6,
-	  category: "laptops",
+	  id: 18,
+	  category: "Laptops",
 	  heading: "Acer White",
 	  subCategory: "Acer",
 	  price: "$124",
@@ -194,8 +194,8 @@ export const products: ProductFields[] = [
 	  white_3
 	},
 	{
-	  id: 7,
-	  category: "laptops",
+	  id: 19,
+	  category: "Laptops",
 	  heading: "Acer Golden",
 	  price: "$124",
 	  subCategory: "Acer",
@@ -203,8 +203,8 @@ export const products: ProductFields[] = [
 	  golden
 	},
 	{
-	  id: 8,
-	  category: "laptops",
+	  id: 20,
+	  category: "Laptops",
 	  heading: "Asus Golden",
 	  subCategory: "Asus",
 	  price: "$124",
@@ -212,8 +212,8 @@ export const products: ProductFields[] = [
 	  golden_2
 	},
 	{
-	  id: 9,
-	  category: "laptops",
+	  id: 21,
+	  category: "Laptops",
 	  heading: "Acer Golden 3",
 	  subCategory: "Acer",
 	  price: "$124",

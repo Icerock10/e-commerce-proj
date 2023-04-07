@@ -9,12 +9,12 @@ export default function Products() {
   return (
     <>
       {[...new Set(productsState.map((item) => item.category))].map(
-        (category) => (
+        (category, index) => (
           <ProductList
-            key={category}
-            title={category.charAt(0).toUpperCase() + category.slice(1)}
+            key={index}
+            title={category}
             products={productsState.filter(
-              (product) => product.category === category.toLowerCase()
+              (product) => product.category === category
             )}
           />
         )

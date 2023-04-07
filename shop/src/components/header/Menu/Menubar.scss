@@ -42,14 +42,17 @@
  
  .menu__items > div {
 	display: flex;
-	padding: 0.7rem 1rem;
-	align-items: center;
+	justify-content: space-around;
+	padding: 0.6rem 1rem;
 	color: inherit;
 	font-size: inherit;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
 	width: 100%;
+	&_title {
+		height: 21px;
+	}
 	&:hover {
 		background-color: #f8f9fa;
 	}

@@ -1,18 +1,31 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ProductFields } from "../../helpers/products";
-import { useAppSelector } from "../reducers/hooks";
+import { useAppSelector, useAppDispatch } from "../reducers/hooks";
+import {
+  resetPixelsAfterDragg,
+  selectResetPixelsFlag,
+} from "../reducers/slices/productsSlice";
 
 function useSwiper(products: ProductFields[]) {
+  const flag = useAppSelector(selectResetPixelsFlag);
+  const dispatch = useAppDispatch();
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [startX, setStartX] = useState<number>(0);
   const [offsetX, setOffsetX] = useState<number>(0);
   const [isDragging, setIsDragging] = useState(false);
   const [px, setPx] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const productsPerSwipe: number = Math.floor(products.length / 3);
+  const pages: number = Math.floor(products.length / 3);
   const maxDistance: number = offsetX + px;
 
   useEffect(() => {
+    if (flag) {
+      setCurrentPage(0);
+      dispatch(resetPixelsAfterDragg(!flag));
+      setPx(0);
+      return;
+    }
     const handleMouseMove = ({ clientX }: any) => {
       if (!isDragging) return;
       const distance = clientX - startX;
@@ -25,6 +38,7 @@ function useSwiper(products: ProductFields[]) {
       const totalElemWidth: number = elemWidth * products.length;
       const remainingSpace: number = containerWidth - totalElemWidth;
       const pixelGap: number = 150;
+
       if (maxDistance > 18) {
         setIsDragging(false);
         setOffsetX(0);
@@ -49,7 +63,7 @@ function useSwiper(products: ProductFields[]) {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [isDragging, startX, offsetX, px]);
+  }, [isDragging, startX, offsetX, px, flag]);
 
   const handleMouseDown = (e: any) => {
     e.preventDefault();
@@ -57,10 +71,9 @@ function useSwiper(products: ProductFields[]) {
     setIsDragging(true);
   };
   const scrollToSelectedPage = (index: number): void => {
-    const scrollPixelGap: number = 15;
+    const scrollPixelGap: number = 14;
     const productPerScroll: number =
-      (containerRef.current!.children[0].clientWidth + scrollPixelGap) *
-      productsPerSwipe;
+      (containerRef.current!.children[0].clientWidth + scrollPixelGap) * 3;
     setCurrentPage(index);
     setPx(index * -productPerScroll);
   };
@@ -74,12 +87,11 @@ function useSwiper(products: ProductFields[]) {
       scrollToSelectedPage,
       handleMouseDown,
       containerRef,
-      px,
-      offsetX,
       currentPage,
-      productsPerSwipe,
+      pages,
       customStyle,
       isDragging,
+      setPx,
     },
   ];
 }

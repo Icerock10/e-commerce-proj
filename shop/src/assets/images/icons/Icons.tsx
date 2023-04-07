@@ -17,6 +17,48 @@ const LeftArrow = () => {
   );
 };
 
+const ChevronDoubleRight = () => {
+  return (
+    <svg
+      width="18"
+      height="21"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.63605 7.75735L7.05026 6.34314L12.7071 12L7.05029 17.6568L5.63608 16.2426L9.87869 12L5.63605 7.75735Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12.7071 6.34314L11.2929 7.75735L15.5356 12L11.2929 16.2426L12.7072 17.6568L18.364 12L12.7071 6.34314Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+const ChevronDoubleDown = () => {
+  return (
+    <svg
+      width="18"
+      height="21"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7.75735 5.63605L6.34314 7.05026L12 12.7071L17.6569 7.05029L16.2427 5.63608L12 9.87872L7.75735 5.63605Z"
+        fill="currentColor"
+      />
+      <path
+        d="M6.34314 12.7071L7.75735 11.2929L12 15.5356L16.2427 11.2929L17.6569 12.7071L12 18.364L6.34314 12.7071Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
 const RightArrow = () => {
   return (
     <svg
@@ -123,4 +165,13 @@ const Cart = ({ className }: any) => {
   );
 };
 
-export { LeftArrow, RightArrow, Search, Menu, Cart, Close };
+export {
+  LeftArrow,
+  RightArrow,
+  Search,
+  Menu,
+  Cart,
+  Close,
+  ChevronDoubleRight,
+  ChevronDoubleDown,
+};

@@ -14,7 +14,7 @@ export const ProductList: FC<Title> = ({ title, products }) => {
       handleMouseDown,
       containerRef,
       currentPage,
-      productsPerSwipe,
+      pages,
       customStyle,
       isDragging,
     },
@@ -54,7 +54,7 @@ export const ProductList: FC<Title> = ({ title, products }) => {
         })}
       </div>
       <div className="radio_container">
-        {[...Array(productsPerSwipe)].map((_, index) => {
+        {[...Array(pages)].map((_, index) => {
           return (
             <label key={`key-${index}`} htmlFor="bio" className="overlay">
               <input
