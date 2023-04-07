@@ -7,9 +7,14 @@ interface SubmenuOptions {
     submenu: string[];
   };
   depthLevel: number;
+  dropdownClass: string;
 }
 
-export const Submenu: FC<SubmenuOptions> = ({ items, depthLevel }) => {
+export const Submenu: FC<SubmenuOptions> = ({
+  items,
+  depthLevel,
+  dropdownClass,
+}) => {
   const { submenu, title } = items;
   const { toggleDropDown, isDropDownShown } = useSubmenu();
 
@@ -20,7 +25,10 @@ export const Submenu: FC<SubmenuOptions> = ({ items, depthLevel }) => {
       onMouseLeave={toggleDropDown}
       onClick={toggleDropDown}
     >
-      <div className={`${title === undefined ? "hover__disabled" : ""}`}>
+      <div
+        className={`${title === undefined ? "hover__disabled" : ""}`}
+        role={`${dropdownClass ? "subCategory" : "category"}`}
+      >
         {title}
         {submenu &&
           (depthLevel === 0 ? (

@@ -9,7 +9,10 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     sortByCategory: (state, action) => {
-		const filteredItems = state.filter((item) => item.category === action.payload);
+		const { categoryProduct, categoryOrSubCategory } = action.payload;
+		const filteredItems = state.filter((item: any) => {
+			return item[categoryOrSubCategory] === categoryProduct
+		});
       return filteredItems.length > 0 ? filteredItems : initialState
     }
   }

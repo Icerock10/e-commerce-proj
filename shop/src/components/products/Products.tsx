@@ -1,10 +1,10 @@
 import React from "react";
 import "./Products.scss";
-import ProductList from "./ProductList";
+import { ProductList } from "./ProductList";
 import { useAppSelector } from "../reducers/hooks";
 import { selectAllProducts } from "../reducers/slices/productsSlice";
 
-function Products() {
+export default function Products() {
   const productsState = useAppSelector(selectAllProducts);
   return (
     <>
@@ -22,5 +22,3 @@ function Products() {
     </>
   );
 }
-
-export default Products;

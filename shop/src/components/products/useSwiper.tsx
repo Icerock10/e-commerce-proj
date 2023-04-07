@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ProductFields } from "../../helpers/products";
+import { useAppSelector } from "../reducers/hooks";
 
 function useSwiper(products: ProductFields[]) {
   const containerRef = useRef<HTMLDivElement>(null);

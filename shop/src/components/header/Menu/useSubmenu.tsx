@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../reducers/hooks";
 import { sortByCategory } from "../../reducers/slices/productsSlice";
 import SidebarLogic from "../SidebarLogic";
+import { validateCategory } from "../../../helpers/validateCategory";
 
 export const useSubmenu = () => {
   const dispatch = useAppDispatch();
   const { scrollToSection } = SidebarLogic();
   const [isDropDownShown, setIsDropDownShown] = useState(false);
 
-  const toggleDropDown = ({ type, target: { textContent } }: any): void => {
+  const toggleDropDown = ({
+    type,
+    target: { textContent, role },
+  }: any): void => {
     if (type === "click") {
-      const categoryWithoutArrow = textContent.slice(textContent, -1);
-      dispatch(sortByCategory(categoryWithoutArrow));
+      dispatch(
+        sortByCategory({
+          categoryProduct: validateCategory(textContent),
+          categoryOrSubCategory: role,
+        })
+      );
       scrollToSection(1);
       return setIsDropDownShown(!isDropDownShown);
     }

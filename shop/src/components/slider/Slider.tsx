@@ -2,6 +2,7 @@ import React from "react";
 import "./Slider.scss";
 import { useSlider } from "./useSlider";
 import { LeftArrow, RightArrow } from "../../assets/images/icons/Icons";
+import Button from "./Button";
 
 const Slider = () => {
   const [
@@ -17,13 +18,13 @@ const Slider = () => {
     <>
       <div className="container container_btn__section">
         <div className="slider_btn__section">
-          <button className="slider__btn" onClick={goToPrevFrame}>
-            <LeftArrow />
-          </button>
+          <Button role="back" icon={<LeftArrow />} onClick={goToPrevFrame} />
           <button className="buynow__btn">Buy Now</button>
-          <button className="slider__btn" onClick={goToNextFrame}>
-            <RightArrow />
-          </button>
+          <Button
+            role="forward"
+            icon={<RightArrow />}
+            onClick={goToNextFrame}
+          />
         </div>
       </div>
       {framesWithMultiLanguageTitles.map(

@@ -17,7 +17,12 @@ export const Dropdown: FC<DropdownConfig> = ({
   return (
     <ul className={`dropdown ${dropdownClass} ${dropdown ? "show" : ""}`}>
       {submenus.map((submenu: any, index: number) => (
-        <Submenu key={index} depthLevel={depthLevel} items={submenu} />
+        <Submenu
+          key={index}
+          depthLevel={depthLevel}
+          items={submenu}
+          dropdownClass={dropdownClass}
+        />
       ))}
     </ul>
   );

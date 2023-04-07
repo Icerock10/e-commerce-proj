@@ -7,7 +7,7 @@ interface Title {
   products: ProductFields[];
 }
 
-const ProductList: FC<Title> = ({ title, products }) => {
+export const ProductList: FC<Title> = ({ title, products }) => {
   const [
     {
       scrollToSelectedPage,
@@ -72,5 +72,3 @@ const ProductList: FC<Title> = ({ title, products }) => {
     </div>
   );
 };
-
-export default ProductList;
