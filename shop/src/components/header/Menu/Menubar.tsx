@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Menubar.scss";
-import { menuItems } from "../../../helpers/menuItems";
+import { menuItems } from "../../../mocks/menuItems";
 import { Submenu } from "./Submenu";
-import { useSubmenu } from "./useSubmenu";
 
 export const Menubar = () => {
   return (

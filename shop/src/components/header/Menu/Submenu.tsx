@@ -12,7 +12,7 @@ interface SubmenuOptions {
     submenu: string[];
   };
   depthLevel: number;
-  dropdownClass: string;
+  dropdownClass?: string;
 }
 
 export const Submenu: FC<SubmenuOptions> = ({

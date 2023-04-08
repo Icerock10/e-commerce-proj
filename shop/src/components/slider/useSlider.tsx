@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { frames } from "../../helpers/frames";
+import { frames } from "../../mocks/frames";
 import { LanguageContext } from "../../helpers/languageContext";
 import { useAppSelector, useAppDispatch } from "../reducers/hooks";
 import { getFramesAsync, getCurrentFrame } from "../reducers/slices/frameSlice";

@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import useSwiper from "./useSwiper";
-import { ProductFields } from "../../helpers/products";
+import { ProductFields } from "../../mocks/products";
+import { HeartIcon } from "../../assets/images/icons/Icons";
 
 interface Title {
   title: string;
@@ -8,32 +9,22 @@ interface Title {
 }
 
 export const ProductList: FC<Title> = ({ title, products }) => {
-  const [
-    {
-      scrollToSelectedPage,
-      handleMouseDown,
-      containerRef,
-      currentPage,
-      pages,
-      customStyle,
-      isDragging,
-    },
-  ] = useSwiper(products);
+  const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
+    useSwiper(products);
 
   return (
-    <div className="container container__products">
+    <>
       <h1 style={{ textAlign: "center" }} className="fashion_title">
         {title}
       </h1>
-      <div
-        className="card__container"
-        ref={containerRef}
-        onMouseDown={handleMouseDown}
-        style={{ cursor: `${isDragging ? "grabbing" : "grab"}` }}
-      >
+      <div className="card__container" ref={containerRef}>
         {products.map(({ id, heading, price, image }) => {
           return (
-            <div className="product" key={id} style={customStyle}>
+            <div
+              className="product"
+              key={id}
+              style={{ transform: `translate3d(${px}px, 0px, 0px)` }}
+            >
               <div className="product__container">
                 <h4>{heading}</h4>
                 <p className="price__container">
@@ -46,7 +37,9 @@ export const ProductList: FC<Title> = ({ title, products }) => {
 
                 <div className="card__footer">
                   <span>Buy Now</span>
-                  <span>See More</span>
+                  <span>
+                    <HeartIcon />
+                  </span>
                 </div>
               </div>
             </div>
@@ -69,6 +62,6 @@ export const ProductList: FC<Title> = ({ title, products }) => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { scrollBreakpoints } from "../.././helpers/scrollBreakpoints";
+import { scrollBreakpoints } from "../../mocks/scrollBreakpoints";
 import {
   getVisibilityState,
   toggleVisibility,
