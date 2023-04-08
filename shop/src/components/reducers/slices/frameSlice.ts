@@ -20,11 +20,10 @@ export const frameSlice = createSlice({
  export default frameSlice.reducer;
 
 
- export const getFramesAsync = 
- (totalFrames: number, direction: 'prev' | 'next'): AppThunk =>
-  (dispatch) => {
+ export const getFramesAsync = (totalFrames: number, direction: 'prev' | 'next'): AppThunk => (dispatch) => {
 	if (direction ==='prev') {
 		return dispatch(prevFrame(totalFrames));
 	}
       return dispatch(nextFrame(totalFrames));
   };
+  

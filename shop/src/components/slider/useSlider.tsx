@@ -14,6 +14,7 @@ export const useSlider = () => {
     titles: string[];
     subTitles: string[];
   }
+
   const frameTitles = t("frameTitles", {
     returnObjects: true,
   });

@@ -67,10 +67,22 @@ export const productsSlice = createSlice({
 			resetPixels: action.payload
 		}
 	 },
+	 sortByLikes: (state, action: PayloadAction<any>) => {
+			const { isLiked, id } = action.payload;
+		 return {
+			...state,
+			products: state.products.map(product => {
+				if(product.id === id) {
+					 product.liked = isLiked;
+				}
+				return product;
+			})
+		 }
+	 }
   }
 });
 
-export const { sortByCategory, resetPixelsAfterNewCategory, sortByKeyWords, getUserValue } = productsSlice.actions;
+export const { sortByCategory, resetPixelsAfterNewCategory, sortByKeyWords, getUserValue, sortByLikes } = productsSlice.actions;
 
 export const selectAllProducts = (state: RootState) => state.products.products;
 export const selectResetPixelsFlag = (state: RootState) =>  state.products.resetPixels;

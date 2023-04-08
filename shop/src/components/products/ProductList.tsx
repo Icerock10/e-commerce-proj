@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import useSwiper from "./useSwiper";
 import { ProductFields } from "../../mocks/products";
-import { HeartIcon } from "../../assets/images/icons/Icons";
+import Heart from "./Heart";
 
 interface Title {
   title: string;
@@ -11,7 +11,6 @@ interface Title {
 export const ProductList: FC<Title> = ({ title, products }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
     useSwiper(products);
-
   return (
     <>
       <h1 style={{ textAlign: "center" }} className="fashion_title">
@@ -37,9 +36,7 @@ export const ProductList: FC<Title> = ({ title, products }) => {
 
                 <div className="card__footer">
                   <span>Buy Now</span>
-                  <span>
-                    <HeartIcon />
-                  </span>
+                  <Heart id={id} />
                 </div>
               </div>
             </div>

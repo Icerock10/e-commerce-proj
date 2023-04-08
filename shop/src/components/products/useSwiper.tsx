@@ -9,8 +9,8 @@ import {
 function useSwiper(products: ProductFields[]) {
   const flag = useAppSelector(selectResetPixelsFlag);
   const dispatch = useAppDispatch();
-
   const containerRef = useRef<HTMLDivElement>(null);
+
   const [px, setPx] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const pages: number = Math.floor(products.length / 3);

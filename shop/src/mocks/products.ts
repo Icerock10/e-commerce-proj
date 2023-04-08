@@ -28,6 +28,7 @@ export interface ProductFields {
 	price: string,
 	image: string,
 	subCategory: string
+	liked: boolean,
 }
 
 export const products: ProductFields[] = [
@@ -37,6 +38,7 @@ export const products: ProductFields[] = [
 		heading: "Razer Green 2",
 		subCategory: "Razer",
 		price: "$124",
+		liked: false,
 		image:
 		razer_green
 	 },
@@ -46,6 +48,7 @@ export const products: ProductFields[] = [
 		heading: "Razer Pink 21S",
 		subCategory: "Razer",
 		price: "$124",
+		liked: false,
 		image:
 		razer_pink
 	 },
@@ -55,6 +58,7 @@ export const products: ProductFields[] = [
 		heading: "Razer White 3",
 		subCategory: "Razer",
 		price: "$124",
+		liked: false,
 		image:
 		razer_white
 	 },
@@ -64,6 +68,7 @@ export const products: ProductFields[] = [
 		heading: "Razer White 4",
 		subCategory: "Razer",
 		price: "$124",
+		liked: false,
 		image:
 		razer_white2
 	 },
@@ -73,6 +78,7 @@ export const products: ProductFields[] = [
 		heading: "Razer Black",
 		subCategory: "Razer",
 		price: "$124",
+		liked: false,
 		image:
 		razer_black
 	 },
@@ -82,6 +88,7 @@ export const products: ProductFields[] = [
 		heading: "Senheiser Black",
 		subCategory: "Senheiser",
 		price: "$124",
+		liked: false,
 		image:
 		senheiser_black
 	 },
@@ -91,6 +98,7 @@ export const products: ProductFields[] = [
 		heading: "HyperX Black",
 		subCategory: "Hyperx",
 		price: "$124",
+		liked: false,
 		image:
 		hyperx_black
 	 },
@@ -100,6 +108,7 @@ export const products: ProductFields[] = [
 		heading: "HyperX Blue",
 		subCategory: "Hyperx",
 		price: "$124",
+		liked: false,
 		image:
 		hyperx_blue
 	 },
@@ -109,6 +118,7 @@ export const products: ProductFields[] = [
 		heading: "HyperX Red",
 		subCategory: "Hyperx",
 		price: "$124",
+		liked: false,
 		image:
 		hyperx_red
 	 },
@@ -118,6 +128,7 @@ export const products: ProductFields[] = [
 		heading: "Iphone 11 Red",
 		subCategory: "Iphone",
 		price: "$124",
+		liked: false,
 		image:
 		phone_red
 	 },
@@ -127,6 +138,7 @@ export const products: ProductFields[] = [
 		heading: "Iphone 12 Red",
 		subCategory: "Iphone",
 		price: "$124",
+		liked: false,
 		image:
 		phone_red2
 	 },
@@ -136,6 +148,7 @@ export const products: ProductFields[] = [
 		heading: "Android 5 Red",
 		subCategory: "Android",
 		price: "$124",
+		liked: false,
 		image:
 		phone_red3
 	 },
@@ -145,6 +158,7 @@ export const products: ProductFields[] = [
 	  heading: "Acer Black",
 	  subCategory: "Acer",
 	  price: "$30",
+	  liked: false,
 	  image:
 	  black
 	},
@@ -154,6 +168,7 @@ export const products: ProductFields[] = [
 	  heading: "Asus Black",
 	  subCategory: "Asus",
 	  price: "$30",
+	  liked: false,
 	  image:
 	  black_2
 	},
@@ -163,6 +178,7 @@ export const products: ProductFields[] = [
 	  heading: "Acer Blue",
 	  subCategory: "Acer",
 	  price: "$30",
+	  liked: false,
 	  image:
 	  black_3
 	},
@@ -172,6 +188,7 @@ export const products: ProductFields[] = [
 	  heading: "Acer White",
 	  subCategory: "Acer",
 	  price: "$100",
+	  liked: false,
 	  image:
 	  white
 	},
@@ -181,6 +198,7 @@ export const products: ProductFields[] = [
 	  heading: "Asus White",
 	  subCategory: "Asus",
 	  price: "$55",
+	  liked: false,
 	  image:
 	  white_2
 	},
@@ -190,6 +208,7 @@ export const products: ProductFields[] = [
 	  heading: "Acer White",
 	  subCategory: "Acer",
 	  price: "$124",
+	  liked: false,
 	  image:
 	  white_3
 	},
@@ -198,6 +217,7 @@ export const products: ProductFields[] = [
 	  category: "Laptops",
 	  heading: "Acer Golden",
 	  price: "$124",
+	  liked: false,
 	  subCategory: "Acer",
 	  image:
 	  golden
@@ -208,6 +228,7 @@ export const products: ProductFields[] = [
 	  heading: "Asus Golden",
 	  subCategory: "Asus",
 	  price: "$124",
+	  liked: false,
 	  image:
 	  golden_2
 	},
@@ -217,6 +238,7 @@ export const products: ProductFields[] = [
 	  heading: "Acer Golden 3",
 	  subCategory: "Acer",
 	  price: "$124",
+	  liked: false,
 	  image:
 	  golden_3
 	}
