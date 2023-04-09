@@ -17,7 +17,7 @@ export const ProductList: FC<Title> = ({ title, products }) => {
         {title}
       </h1>
       <div className="card__container" ref={containerRef}>
-        {products.map(({ id, heading, price, image }) => {
+        {products.map(({ id, heading, price, image, liked }) => {
           return (
             <div
               className="product"
@@ -36,7 +36,7 @@ export const ProductList: FC<Title> = ({ title, products }) => {
 
                 <div className="card__footer">
                   <span>Buy Now</span>
-                  <Heart id={id} />
+                  <Heart id={id} liked={liked} />
                 </div>
               </div>
             </div>

@@ -5,33 +5,26 @@ import { sortByLikes } from "../reducers/slices/productsSlice";
 
 type IHeart = {
   id: number;
+  liked: boolean;
 };
 
-export default function Heart({ id }: IHeart) {
-  const [isLiked, setLike] = useState<boolean>(() => {
-    const heartItem = localStorage.getItem(`heart${id}`);
-    return heartItem ? heartItem === "true" : false;
-  });
+export default function Heart({ id, liked }: IHeart) {
+  const heart = localStorage.getItem(`heart${id}`);
 
-  useEffect(() => {
-    if (isLiked) {
-      localStorage.setItem(`heart${id}`, isLiked.toString());
-    }
-  }, [isLiked]);
+  const dispatch = useAppDispatch();
 
   const handleChange = (e: any) => {
     const currentID = e.currentTarget.getAttribute("data-id");
     const productId = Number(currentID);
     if (productId === id) {
-      setLike(!isLiked);
-      localStorage.removeItem(`heart${id}`);
+      dispatch(sortByLikes({ productId: id, isProductLiked: !liked }));
       return;
     }
   };
 
   return (
     <span onClick={(e) => handleChange(e)} data-id={id}>
-      <HeartIcon fill={isLiked ? "red" : "#152642"} data={id} />
+      <HeartIcon fill={heart ? "red" : "#152642"} data={id} />
     </span>
   );
 }

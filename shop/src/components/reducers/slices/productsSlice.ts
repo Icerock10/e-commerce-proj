@@ -3,6 +3,16 @@ import type { RootState } from "../store";
 import {products, ProductFields} from '../../../mocks/products';
 import { filterProductsByCategory, filterProductsByUserInput } from "../../../helpers/filters";
 
+
+
+const myLocalStorageFunc = (stateOfProducts: ProductFields[]) => {
+	const myProducts = stateOfProducts.map((item, index) => {
+		const storagetKeys = localStorage.getItem(`heart${item.id}`)
+		
+	})
+	return stateOfProducts;
+}	
+
 interface IProduct {
 	products: ProductFields[],
 	originalProducts: ProductFields[],
@@ -11,10 +21,10 @@ interface IProduct {
 }
 
 const initialState: IProduct = {
-	products: products,
+	products: myLocalStorageFunc(products),
 	originalProducts: products,
 	resetPixels: false,
-	value: ''
+	value: '',
 };
 
 type SortByCategoryPayload = {
@@ -68,15 +78,22 @@ export const productsSlice = createSlice({
 		}
 	 },
 	 sortByLikes: (state, action: PayloadAction<any>) => {
-			const { isLiked, id } = action.payload;
+		const { productId, isProductLiked } = action.payload;
+		
+      const filteredd = state.products.map(product => {
+			if(product.id === productId) {
+					localStorage.setItem(`heart${productId}`, isProductLiked.toString());
+					const storageKey = localStorage.getItem(`heart${productId}`)
+						if(storageKey === 'false') {
+							localStorage.removeItem(`heart${productId}`);
+						}
+				return {...product, liked: isProductLiked};
+			}
+			return product;
+		})
 		 return {
 			...state,
-			products: state.products.map(product => {
-				if(product.id === id) {
-					 product.liked = isLiked;
-				}
-				return product;
-			})
+			products: filteredd,
 		 }
 	 }
   }
