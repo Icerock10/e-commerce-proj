@@ -2,16 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 import {products, ProductFields} from '../../../mocks/products';
 import { filterProductsByCategory, filterProductsByUserInput } from "../../../helpers/filters";
-
-
-
-const myLocalStorageFunc = (stateOfProducts: ProductFields[]) => {
-	const myProducts = stateOfProducts.map((item, index) => {
-		const storagetKeys = localStorage.getItem(`heart${item.id}`)
-		
-	})
-	return stateOfProducts;
-}	
+import { getLikedProductsFromLocalStorage } from "../../../helpers/getLikesFromStorage";
 
 interface IProduct {
 	products: ProductFields[],
@@ -21,7 +12,7 @@ interface IProduct {
 }
 
 const initialState: IProduct = {
-	products: myLocalStorageFunc(products),
+	products: getLikedProductsFromLocalStorage(products),
 	originalProducts: products,
 	resetPixels: false,
 	value: '',
@@ -80,20 +71,21 @@ export const productsSlice = createSlice({
 	 sortByLikes: (state, action: PayloadAction<any>) => {
 		const { productId, isProductLiked } = action.payload;
 		
-      const filteredd = state.products.map(product => {
-			if(product.id === productId) {
-					localStorage.setItem(`heart${productId}`, isProductLiked.toString());
-					const storageKey = localStorage.getItem(`heart${productId}`)
-						if(storageKey === 'false') {
-							localStorage.removeItem(`heart${productId}`);
-						}
-				return {...product, liked: isProductLiked};
+      const updatedProducts = state.products.map(({ id, liked, ...product }) => {
+			if (id === productId) {
+			  localStorage.setItem(`heart${productId}`, productId.toString());
+			  const storageKey = localStorage.getItem(`heart${productId}`);
+			  if (!isProductLiked && Number(storageKey) === productId) {
+				 localStorage.removeItem(`heart${productId}`);
+			  }
+			  return { ...product, id, liked: isProductLiked };
 			}
-			return product;
-		})
+			return { ...product, id, liked };
+		 });
+		 
 		 return {
 			...state,
-			products: filteredd,
+			products: updatedProducts,
 		 }
 	 }
   }

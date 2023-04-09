@@ -9,8 +9,6 @@ type IHeart = {
 };
 
 export default function Heart({ id, liked }: IHeart) {
-  const heart = localStorage.getItem(`heart${id}`);
-
   const dispatch = useAppDispatch();
 
   const handleChange = (e: any) => {
@@ -24,7 +22,7 @@ export default function Heart({ id, liked }: IHeart) {
 
   return (
     <span onClick={(e) => handleChange(e)} data-id={id}>
-      <HeartIcon fill={heart ? "red" : "#152642"} data={id} />
+      <HeartIcon fill={liked ? "red" : "#152642"} data={id} />
     </span>
   );
 }
