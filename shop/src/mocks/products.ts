@@ -19,17 +19,8 @@ import senheiser_black from '../assets/images/products/senheiser_black.jpg';
 import hyperx_black from '../assets/images/products/hyperx_black.jpg';
 import hyperx_blue from '../assets/images/products/hyperx_blue.jpg';
 import hyperx_red from '../assets/images/products/hyperx_red.jpg';
+import { ProductFields } from '../components/interfaces/interfaces';
 
-
-export interface ProductFields {
-	id: number,
-	category: string,
-	heading: string,
-	price: string,
-	image: string,
-	subCategory: string
-	liked: boolean,
-}
 
 export const products: ProductFields[] = [
 	{

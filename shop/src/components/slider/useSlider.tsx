@@ -3,6 +3,7 @@ import { frames } from "../../mocks/frames";
 import { LanguageContext } from "../../helpers/languageContext";
 import { useAppSelector, useAppDispatch } from "../reducers/hooks";
 import { getFramesAsync, getCurrentFrame } from "../reducers/slices/frameSlice";
+import { FrameTitles } from "../interfaces/interfaces";
 
 export const useSlider = () => {
   const currentFrame = useAppSelector(getCurrentFrame);
@@ -10,10 +11,6 @@ export const useSlider = () => {
 
   const { t } = useContext(LanguageContext);
   const totalFrames: number = frames.length;
-  interface FrameTitles {
-    titles: string[];
-    subTitles: string[];
-  }
 
   const frameTitles = t("frameTitles", {
     returnObjects: true,

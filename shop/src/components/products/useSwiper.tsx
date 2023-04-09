@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ProductFields } from "../../mocks/products";
+import { ProductFields } from "../interfaces/interfaces";
 import { useAppSelector, useAppDispatch } from "../reducers/hooks";
 import {
   resetPixelsAfterNewCategory,
@@ -22,7 +22,6 @@ function useSwiper(products: ProductFields[]) {
     setCurrentPage(index);
     setPx(index * -productPerScroll);
   };
-
   useEffect(() => {
     function setPixelsDependingOnFlag() {
       if (flag) {

@@ -1,15 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import {products, ProductFields} from '../../../mocks/products';
+import { products } from '../../../mocks/products';
 import { filterProductsByCategory, filterProductsByUserInput } from "../../../helpers/filters";
 import { getLikedProductsFromLocalStorage } from "../../../helpers/getLikesFromStorage";
+import { IProduct, SortByCategoryPayload, sortByKeyWordsPayload } from "../../interfaces/interfaces";
 
-interface IProduct {
-	products: ProductFields[],
-	originalProducts: ProductFields[],
-	resetPixels: boolean;
-	value: string
-}
 
 const initialState: IProduct = {
 	products: getLikedProductsFromLocalStorage(products),
@@ -17,17 +12,6 @@ const initialState: IProduct = {
 	resetPixels: false,
 	value: '',
 };
-
-type SortByCategoryPayload = {
-	product: string;
-	categoryOrSubCategory: 'category' | 'subCategory';
-	flag: boolean;
- };
-
-type sortByKeyWordsPayload = {
-	value: string,
-	flag: boolean
-}
 
 export const productsSlice = createSlice({
   name: "products",

@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HeartIcon } from "../../assets/images/icons/Icons";
 import { useAppDispatch, useAppSelector } from "../reducers/hooks";
 import { sortByLikes } from "../reducers/slices/productsSlice";
-
-type IHeart = {
-  id: number;
-  liked: boolean;
-};
+import { IHeart } from "../interfaces/interfaces";
 
 export default function Heart({ id, liked }: IHeart) {
   const dispatch = useAppDispatch();

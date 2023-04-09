@@ -5,9 +5,9 @@ import { Close } from "../.././assets/images/icons/Icons";
 export const Sidebar = () => {
   const {
     scrollToSection,
-    scrollBreakpoints,
     isSidebarShown,
     toggleSidebarVisibility,
+    uniqueMenusAndHomeMenu,
   } = SidebarLogic();
 
   return (
@@ -21,11 +21,10 @@ export const Sidebar = () => {
             <Close />
           </div>
           <ul className="sidebar__menu">
-            {scrollBreakpoints.map(({ menu }, index) => {
-              const menuItem = menu.charAt(0).toUpperCase() + menu.slice(1);
+            {uniqueMenusAndHomeMenu.map((product, index) => {
               return (
                 <li key={`key-${index}`} onClick={() => scrollToSection(index)}>
-                  {menuItem}
+                  {product}
                 </li>
               );
             })}

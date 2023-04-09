@@ -1,11 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Submenu } from "./Submenu";
-import { useSubmenu } from "./useSubmenu";
-export interface DropdownConfig {
-  submenus: any;
-  dropdown: boolean;
-  depthLevel: number;
-}
+import { DropdownConfig } from "../../interfaces/interfaces";
 
 export const Dropdown: FC<DropdownConfig> = ({
   depthLevel,

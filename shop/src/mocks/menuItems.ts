@@ -1,11 +1,4 @@
-interface MenuItem {
-	title: string;
-	submenu?: MenuItem[];
- }
- 
- interface Menu {
-	submenu: MenuItem[];
- }
+import { Menu } from "../components/interfaces/interfaces";
 
 export const menuItems: Menu[] = [
   {

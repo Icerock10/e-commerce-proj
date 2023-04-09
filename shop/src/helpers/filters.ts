@@ -1,4 +1,4 @@
-import { ProductFields } from "../mocks/products";
+import { ProductFields } from "../components/interfaces/interfaces";
 
 export function filterProductsByCategory (state: ProductFields[], categoryOrSubCategory: string, product: string) {
 	return state.filter((item: any) => {

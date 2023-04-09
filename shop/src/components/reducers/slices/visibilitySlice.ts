@@ -1,12 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from '../store';
+import { VisibilityConfig } from "../../interfaces/interfaces";
 
-interface visibilityConfig {
-	isSidebarShown: boolean,
-	isLangListShown: boolean,
-}
-
-const visibilityState: visibilityConfig = {
+const visibilityState: VisibilityConfig = {
 	isSidebarShown: false,
 	isLangListShown: false,
 }
@@ -16,7 +12,7 @@ export const visibilitySlice = createSlice({
 	initialState: visibilityState,
 	reducers: {
 		toggleVisibility: (state, action: PayloadAction<string>) => {
-			const fieldName = action.payload as keyof visibilityConfig;
+			const fieldName = action.payload as keyof VisibilityConfig;
 			state[fieldName] = !state[fieldName];
 		 },
 	}

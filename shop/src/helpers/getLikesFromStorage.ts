@@ -1,4 +1,4 @@
-import { ProductFields } from "../mocks/products"
+import { ProductFields } from "../components/interfaces/interfaces";
 
 export const getLikedProductsFromLocalStorage = (products: ProductFields[]) => {
 	return products.map((product) => {

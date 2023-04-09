@@ -5,15 +5,7 @@ import {
   ChevronDoubleRight,
   ChevronDoubleDown,
 } from "../../../assets/images/icons/Icons";
-
-interface SubmenuOptions {
-  items: {
-    title: string;
-    submenu: string[];
-  };
-  depthLevel: number;
-  dropdownClass?: string;
-}
+import { SubmenuOptions } from "../../interfaces/interfaces";
 
 export const Submenu: FC<SubmenuOptions> = ({
   items,

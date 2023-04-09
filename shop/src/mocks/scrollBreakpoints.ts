@@ -1,23 +1,16 @@
-interface scrollBreakpointsTypes {
-	menu: string,
-	scrollTo: number
-}
+import { BreakpointsTypes } from "../components/interfaces/interfaces";
 
-export const scrollBreakpoints: scrollBreakpointsTypes[] = [
+export const scrollBreakpoints: BreakpointsTypes[] = [
 	{
-	  menu: "home",
 	  scrollTo: 0,
 	},
 	{
-	  menu: "headPhones",
 	  scrollTo: 725,
 	},
 	{
-	  menu: "phones",
 	  scrollTo: 1560,
 	},
 	{
-	  menu: "laptops",
 	  scrollTo: 2296,
 	},
  ];

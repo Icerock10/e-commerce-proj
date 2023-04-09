@@ -1,16 +1,12 @@
 import React, { FC, useState } from "react";
 import useSwiper from "./useSwiper";
-import { ProductFields } from "../../mocks/products";
 import Heart from "./Heart";
-
-interface Title {
-  title: string;
-  products: ProductFields[];
-}
+import { Title } from "../interfaces/interfaces";
 
 export const ProductList: FC<Title> = ({ title, products }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
     useSwiper(products);
+
   return (
     <>
       <h1 style={{ textAlign: "center" }} className="fashion_title">

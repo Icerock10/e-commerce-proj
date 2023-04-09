@@ -3,11 +3,7 @@ import type { RootState } from '.././store';
 
 const currentLanguage: string | null = localStorage.getItem("i18nextLng");
 
-interface SwitcherValue {
-	languageText: string,
-}
-
-const switcher: SwitcherValue = {
+const switcher: { languageText: string } = {
 	languageText: currentLanguage === 'fr' ? 'French' : 'English',
 }
 

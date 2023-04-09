@@ -6,7 +6,7 @@ import SidebarLogic from "../SidebarLogic";
 export const useSubmenu = () => {
   const dispatch = useAppDispatch();
   const { scrollToSection } = SidebarLogic();
-  const [isDropDownShown, setIsDropDownShown] = useState(false);
+  const [isDropDownShown, setIsDropDownShown] = useState<boolean>(false);
 
   const toggleDropDown = ({ target, type }: any): void => {
     if (type === "click") {

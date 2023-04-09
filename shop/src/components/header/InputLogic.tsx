@@ -8,7 +8,7 @@ export const InputLogic = () => {
   const value = useAppSelector((state) => state.products.value);
   const { scrollToSection } = SidebarLogic();
 
-  const sortProductsByUserInput = () => {
+  const sortProductsByUserInput = (): void => {
     dispatch(sortByKeyWords({ value: value, flag: true }));
     scrollToSection(1);
   };
