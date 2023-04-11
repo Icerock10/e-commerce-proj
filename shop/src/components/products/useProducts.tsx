@@ -6,17 +6,21 @@ import { getLikedProductsFromLocalStorage } from "../../helpers/getLikesFromStor
 import { selectAllProducts } from "../reducers/slices/productsSlice";
 import { LanguageContext } from "../../helpers/languageContext";
 import { updateProducts } from "../reducers/slices/productsSlice";
+
 export const useProducts = () => {
   const dispatch = useAppDispatch();
 
   const { t } = useContext(LanguageContext);
 
-  const { categories } = getJSONParsed(t("products", { returnObjects: true }));
+  const { categories, headings } = getJSONParsed(
+    t("products", { returnObjects: true })
+  );
 
   useEffect(() => {
     const translatedCategories = products.map((product, index) => ({
       ...product,
       category: categories[index],
+      heading: headings[index],
     }));
     dispatch(
       updateProducts(getLikedProductsFromLocalStorage(translatedCategories))

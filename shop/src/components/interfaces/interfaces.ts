@@ -5,7 +5,7 @@ export interface BreakpointsTypes {
 export interface ProductFields {
 	id: number,
 	category?: string,
-	heading: string,
+	heading?: string,
 	price: string,
 	image: string,
 	subCategory: string
@@ -61,7 +61,7 @@ export interface SubmenuOptions {
 	};
 	depthLevel: number;
 	dropdownClass?: string;
-	t?: any
+	t?: any;
  }
  export interface DropdownConfig {
 	submenus: any;

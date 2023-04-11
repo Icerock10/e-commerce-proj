@@ -1,16 +1,9 @@
 import React, { useContext } from "react";
 import "./Menubar.scss";
 import { Submenu } from "./Submenu";
-import { LanguageContext } from "../../../helpers/languageContext";
-import { getJSONParsed } from "../../../helpers/jsonParser";
-
+import { useSubmenu } from "./useSubmenu";
 export const Menubar = () => {
-  const { t } = useContext(LanguageContext);
-  const menuItems = getJSONParsed(
-    t("menuItems", {
-      returnObjects: true,
-    })
-  );
+  const { menuItems, t } = useSubmenu();
 
   return (
     <div className="drop">

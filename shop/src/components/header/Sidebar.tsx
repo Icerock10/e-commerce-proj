@@ -7,7 +7,7 @@ export const Sidebar = () => {
     scrollToSection,
     isSidebarShown,
     toggleSidebarVisibility,
-    uniqueMenusAndHomeMenu,
+    uniqueProducts,
   } = SidebarLogic();
 
   return (
@@ -21,9 +21,12 @@ export const Sidebar = () => {
             <Close />
           </div>
           <ul className="sidebar__menu">
-            {uniqueMenusAndHomeMenu.map((product, index) => {
+            {uniqueProducts.map((product, index) => {
               return (
-                <li key={`key-${index}`} onClick={() => scrollToSection(index)}>
+                <li
+                  key={`key-${index}`}
+                  onClick={() => scrollToSection(index + 1)}
+                >
                   {product}
                 </li>
               );

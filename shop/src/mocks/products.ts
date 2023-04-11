@@ -25,7 +25,6 @@ import { ProductFields } from '../components/interfaces/interfaces';
 export const products: ProductFields[] = [
 	{
 		id: 1,
-		heading: "Razer Green 2",
 		subCategory: "Razer",
 		price: "$124",
 		liked: false,
@@ -34,7 +33,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 2,
-		heading: "Razer Pink 21S",
 		subCategory: "Razer",
 		price: "$124",
 		liked: false,
@@ -43,7 +41,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 3,
-		heading: "Razer White 3",
 		subCategory: "Razer",
 		price: "$124",
 		liked: false,
@@ -52,8 +49,7 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 4,
-		heading: "Razer White 4",
-		subCategory: "Razer",
+			subCategory: "Razer",
 		price: "$124",
 		liked: false,
 		image:
@@ -61,7 +57,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 5,
-		heading: "Razer Black",
 		subCategory: "Razer",
 		price: "$124",
 		liked: false,
@@ -70,7 +65,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 6,
-		heading: "Senheiser Black",
 		subCategory: "Senheiser",
 		price: "$124",
 		liked: false,
@@ -79,7 +73,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 7,
-		heading: "HyperX Black",
 		subCategory: "Hyperx",
 		price: "$124",
 		liked: false,
@@ -88,7 +81,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 8,
-		heading: "HyperX Blue",
 		subCategory: "Hyperx",
 		price: "$124",
 		liked: false,
@@ -97,7 +89,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 9,
-		heading: "HyperX Red",
 		subCategory: "Hyperx",
 		price: "$124",
 		liked: false,
@@ -106,7 +97,6 @@ export const products: ProductFields[] = [
 	 },
 	{
 		id: 10,
-		heading: "Iphone 11 Red",
 		subCategory: "Iphone",
 		price: "$124",
 		liked: false,
@@ -115,7 +105,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 11,
-		heading: "Iphone 12 Red",
 		subCategory: "Iphone",
 		price: "$124",
 		liked: false,
@@ -124,7 +113,6 @@ export const products: ProductFields[] = [
 	 },
 	 {
 		id: 12,
-		heading: "Android 5 Red",
 		subCategory: "Android",
 		price: "$124",
 		liked: false,
@@ -133,7 +121,6 @@ export const products: ProductFields[] = [
 	 },
 	{
 	  id: 13,
-	  heading: "Acer Black",
 	  subCategory: "Acer",
 	  price: "$30",
 	  liked: false,
@@ -142,7 +129,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 14,
-	  heading: "Asus Black",
 	  subCategory: "Asus",
 	  price: "$30",
 	  liked: false,
@@ -151,7 +137,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 15,
-	  heading: "Acer Blue",
 	  subCategory: "Acer",
 	  price: "$30",
 	  liked: false,
@@ -160,7 +145,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 16,
-	  heading: "Acer White",
 	  subCategory: "Acer",
 	  price: "$100",
 	  liked: false,
@@ -169,7 +153,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 17,
-	  heading: "Asus White",
 	  subCategory: "Asus",
 	  price: "$55",
 	  liked: false,
@@ -178,7 +161,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 18,
-	  heading: "Acer White",
 	  subCategory: "Acer",
 	  price: "$124",
 	  liked: false,
@@ -187,7 +169,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 19,
-	  heading: "Acer Golden",
 	  price: "$124",
 	  liked: false,
 	  subCategory: "Acer",
@@ -196,7 +177,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 20,
-	  heading: "Asus Golden",
 	  subCategory: "Asus",
 	  price: "$124",
 	  liked: false,
@@ -205,7 +185,6 @@ export const products: ProductFields[] = [
 	},
 	{
 	  id: 21,
-	  heading: "Acer Golden 3",
 	  subCategory: "Acer",
 	  price: "$124",
 	  liked: false,
