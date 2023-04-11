@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Search, Menu } from "../../assets/images/icons/Icons";
+import React from "react";
+import { Search } from "../../assets/images/icons/Icons";
 import { InputLogic } from "./InputLogic";
 
 export default function Input() {

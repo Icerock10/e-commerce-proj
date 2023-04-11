@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import logo from "../../assets/images/logo.png";
-import { LanguageContext } from "../../helpers/languageContext";
 import { Menu } from "../../assets/images/icons/Icons";
 import Switcher from "./Switcher";
 import Input from "./Input";
@@ -10,7 +9,6 @@ import SidebarLogic from "./SidebarLogic";
 import { Menubar } from "./Menu/Menubar";
 
 export const Header = () => {
-  const { t } = useContext(LanguageContext);
   const { toggleSidebarVisibility } = SidebarLogic();
   return (
     <>

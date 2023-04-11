@@ -3,7 +3,7 @@ import { frames } from "../../mocks/frames";
 import { LanguageContext } from "../../helpers/languageContext";
 import { useAppSelector, useAppDispatch } from "../reducers/hooks";
 import { getFramesAsync, getCurrentFrame } from "../reducers/slices/frameSlice";
-import { FrameTitles } from "../interfaces/interfaces";
+import { getJSONParsed } from "../../helpers/jsonParser";
 
 export const useSlider = () => {
   const currentFrame = useAppSelector(getCurrentFrame);
@@ -12,17 +12,18 @@ export const useSlider = () => {
   const { t } = useContext(LanguageContext);
   const totalFrames: number = frames.length;
 
-  const frameTitles = t("frameTitles", {
-    returnObjects: true,
-  });
-  const typedFrameTitles = frameTitles as unknown as FrameTitles;
-  const { titles, subTitles } = typedFrameTitles;
+  const { titles, subTitles } = getJSONParsed(
+    t("frameTitles", {
+      returnObjects: true,
+    })
+  );
 
   const framesWithMultiLanguageTitles = frames.map((frame, index) => ({
     ...frame,
     title: titles[index],
     subTitle: subTitles[index],
   }));
+
   const goToNextFrame = (): void => {
     dispatch(getFramesAsync(totalFrames, "next"));
   };
@@ -42,6 +43,7 @@ export const useSlider = () => {
       goToNextFrame,
       goToPrevFrame,
       currentFrame,
+      t,
     },
   ];
 };

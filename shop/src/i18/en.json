@@ -1,9 +1,58 @@
 {
+	"products": {
+		"categories": ["Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones",
+		"Phones", "Phones", "Phones",
+		"Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops"
+	]
+	 },
 	"frameTitles": {
 		"titles": ["Get start", "There's more", "Selling only", "We make", "Ready to"],
 		"subTitles": ["Your favorite shopping", "here than you expect", "the best things online", "selling superbly easy", "provide everything you need"]
 	},
-	"categories": "All Categories",
+	
+	"menuItems": [
+		{
+		  "submenu": [
+			{
+				"title": "Headphones",
+				"submenu": [
+				  {
+					 "title": "Razer"
+				  },
+				  {
+					 "title": "Hyperx"
+				  }
+				]
+			 },
+			 {
+				"title": "Phones",
+				"submenu": [
+				  {
+					 "title": "Iphone"
+				  },
+				  {
+					 "title": "Android"
+				  }
+				]
+			 },
+			 {
+				"title": "Laptops",
+				"submenu": [
+				 {
+					"title": "Acer"
+				 },
+				 {
+					"title": "Asus"
+				 }
+			  ]
+			 }
+		  ]
+		}
+	 ],
+	 
+	"categories": "Categories",
 	"search": "Search this blog...",
-	"cart": "Cart"
+	"cart": "Cart",
+	"buyButton": "BUY NOW",
+	"price": "Price"
 }

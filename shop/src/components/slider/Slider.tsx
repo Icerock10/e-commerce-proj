@@ -11,6 +11,7 @@ const Slider = () => {
       goToNextFrame,
       goToPrevFrame,
       currentFrame,
+      t,
     },
   ] = useSlider();
 
@@ -19,7 +20,7 @@ const Slider = () => {
       <div className="container container_btn__section">
         <div className="slider_btn__section">
           <Button role="back" icon={<LeftArrow />} onClick={goToPrevFrame} />
-          <button className="buynow__btn">Buy Now</button>
+          <button className="buynow__btn">{t("buyButton")}</button>
           <Button
             role="forward"
             icon={<RightArrow />}

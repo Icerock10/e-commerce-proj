@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { Dropdown } from "./Dropdown";
 import { useSubmenu } from "./useSubmenu";
 import {
@@ -11,10 +11,10 @@ export const Submenu: FC<SubmenuOptions> = ({
   items,
   depthLevel,
   dropdownClass,
+  t,
 }) => {
   const { submenu, title } = items;
   const { toggleDropDown, isDropDownShown } = useSubmenu();
-
   return (
     <li
       className="menu__items"
@@ -29,7 +29,7 @@ export const Submenu: FC<SubmenuOptions> = ({
         <span className="menu__items_title">{title}</span>
         {submenu &&
           (depthLevel === 0 ? (
-            <div className="drop__toggle">{"categories"}</div>
+            <div className="drop__toggle">{t("categories")}</div>
           ) : (
             <span style={{ opacity: 0.7 }} className="menu__items_title">
               {isDropDownShown ? <ChevronDoubleDown /> : <ChevronDoubleRight />}

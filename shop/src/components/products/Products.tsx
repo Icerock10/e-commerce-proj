@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useContext } from "react";
 import "./Products.scss";
 import { ProductList } from "./ProductList";
-import { useAppSelector } from "../reducers/hooks";
-import { selectAllProducts } from "../reducers/slices/productsSlice";
+import { useProducts } from "./useProducts";
 
 export default function Products() {
-  const productsState = useAppSelector(selectAllProducts);
+  const { uniqueProducts, productsState, t } = useProducts();
 
   return (
     <div className="container container__products">
       {!productsState.length ? (
         <h1 style={{ textAlign: "center" }}>Nothing was found...</h1>
       ) : (
-        [...new Set(productsState.map((item) => item.category))].map(
-          (category, id) => (
-            <ProductList
-              key={id}
-              title={category}
-              products={productsState.filter(
-                (product) => product.category === category
-              )}
-            />
-          )
-        )
+        uniqueProducts.map((category, index) => (
+          <ProductList
+            key={index}
+            index={index}
+            t={t}
+            title={category}
+            products={productsState.filter(
+              (product) => product.category === category
+            )}
+          />
+        ))
       )}
     </div>
   );

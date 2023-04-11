@@ -1,9 +1,56 @@
 {
+	"products": {
+		"categories": ["Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses",
+		"Téléphone", "Téléphone", "Téléphone",
+		"Portables", "Portables", "Portables", "Portables", "Portables", "Portables", "Portables", "Portables", "Portables"
+]
+	 },
 	"frameTitles": {
 	"titles": ["Commencer", "Il y a plus", "Vendre uniquement", "Nous rendons la", "Prêt à fournissez"],
 	"subTitles": ["Vos courses préférées", "ici que vous ne le pensez", "les meilleures choses", "vente en ligne facile", "tout ce dont vous"]
 	},
+	"menuItems": [
+		{
+		  "submenu": [
+			{
+				"title": "Écouteuses",
+				"submenu": [
+				  {
+					 "title": "Razer"
+				  },
+				  {
+					 "title": "Hyperx"
+				  }
+				]
+			 },
+			 {
+				"title": "Téléphone",
+				"submenu": [
+				  {
+					 "title": "Iphone"
+				  },
+				  {
+					 "title": "Android"
+				  }
+				]
+			 },
+			 {
+				"title": "Portables",
+				"submenu": [
+				 {
+					"title": "Acer"
+				 },
+				 {
+					"title": "Asus"
+				 }
+			  ]
+			 }
+		  ]
+		}
+	 ],
 	"categories": "Catégories",
 	"search": "Cherchez dans ce blog...",
-	"cart": "Panier"
+	"cart": "Panier",
+	"buyButton": "ACHETER",
+	"price": "Prix"
 }

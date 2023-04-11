@@ -1,14 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { products } from '../../../mocks/products';
 import { filterProductsByCategory, filterProductsByUserInput } from "../../../helpers/filters";
-import { getLikedProductsFromLocalStorage } from "../../../helpers/getLikesFromStorage";
 import { IProduct, SortByCategoryPayload, sortByKeyWordsPayload } from "../../interfaces/interfaces";
 
-
 const initialState: IProduct = {
-	products: getLikedProductsFromLocalStorage(products),
-	originalProducts: products,
+	products: [],
+	originalProduts: [],
 	resetPixels: false,
 	value: '',
 };
@@ -17,35 +14,42 @@ export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
+	updateProducts: (state, action) => {
+		return {
+			...state,
+			products: action.payload,
+			originalProduts: action.payload
+		}
+	},
 	getUserValue: (state, action) => {
 		return {
 			...state,
 			value: action.payload
 		}
 	},
-	sortByKeyWords: (state, action: PayloadAction<sortByKeyWordsPayload>) => {
-		const { value, flag } = action.payload
-		 const searchedProducts = filterProductsByUserInput(value, state.products);
-		 return {
-			...state,
-			products: searchedProducts.length ? searchedProducts : filterProductsByUserInput(value, state.originalProducts),
-			resetPixels: flag,
-			value: ''
-		 }
-	},
-    sortByCategory: (state, action: PayloadAction<SortByCategoryPayload>) => {
+	sortByCategory: (state, action: PayloadAction<SortByCategoryPayload>) => {
 		const { product, categoryOrSubCategory, flag } = action.payload;
 		const filteredProductsByCategory = filterProductsByCategory(
-			categoryOrSubCategory === 'category' ? state.originalProducts : state.products,
+			categoryOrSubCategory === 'category' ? state.originalProduts : state.products,
 			categoryOrSubCategory,
 			product
 		 );
 		return {
 			...state,
-			products: filteredProductsByCategory.length ? filteredProductsByCategory : state.originalProducts,
-			resetPixels: flag
+			products: filteredProductsByCategory.length ? filteredProductsByCategory : state.originalProduts,
+			resetPixels: flag	
 		}
     },
+	sortByKeyWords: (state, action: PayloadAction<sortByKeyWordsPayload>) => {
+		const { value, flag } = action.payload
+		 const searchedProducts = filterProductsByUserInput(value, state.products);
+		 return {
+			...state,
+			products: searchedProducts.length ? searchedProducts : filterProductsByUserInput(value, state.originalProduts),
+			resetPixels: flag,
+			value: ''
+		 }
+	},
 	 resetPixelsAfterNewCategory: (state, action) => {
 		return {
 			...state,
@@ -75,7 +79,7 @@ export const productsSlice = createSlice({
   }
 });
 
-export const { sortByCategory, resetPixelsAfterNewCategory, sortByKeyWords, getUserValue, sortByLikes } = productsSlice.actions;
+export const { sortByCategory, resetPixelsAfterNewCategory, sortByKeyWords, getUserValue, sortByLikes, updateProducts } = productsSlice.actions;
 
 export const selectAllProducts = (state: RootState) => state.products.products;
 export const selectResetPixelsFlag = (state: RootState) =>  state.products.resetPixels;

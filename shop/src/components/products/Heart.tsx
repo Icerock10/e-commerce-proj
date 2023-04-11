@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { HeartIcon } from "../../assets/images/icons/Icons";
 import { useAppDispatch, useAppSelector } from "../reducers/hooks";
 import { sortByLikes } from "../reducers/slices/productsSlice";

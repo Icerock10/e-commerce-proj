@@ -1,9 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import useSwiper from "./useSwiper";
 import Heart from "./Heart";
 import { Title } from "../interfaces/interfaces";
 
-export const ProductList: FC<Title> = ({ title, products }) => {
+export const ProductList: FC<Title> = ({ title, products, t }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
     useSwiper(products);
 
@@ -23,7 +23,7 @@ export const ProductList: FC<Title> = ({ title, products }) => {
               <div className="product__container">
                 <h4>{heading}</h4>
                 <p className="price__container">
-                  <span className="product__price">Price</span>
+                  <span className="product__price">{t("price")}</span>
                   <span>{price}</span>
                 </p>
                 <div className="product__image">
@@ -31,7 +31,7 @@ export const ProductList: FC<Title> = ({ title, products }) => {
                 </div>
 
                 <div className="card__footer">
-                  <span>Buy Now</span>
+                  <span>{t("buyButton")}</span>
                   <Heart id={id} liked={liked} />
                 </div>
               </div>

@@ -4,22 +4,13 @@ export interface BreakpointsTypes {
 
 export interface ProductFields {
 	id: number,
-	category: string,
+	category?: string,
 	heading: string,
 	price: string,
 	image: string,
 	subCategory: string
 	liked: boolean,
 }
-
-interface MenuItem {
-	title: string;
-	submenu?: MenuItem[];
- }
- 
- export interface Menu {
-	submenu: MenuItem[];
- }
 
  export interface IFrame {
 	id: number;
@@ -37,7 +28,7 @@ interface MenuItem {
 
  export interface IProduct {
 	products: ProductFields[],
-	originalProducts: ProductFields[],
+	originalProduts: ProductFields[],
 	resetPixels: boolean;
 	value: string
 }
@@ -70,6 +61,7 @@ export interface SubmenuOptions {
 	};
 	depthLevel: number;
 	dropdownClass?: string;
+	t?: any
  }
  export interface DropdownConfig {
 	submenus: any;
@@ -78,6 +70,8 @@ export interface SubmenuOptions {
  }
 
  export interface Title {
-	title: string;
+	title: string | undefined;
+	index: number;
+	t: (key: string) => typeof key;
 	products: ProductFields[];
  }
