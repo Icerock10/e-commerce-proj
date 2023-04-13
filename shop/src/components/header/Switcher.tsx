@@ -1,6 +1,6 @@
 import React from "react";
 import { languages } from "../../helpers/languages";
-import { Cart } from "../../assets/images/icons/Icons";
+import { CartIcon } from "../../assets/images/icons/Icons";
 import useSwitcher from "./useSwitcher";
 
 function Switcher() {
@@ -11,6 +11,7 @@ function Switcher() {
       isLangListShown,
       getLanguageSwitched,
       t,
+      productsLength,
     },
   ] = useSwitcher();
 
@@ -42,7 +43,10 @@ function Switcher() {
           )}
         </div>
         <div className="cart">
-          <Cart className="cart__icon" />
+          <CartIcon className="cart__icon" />
+          {productsLength ? (
+            <span className="cart__number">{productsLength}</span>
+          ) : null}
           <span className="cart__text">{t("cart")}</span>
         </div>
       </div>

@@ -9,10 +9,12 @@ import {
   getVisibilityState,
   toggleVisibility,
 } from ".././reducers/slices/visibilitySlice";
+import { getProductsInCartLength } from "../reducers/slices/cartSlice";
 
 function useSwitcher() {
   const { isLangListShown } = useAppSelector(getVisibilityState);
   const languageText = useAppSelector(getLanguageText);
+  const productsLength = useAppSelector(getProductsInCartLength);
   const dispatch = useAppDispatch();
   const { t, i18n } = useContext(LanguageContext);
 
@@ -32,6 +34,7 @@ function useSwitcher() {
       isLangListShown,
       getLanguageSwitched,
       t,
+      productsLength,
     },
   ];
 }

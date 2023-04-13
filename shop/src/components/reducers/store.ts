@@ -3,14 +3,15 @@ import productsSlice from "./slices/productsSlice";
 import frameSlice from './slices/frameSlice';
 import switcherSlice from './slices/switcherSlice';
 import visibilitySlice from './slices/visibilitySlice';
-
+import  cartSlice from "./slices/cartSlice";
 
 export const store = configureStore({
   reducer: {
     products: productsSlice,
 	 frames: frameSlice,
 	 switcher: switcherSlice,
-	 visibility: visibilitySlice
+	 visibility: visibilitySlice,
+	 cart: cartSlice
   }
 });
 

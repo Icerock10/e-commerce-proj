@@ -163,11 +163,22 @@
 	display: flex;
 	color: $main-color;
 	align-items: center;
+	position: relative;
 	@include hover-animation(color, $secondary-color);
 	&__icon {
 		margin-right: 16px;
 	}
 	&__text {
 		font-size: 1.5rem;
+	}
+	&__number {
+		position: absolute;
+		bottom: 1.5rem;
+		left: 1.5rem;
+		width: 25px;
+		height: 25px;
+		background-color: #222;
+		border-radius: 50%;
+		text-align: center;
 	}
 }

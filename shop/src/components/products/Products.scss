@@ -55,6 +55,8 @@
 	>:first-child {
 		color: $secondary-color;
 		font-weight: 700;
+		border: none;
+    	background-color: transparent;
 		@include hover-animation(color, $primary-color);
 	}
  }

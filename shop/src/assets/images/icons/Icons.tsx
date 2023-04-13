@@ -154,7 +154,7 @@ const Close = () => {
   );
 };
 
-const Cart = ({ className }: any) => {
+const CartIcon = ({ className }: any) => {
   return (
     <svg
       className={className}
@@ -187,7 +187,7 @@ export {
   RightArrow,
   Search,
   Menu,
-  Cart,
+  CartIcon,
   Close,
   ChevronDoubleRight,
   ChevronDoubleDown,

@@ -2,10 +2,13 @@ import React, { FC } from "react";
 import useSwiper from "./useSwiper";
 import Heart from "./Heart";
 import { Title } from "../interfaces/interfaces";
+import { useCart } from "../header/Cart/useCart";
 
 export const ProductList: FC<Title> = ({ title, products, t }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
     useSwiper(products);
+
+  const { addProduct } = useCart();
 
   return (
     <>
@@ -13,7 +16,8 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
         {title}
       </h1>
       <div className="card__container" ref={containerRef}>
-        {products.map(({ id, heading, price, image, liked }) => {
+        {products.map((product) => {
+          const { id, heading, price, image, liked } = product;
           return (
             <div
               className="product"
@@ -29,9 +33,10 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
                 <div className="product__image">
                   <img src={image} alt="img" />
                 </div>
-
                 <div className="card__footer">
-                  <span>{t("buyButton")}</span>
+                  <button onClick={() => addProduct(product)}>
+                    {t("buyButton")}
+                  </button>
                   <Heart id={id} liked={liked} />
                 </div>
               </div>

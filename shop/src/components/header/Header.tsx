@@ -7,12 +7,14 @@ import "./Header.scss";
 import { Sidebar } from "./Sidebar";
 import SidebarLogic from "./SidebarLogic";
 import { Menubar } from "./Menu/Menubar";
+import { Cart } from "./Cart/Cart";
 
 export const Header = () => {
   const { toggleSidebarVisibility } = SidebarLogic();
   return (
     <>
       <Sidebar />
+      <Cart />
       <div className="container" style={{ zIndex: 3 }}>
         <div className="container__logo">
           <img src={logo}></img>
