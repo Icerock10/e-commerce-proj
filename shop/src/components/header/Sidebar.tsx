@@ -2,15 +2,11 @@ import React from "react";
 import SidebarLogic from "./SidebarLogic";
 import { Close } from "../.././assets/images/icons/Icons";
 import { useClickOutside } from "../customHooks/useClickOutside";
+import { useVisibility } from "../customHooks/useVisibility";
 
 export const Sidebar = () => {
-  const {
-    scrollToSection,
-    isSidebarShown,
-    toggleSidebarVisibility,
-    uniqueProducts,
-  } = SidebarLogic();
-
+  const { scrollToSection, uniqueProducts } = SidebarLogic();
+  const { toggleSidebarVisibility, isSidebarShown } = useVisibility();
   const { sideBarRef } = useClickOutside();
 
   return (

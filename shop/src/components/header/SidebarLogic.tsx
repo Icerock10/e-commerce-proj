@@ -1,20 +1,9 @@
 import React from "react";
 import { scrollBreakpoints } from "../../mocks/scrollBreakpoints";
-import {
-  getVisibilityState,
-  toggleVisibility,
-} from "../reducers/slices/visibilitySlice";
-import { useAppSelector, useAppDispatch } from ".././reducers/hooks";
 import { useProducts } from "../products/useProducts";
 
 function SidebarLogic() {
   const { uniqueProducts } = useProducts();
-  const { isSidebarShown } = useAppSelector(getVisibilityState);
-  const dispatch = useAppDispatch();
-
-  const toggleSidebarVisibility = () => {
-    dispatch(toggleVisibility("isSidebarShown"));
-  };
 
   const scrollToSection = (position: number): void => {
     const { scrollTo } = scrollBreakpoints[position];
@@ -27,8 +16,6 @@ function SidebarLogic() {
   return {
     scrollToSection,
     scrollBreakpoints,
-    isSidebarShown,
-    toggleSidebarVisibility,
     uniqueProducts,
   };
 }

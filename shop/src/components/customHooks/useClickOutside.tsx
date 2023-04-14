@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import { useCart } from "../header/Cart/useCart";
-import SidebarLogic from "../header/SidebarLogic";
 import { useVisibility } from "./useVisibility";
 
 export const useClickOutside = () => {
@@ -12,8 +11,7 @@ export const useClickOutside = () => {
     closeNotificationAndCart,
     toggleCartVisibility,
   } = useCart();
-  const { toggleSidebarVisibility } = SidebarLogic();
-  const { showLanguagesList } = useVisibility();
+  const { showLanguagesList, toggleSidebarVisibility } = useVisibility();
 
   useEffect(() => {
     function handleClickOutside(event: any) {

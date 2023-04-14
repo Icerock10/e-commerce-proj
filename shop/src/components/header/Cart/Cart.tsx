@@ -5,7 +5,6 @@ import { Checkbox } from "./Checkbox";
 import Button from "./Button";
 import { useClickOutside } from "../../customHooks/useClickOutside";
 import { PlusIcon, MinusIcon } from "../../../assets/images/icons/Icons";
-import { calculateTotalAmount } from "../../../helpers/calculateTotal";
 import { ThankNotification } from "./ThankNotification";
 import { Checkout } from "./Checkout";
 export const Cart = () => {

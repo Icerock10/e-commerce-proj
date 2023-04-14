@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../../reducers/hooks";
 import {
   addProductToCart,
@@ -10,32 +10,28 @@ import {
 } from "../../reducers/slices/cartSlice";
 import { selectAllProductsInCart } from "../../reducers/slices/cartSlice";
 import { getCheckBoxAsync } from "../../reducers/slices/cartSlice";
-import { toggleVisibility } from "../../reducers/slices/visibilitySlice";
+import { useVisibility } from "../../customHooks/useVisibility";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();
   const { productsInCart } = useAppSelector(selectAllProductsInCart);
   const isChecked = useAppSelector((state) => state.cart.isChecked);
-  const { isCartShown, isThankNotificationShown } = useAppSelector(
-    (state) => state.visibility
-  );
+
+  const {
+    isCartShown,
+    isThankNotificationShown,
+    showThankNotification,
+    toggleCartVisibility,
+  } = useVisibility();
 
   const calculateQuantityAmount = (id: number, operand: string) => {
     dispatch(calculateQuantity({ id: id, operand: operand }));
-  };
-
-  const showThankNotification = () => {
-    dispatch(toggleVisibility("isThankNotificationShown"));
   };
 
   const closeNotificationAndCart = () => {
     showThankNotification();
     toggleCartVisibility();
     dispatch(productsBought());
-  };
-
-  const toggleCartVisibility = () => {
-    dispatch(toggleVisibility("isCartShown"));
   };
 
   const handleChange = (e: any) => {

@@ -5,14 +5,13 @@ import Switcher from "./Switcher";
 import Input from "./Input";
 import "./Header.scss";
 import { Sidebar } from "./Sidebar";
-import SidebarLogic from "./SidebarLogic";
 import { Menubar } from "./Menu/Menubar";
 import { Cart } from "./Cart/Cart";
-import { useCart } from "./Cart/useCart";
+import { useVisibility } from "../customHooks/useVisibility";
 
 export const Header = () => {
-  const { toggleSidebarVisibility } = SidebarLogic();
-  const { isCartShown } = useCart();
+  const { toggleSidebarVisibility, isCartShown } = useVisibility();
+
   return (
     <>
       <Sidebar />
