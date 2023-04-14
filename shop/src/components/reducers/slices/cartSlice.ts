@@ -1,18 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState, AppThunk  } from '../store';
 import { ProductFields } from "../../interfaces/interfaces";
-
-interface ICart{
-	productsInCart: ProductFields[]
-	isChecked: boolean,
-	checkBoxIds: number[]
-}
-
+import { ICart } from "../../interfaces/interfaces";
 
 const cartState: ICart =  {
 	productsInCart: [],
 	isChecked: false,
-	checkBoxIds: []
+	checkBoxIds: [],
 }
 
 	export const cartSlice = createSlice({
@@ -20,9 +14,12 @@ const cartState: ICart =  {
 		initialState: cartState,
 		reducers: {
 			addProductToCart: (state, action: PayloadAction<ProductFields[]>) => {
+				const onlyUniqueProducts = action.payload.filter((product) => {
+					return !state.productsInCart.some((item) => item.id === product.id);
+				 });
 				return {
 					...state,
-					productsInCart: [...state.productsInCart, ...action.payload],
+					productsInCart: [...state.productsInCart, ...onlyUniqueProducts],
 				}
 			},
 			selectAll: (state, action) => {
@@ -62,11 +59,31 @@ const cartState: ICart =  {
 					...state,
 					productsInCart: state.productsInCart.filter(product => product.id !== action.payload)
 				}
+			},
+			calculateQuantity: (state, action: PayloadAction<any>) => {
+				const { id, operand } = action.payload
+				const updatedProducts = state.productsInCart.map(product => {
+					if(product.id === id) {
+						return {...product, quantity: operand === 'add' ? product.quantity + 1 
+						: (product.quantity < 2 ) ? product.quantity : product.quantity - 1}
+					}
+					return product;
+				})
+				return {
+					...state,
+					productsInCart: updatedProducts
+				}
+			},
+			productsBought: (state) => {
+				return {
+					...state,
+					productsInCart: []
+				}
 			}
 		}
 	});
 
-export const { addProductToCart, toggleChecked, removeProduct, selectAll, removeSelected } = cartSlice.actions;
+export const { addProductToCart, toggleChecked, removeProduct, selectAll, removeSelected, calculateQuantity, productsBought } = cartSlice.actions;
 export const getProductsInCartLength = (state: RootState) => state.cart.productsInCart.length;
 export const selectAllProductsInCart = (state: RootState) => state.cart;
 

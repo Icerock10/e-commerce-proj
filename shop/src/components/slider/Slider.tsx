@@ -14,7 +14,6 @@ const Slider = () => {
       t,
     },
   ] = useSlider();
-
   return (
     <>
       <div className="container container_btn__section">

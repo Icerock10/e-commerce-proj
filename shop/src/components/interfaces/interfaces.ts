@@ -1,15 +1,20 @@
 export interface BreakpointsTypes {
 	scrollTo: number
 }
-
+export interface ICart{
+	productsInCart: ProductFields[]
+	isChecked: boolean,
+	checkBoxIds: number[],
+}
 export interface ProductFields {
 	id: number,
 	category?: string,
 	heading?: string,
-	price: string,
+	price: string | number,
 	image: string,
 	subCategory: string
 	liked: boolean,
+	quantity: number
 }
 
  export interface IFrame {
@@ -47,6 +52,8 @@ export type SortByCategoryPayload = {
 export interface VisibilityConfig {
 	isSidebarShown: boolean,
 	isLangListShown: boolean,
+	isCartShown: boolean,
+	isThankNotificationShown: boolean
 }
 
 export type IHeart = {

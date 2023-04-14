@@ -2,6 +2,7 @@ import React from "react";
 import { languages } from "../../helpers/languages";
 import { CartIcon } from "../../assets/images/icons/Icons";
 import useSwitcher from "./useSwitcher";
+import { useCart } from "./Cart/useCart";
 
 function Switcher() {
   const [
@@ -14,6 +15,8 @@ function Switcher() {
       productsLength,
     },
   ] = useSwitcher();
+
+  const { toggleCartVisibility } = useCart();
 
   return (
     <div className="header__box">
@@ -42,7 +45,7 @@ function Switcher() {
             </div>
           )}
         </div>
-        <div className="cart">
+        <div className="cart" onClick={toggleCartVisibility}>
           <CartIcon className="cart__icon" />
           {productsLength ? (
             <span className="cart__number">{productsLength}</span>

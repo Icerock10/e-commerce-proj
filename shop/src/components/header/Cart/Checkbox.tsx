@@ -1,23 +1,22 @@
 import React, { FC, useState } from "react";
 
 interface ICheckboxProps {
-  id: any;
-  currentId: number | null;
+  checkedProp: undefined | boolean;
+  id: string | undefined;
   handleChange: (e: any) => void;
 }
 
 export const Checkbox: FC<ICheckboxProps> = ({
+  checkedProp,
   id,
-  currentId,
   handleChange,
 }) => {
   return (
     <input
-      style={{ marginRight: "1rem" }}
-      type="checkbox"
-      checked={id === currentId}
-      onChange={handleChange}
       id={id}
+      type="checkbox"
+      checked={!checkedProp ? false : checkedProp}
+      onChange={handleChange}
     />
   );
 };

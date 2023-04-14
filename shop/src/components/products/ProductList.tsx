@@ -47,7 +47,11 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
       <div className="radio_container">
         {[...Array(pages)].map((_, index) => {
           return (
-            <label key={`key-${index}`} htmlFor="bio" className="overlay">
+            <label
+              key={`key-${index}`}
+              htmlFor="bio"
+              className="radio__overlay"
+            >
               <input
                 onClick={() => scrollToSelectedPage(index)}
                 checked={currentPage === index}

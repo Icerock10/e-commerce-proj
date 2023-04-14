@@ -8,7 +8,6 @@ import { getJSONParsed } from "../../helpers/jsonParser";
 export const useSlider = () => {
   const currentFrame = useAppSelector(getCurrentFrame);
   const dispatch = useAppDispatch();
-
   const { t } = useContext(LanguageContext);
   const totalFrames: number = frames.length;
 

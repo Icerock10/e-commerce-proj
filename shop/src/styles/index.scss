@@ -11,7 +11,9 @@ ul,li
   list-style-type: none;
   padding: 0;
 }
-
+.overlay {
+	filter: brightness(0.5)
+}
 body,
 h1,
 h2,

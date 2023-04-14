@@ -5,6 +5,8 @@ import { VisibilityConfig } from "../../interfaces/interfaces";
 const visibilityState: VisibilityConfig = {
 	isSidebarShown: false,
 	isLangListShown: false,
+	isCartShown: false,
+	isThankNotificationShown: false
 }
 
 export const visibilitySlice = createSlice({

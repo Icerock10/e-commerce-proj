@@ -8,13 +8,15 @@ import { Sidebar } from "./Sidebar";
 import SidebarLogic from "./SidebarLogic";
 import { Menubar } from "./Menu/Menubar";
 import { Cart } from "./Cart/Cart";
+import { useCart } from "./Cart/useCart";
 
 export const Header = () => {
   const { toggleSidebarVisibility } = SidebarLogic();
+  const { isCartShown } = useCart();
   return (
     <>
       <Sidebar />
-      <Cart />
+      {isCartShown && <Cart />}
       <div className="container" style={{ zIndex: 3 }}>
         <div className="container__logo">
           <img src={logo}></img>
