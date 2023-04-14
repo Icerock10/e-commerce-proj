@@ -3,7 +3,7 @@ import "./Cart.scss";
 import { useCart } from "./useCart";
 import { Checkbox } from "./Checkbox";
 import Button from "./Button";
-import { useClickOutside } from "./useClickOutside";
+import { useClickOutside } from "../../customHooks/useClickOutside";
 import { PlusIcon, MinusIcon } from "../../../assets/images/icons/Icons";
 import { calculateTotalAmount } from "../../../helpers/calculateTotal";
 import { ThankNotification } from "./ThankNotification";

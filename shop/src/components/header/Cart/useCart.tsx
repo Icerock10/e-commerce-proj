@@ -16,10 +16,10 @@ export const useCart = () => {
   const dispatch = useAppDispatch();
   const { productsInCart } = useAppSelector(selectAllProductsInCart);
   const isChecked = useAppSelector((state) => state.cart.isChecked);
-  const isCartShown = useAppSelector((state) => state.visibility.isCartShown);
-  const isThankNotificationShown = useAppSelector(
-    (state) => state.visibility.isThankNotificationShown
+  const { isCartShown, isThankNotificationShown } = useAppSelector(
+    (state) => state.visibility
   );
+
   const calculateQuantityAmount = (id: number, operand: string) => {
     dispatch(calculateQuantity({ id: id, operand: operand }));
   };

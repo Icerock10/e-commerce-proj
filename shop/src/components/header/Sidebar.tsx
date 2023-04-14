@@ -1,6 +1,7 @@
 import React from "react";
 import SidebarLogic from "./SidebarLogic";
 import { Close } from "../.././assets/images/icons/Icons";
+import { useClickOutside } from "../customHooks/useClickOutside";
 
 export const Sidebar = () => {
   const {
@@ -10,10 +11,12 @@ export const Sidebar = () => {
     uniqueProducts,
   } = SidebarLogic();
 
+  const { sideBarRef } = useClickOutside();
+
   return (
     <>
       {isSidebarShown && (
-        <div className="sidebar">
+        <div className="sidebar" ref={sideBarRef}>
           <div
             onClick={() => toggleSidebarVisibility()}
             className="sidebar__close"

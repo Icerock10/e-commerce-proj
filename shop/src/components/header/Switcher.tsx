@@ -3,20 +3,20 @@ import { languages } from "../../helpers/languages";
 import { CartIcon } from "../../assets/images/icons/Icons";
 import useSwitcher from "./useSwitcher";
 import { useCart } from "./Cart/useCart";
+import { useClickOutside } from "../customHooks/useClickOutside";
 
 function Switcher() {
-  const [
-    {
-      showLanguagesList,
-      languageText,
-      isLangListShown,
-      getLanguageSwitched,
-      t,
-      productsLength,
-    },
-  ] = useSwitcher();
+  const {
+    showLanguagesList,
+    languageText,
+    isLangListShown,
+    getLanguageSwitched,
+    t,
+    productsLength,
+  } = useSwitcher();
 
   const { toggleCartVisibility } = useCart();
+  const { switcherRef } = useClickOutside();
 
   return (
     <div className="header__box">
@@ -27,7 +27,7 @@ function Switcher() {
             <span className="lang_text">{languageText}</span>
           </span>
           {isLangListShown && (
-            <div className="switcher__group_wrapper">
+            <div className="switcher__group_wrapper" ref={switcherRef}>
               {Object.keys(languages).map((language, i) => {
                 return (
                   <span

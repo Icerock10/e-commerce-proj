@@ -10,33 +10,30 @@ import {
   toggleVisibility,
 } from ".././reducers/slices/visibilitySlice";
 import { getProductsInCartLength } from "../reducers/slices/cartSlice";
+import { useVisibility } from "../customHooks/useVisibility";
 
 function useSwitcher() {
   const { isLangListShown } = useAppSelector(getVisibilityState);
+  const { showLanguagesList } = useVisibility();
   const languageText = useAppSelector(getLanguageText);
   const productsLength = useAppSelector(getProductsInCartLength);
   const dispatch = useAppDispatch();
   const { t, i18n } = useContext(LanguageContext);
 
-  const showLanguagesList = () => {
-    dispatch(toggleVisibility("isLangListShown"));
-  };
   const getLanguageSwitched = (language: string): void => {
     const languageAbbreviation = language.slice(0, 2).toLowerCase();
     i18n.changeLanguage(languageAbbreviation);
     dispatch(changeLanguage(language));
     showLanguagesList();
   };
-  return [
-    {
-      showLanguagesList,
-      languageText,
-      isLangListShown,
-      getLanguageSwitched,
-      t,
-      productsLength,
-    },
-  ];
+  return {
+    showLanguagesList,
+    languageText,
+    isLangListShown,
+    getLanguageSwitched,
+    t,
+    productsLength,
+  };
 }
 
 export default useSwitcher;
