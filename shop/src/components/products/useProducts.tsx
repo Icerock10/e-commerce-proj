@@ -3,9 +3,11 @@ import { useAppSelector, useAppDispatch } from "../reducers/hooks";
 import { getJSONParsed } from "../../helpers/jsonParser";
 import { products } from "../../mocks/products";
 import { getLikedProductsFromLocalStorage } from "../../helpers/getLikesFromStorage";
-import { selectAllProducts } from "../reducers/slices/productsSlice";
+import {
+  selectAllProducts,
+  updateProducts,
+} from "../reducers/slices/productsSlice";
 import { LanguageContext } from "../../helpers/languageContext";
-import { updateProducts } from "../reducers/slices/productsSlice";
 
 export const useProducts = () => {
   const dispatch = useAppDispatch();

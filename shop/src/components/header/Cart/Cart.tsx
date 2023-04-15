@@ -11,7 +11,7 @@ export const Cart = () => {
   const { cartRef } = useClickOutside();
   const {
     productsInCart,
-    handleChange,
+    getProductId,
     handleProductRemove,
     isChecked,
     selectAllCheckboxes,
@@ -59,8 +59,8 @@ export const Cart = () => {
                 <div key={product.id} className="cart__container">
                   <div className="cart__container_elem product-cart">
                     <Checkbox
-                      checkedProp={product.checkedProp}
-                      handleChange={handleChange}
+                      checkedProp={product.checked}
+                      handleChange={getProductId}
                       id={product.id}
                     />
                     <div className="cart__image">

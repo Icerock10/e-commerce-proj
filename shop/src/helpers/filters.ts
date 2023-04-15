@@ -1,12 +1,12 @@
 import { ProductFields } from "../components/interfaces/interfaces";
 
-export function filterProductsByCategory (state: ProductFields[], categoryOrSubCategory: string, product: string) {
+export function filterProductsByCategory (state: ProductFields[], categoryOrSubCategory: string, product: string): ProductFields[] {
 	return state.filter((item: any) => {
 		return item[categoryOrSubCategory] === product 
 	});
  }
 
- export function filterProductsByUserInput(userInput: string, products: ProductFields[]) {
+ export function filterProductsByUserInput(userInput: string, products: ProductFields[]): ProductFields[] {
 	const matches: ProductFields[] = [];
 	products.forEach((product) => {
 	  let score = 0;

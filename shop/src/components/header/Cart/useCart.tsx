@@ -7,15 +7,14 @@ import {
   removeSelected,
   calculateQuantity,
   productsBought,
+  selectAllProductsInCart,
+  getProductIdAsync,
 } from "../../reducers/slices/cartSlice";
-import { selectAllProductsInCart } from "../../reducers/slices/cartSlice";
-import { getCheckBoxAsync } from "../../reducers/slices/cartSlice";
 import { useVisibility } from "../../customHooks/useVisibility";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();
-  const { productsInCart } = useAppSelector(selectAllProductsInCart);
-  const isChecked = useAppSelector((state) => state.cart.isChecked);
+  const { productsInCart, isChecked } = useAppSelector(selectAllProductsInCart);
 
   const {
     isCartShown,
@@ -24,25 +23,25 @@ export const useCart = () => {
     toggleCartVisibility,
   } = useVisibility();
 
-  const calculateQuantityAmount = (id: number, operand: string) => {
+  const calculateQuantityAmount = (id: number, operand: string): void => {
     dispatch(calculateQuantity({ id: id, operand: operand }));
   };
 
-  const closeNotificationAndCart = () => {
+  const closeNotificationAndCart = (): void => {
     showThankNotification();
     toggleCartVisibility();
     dispatch(productsBought());
   };
 
-  const handleChange = (e: any) => {
-    dispatch(getCheckBoxAsync(Number(e.target.id)));
+  const getProductId = ({ target: { id } }: any): void => {
+    dispatch(getProductIdAsync(Number(id)));
   };
 
-  const addProduct = (product: any) => {
+  const addProduct = (product: any): void => {
     dispatch(addProductToCart([product]));
   };
 
-  const handleProductRemove = (id: number) => {
+  const handleProductRemove = (id: number): void => {
     dispatch(removeProduct(id));
   };
 
@@ -50,14 +49,14 @@ export const useCart = () => {
     dispatch(selectAll(isChecked));
   };
 
-  const removeSelectedProducts = (isChecked: boolean) => {
+  const removeSelectedProducts = (isChecked: boolean): void => {
     dispatch(removeSelected(isChecked));
   };
 
   return {
     addProduct,
     productsInCart,
-    handleChange,
+    getProductId,
     isChecked,
     handleProductRemove,
     selectAllCheckboxes,

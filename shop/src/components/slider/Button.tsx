@@ -1,12 +1,13 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React from "react";
 
-interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ForwardBackButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   role?: "back" | "forward";
   icon?: React.ReactNode;
   onClick: () => void;
 }
 
-export default function Button(props: IButtonProps) {
+export default function Button(props: ForwardBackButtonProps) {
   const { role, icon, onClick } = props;
 
   return (

@@ -6,6 +6,22 @@ export interface ICart{
 	isChecked: boolean,
 	checkBoxIds: number[],
 }
+ 
+ export type Quantity = {
+	id: number,
+	operand: string
+}
+
+export type LikesPayloadProps = {
+	productId: number, 
+	isProductLiked: boolean
+}
+
+ export interface ICheckboxProps {
+	checkedProp: undefined | boolean;
+	id: string | undefined;
+	handleChange: (e: any) => void;
+ }
 export interface ProductFields {
 	id: number,
 	category?: string,
@@ -70,6 +86,10 @@ export interface SubmenuOptions {
 	dropdownClass?: string;
 	t?: any;
  }
+ export type Menu = {
+	title: string,
+	submenu: string[]
+}
  export interface DropdownConfig {
 	submenus: any;
 	dropdown: boolean;

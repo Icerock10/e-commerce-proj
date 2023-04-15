@@ -1,10 +1,5 @@
-import React, { FC, useState } from "react";
-
-interface ICheckboxProps {
-  checkedProp: undefined | boolean;
-  id: string | undefined;
-  handleChange: (e: any) => void;
-}
+import React, { FC } from "react";
+import { ICheckboxProps } from "../../interfaces/interfaces";
 
 export const Checkbox: FC<ICheckboxProps> = ({
   checkedProp,

@@ -1,6 +1,6 @@
 import { ProductFields } from "../components/interfaces/interfaces";
 
-export const getLikedProductsFromLocalStorage = (products: ProductFields[]) => {
+export const getLikedProductsFromLocalStorage = (products: ProductFields[]): ProductFields[] => {
 	return products.map((product) => {
 		const storagetKey = localStorage.getItem(`heart${product.id}`)
 		if(product.id === Number(storagetKey)) {

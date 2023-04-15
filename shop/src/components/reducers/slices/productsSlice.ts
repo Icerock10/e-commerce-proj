@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 import { filterProductsByCategory, filterProductsByUserInput } from "../../../helpers/filters";
-import { IProduct, SortByCategoryPayload, sortByKeyWordsPayload } from "../../interfaces/interfaces";
+import { IProduct, SortByCategoryPayload, sortByKeyWordsPayload, ProductFields, LikesPayloadProps } from "../../interfaces/interfaces";
 
 const initialState: IProduct = {
 	products: [],
@@ -14,14 +14,14 @@ export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-	updateProducts: (state, action) => {
+	updateProducts: (state, action: PayloadAction<ProductFields[]>) => {
 		return {
 			...state,
 			products: action.payload,
 			originalProduts: action.payload
 		}
 	},
-	getUserValue: (state, action) => {
+	getUserValue: (state, action: PayloadAction<string>) => {
 		return {
 			...state,
 			value: action.payload
@@ -50,13 +50,13 @@ export const productsSlice = createSlice({
 			value: ''
 		 }
 	},
-	 resetPixelsAfterNewCategory: (state, action) => {
+	 resetPixelsAfterNewCategory: (state, action: PayloadAction<boolean>) => {
 		return {
 			...state,
 			resetPixels: action.payload
 		}
 	 },
-	 sortByLikes: (state, action: PayloadAction<any>) => {
+	 sortByLikes: (state, action: PayloadAction<LikesPayloadProps>) => {
 		const { productId, isProductLiked } = action.payload;
 		
       const updatedProducts = state.products.map(({ id, liked, ...product }) => {
@@ -83,7 +83,6 @@ export const { sortByCategory, resetPixelsAfterNewCategory, sortByKeyWords, getU
 
 export const selectAllProducts = (state: RootState) => state.products.products;
 export const selectResetPixelsFlag = (state: RootState) =>  state.products.resetPixels;
-
 export default productsSlice.reducer;
 
 

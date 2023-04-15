@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useAppDispatch, useAppSelector } from "../../reducers/hooks";
+import { useAppDispatch } from "../../reducers/hooks";
 import { sortByCategory } from "../../reducers/slices/productsSlice";
 import SidebarLogic from "../SidebarLogic";
 import { LanguageContext } from "../../../helpers/languageContext";

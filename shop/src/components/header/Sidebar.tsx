@@ -3,9 +3,11 @@ import SidebarLogic from "./SidebarLogic";
 import { Close } from "../.././assets/images/icons/Icons";
 import { useClickOutside } from "../customHooks/useClickOutside";
 import { useVisibility } from "../customHooks/useVisibility";
+import { useProducts } from "../products/useProducts";
 
 export const Sidebar = () => {
-  const { scrollToSection, uniqueProducts } = SidebarLogic();
+  const { scrollToSection } = SidebarLogic();
+  const { uniqueProducts } = useProducts();
   const { toggleSidebarVisibility, isSidebarShown } = useVisibility();
   const { sideBarRef } = useClickOutside();
 

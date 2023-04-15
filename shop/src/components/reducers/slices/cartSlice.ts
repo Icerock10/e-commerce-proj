@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState, AppThunk  } from '../store';
-import { ProductFields } from "../../interfaces/interfaces";
-import { ICart } from "../../interfaces/interfaces";
+import { ProductFields, Quantity, ICart } from "../../interfaces/interfaces";
+
 
 const cartState: ICart =  {
 	productsInCart: [],
@@ -22,15 +22,15 @@ const cartState: ICart =  {
 					productsInCart: [...state.productsInCart, ...onlyUniqueProducts],
 				}
 			},
-			selectAll: (state, action) => {
+			selectAll: (state, action: PayloadAction<boolean>) => {
 				return {
 					...state,
 					isChecked: !action.payload,
 					checkBoxIds: !state.isChecked ? state.productsInCart.map(product => product.id) : [],
-					productsInCart: state.productsInCart.map(product => ({...product, checkedProp: !action.payload}))
+					productsInCart: state.productsInCart.map(product => ({...product, checked: !action.payload}))
 				}
 			},
-			removeSelected: (state, action) => {
+			removeSelected: (state, action: PayloadAction<boolean>) => {
 				const idsToRemove = state.productsInCart.filter(product => !state.checkBoxIds.includes(product.id))
 				return {
 					...state,
@@ -39,11 +39,11 @@ const cartState: ICart =  {
 					isChecked: !action.payload
 				}
 			},
-			toggleChecked: (state, action: PayloadAction<any>) => {
+			toggleChecked: (state, action: PayloadAction<number>) => {
 				const isChecked = state.checkBoxIds.includes(action.payload);
 				const updateStateProducts = state.productsInCart.map(product => {
 					if(product.id === action.payload) {
-						return {...product, checkedProp: !isChecked}
+						return {...product, checked: !isChecked}
 					}
 					return product;
 				})
@@ -53,14 +53,14 @@ const cartState: ICart =  {
 					checkBoxIds: isChecked ? state.checkBoxIds.filter(id => id !== action.payload) : [...state.checkBoxIds, action.payload],
 				}
 			},
-			removeProduct: (state, action) => {
+			removeProduct: (state, action: PayloadAction<number>) => {
 				if(!state.checkBoxIds.includes(action.payload)) return;
 				return {
 					...state,
 					productsInCart: state.productsInCart.filter(product => product.id !== action.payload)
 				}
 			},
-			calculateQuantity: (state, action: PayloadAction<any>) => {
+			calculateQuantity: (state, action: PayloadAction<Quantity>) => {
 				const { id, operand } = action.payload
 				const updatedProducts = state.productsInCart.map(product => {
 					if(product.id === id) {
@@ -89,6 +89,6 @@ export const selectAllProductsInCart = (state: RootState) => state.cart;
 
 export default cartSlice.reducer;
 
-export const getCheckBoxAsync = (targetId: number): AppThunk => (dispatch) => {
+export const getProductIdAsync = (targetId: number): AppThunk => (dispatch) => {
 		dispatch(toggleChecked(targetId))
   };

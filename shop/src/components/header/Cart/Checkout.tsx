@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { calculateTotalAmount } from "../../../helpers/calculateTotal";
 import { useCart } from "./useCart";
 

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React from "react";
 import { Trash } from "../../../assets/images/icons/Icons";
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
