@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useCallback } from "react";
 import { frames } from "../../mocks/frames";
 import { LanguageContext } from "../../helpers/languageContext";
 import { useAppSelector, useAppDispatch } from "../reducers/hooks";
@@ -23,9 +23,10 @@ export const useSlider = () => {
     subTitle: subTitles[index],
   }));
 
-  const goToNextFrame = (): void => {
+  const goToNextFrame = useCallback((): void => {
     dispatch(getFramesAsync(totalFrames, "next"));
-  };
+  }, [dispatch, totalFrames]);
+
   const goToPrevFrame = (): void => {
     dispatch(getFramesAsync(totalFrames, "prev"));
   };
@@ -34,7 +35,7 @@ export const useSlider = () => {
       goToNextFrame();
     }, 3000);
     return (): void => clearInterval(framesInterval);
-  }, [currentFrame]);
+  }, [currentFrame, goToNextFrame]);
 
   return [
     {

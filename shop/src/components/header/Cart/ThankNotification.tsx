@@ -36,7 +36,7 @@ export const ThankNotification = () => {
           return (
             <div key={product.id} className="notification__order_container">
               <div className="notification__order_image">
-                <img src={product.image} />
+                <img alt="product" src={product.image} />
               </div>
             </div>
           );

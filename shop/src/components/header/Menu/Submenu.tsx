@@ -24,7 +24,7 @@ export const Submenu: FC<SubmenuOptions> = ({
     >
       <div
         className={`${title === undefined ? "hover__disabled" : ""}`}
-        role={`${dropdownClass ? "subCategory" : "category"}`}
+        data-category={`${dropdownClass ? "subCategory" : "category"}`}
       >
         <span className="menu__items_title">{title}</span>
         {submenu &&

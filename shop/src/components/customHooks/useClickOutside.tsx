@@ -33,7 +33,16 @@ export const useClickOutside = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [cartRef, isThankNotificationShown, sideBarRef, switcherRef]);
+  }, [
+    cartRef,
+    isThankNotificationShown,
+    sideBarRef,
+    switcherRef,
+    closeNotificationAndCart,
+    toggleCartVisibility,
+    toggleSidebarVisibility,
+    showLanguagesList,
+  ]);
 
   const refContainsClick = (ref: React.RefObject<HTMLElement>, event: any) => {
     return ref.current && !ref.current.contains(event.target);

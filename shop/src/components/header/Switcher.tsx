@@ -23,7 +23,7 @@ function Switcher() {
       <div className="header__box_switcher">
         <div className="switcher__group">
           <span onClick={showLanguagesList} className="lang">
-            <img src={languages[languageText]} />
+            <img alt="switcher" src={languages[languageText]} />
             <span className="lang_text">{languageText}</span>
           </span>
           {isLangListShown && (

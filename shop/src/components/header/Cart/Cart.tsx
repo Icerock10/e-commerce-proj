@@ -64,7 +64,7 @@ export const Cart = () => {
                       id={product.id}
                     />
                     <div className="cart__image">
-                      <img src={product.image} />
+                      <img alt="product" src={product.image} />
                     </div>
                     <span style={{ marginLeft: "1rem" }}>
                       {product.heading}

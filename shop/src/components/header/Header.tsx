@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import logo from "../../assets/images/logo.png";
 import { Menu } from "../../assets/images/icons/Icons";
 import Switcher from "./Switcher";
@@ -18,7 +18,7 @@ export const Header = () => {
       {isCartShown && <Cart />}
       <div className="container" style={{ zIndex: 3 }}>
         <div className="container__logo">
-          <img src={logo}></img>
+          <img alt="logo" src={logo}></img>
         </div>
         <div className="main">
           <div

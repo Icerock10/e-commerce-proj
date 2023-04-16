@@ -20,7 +20,7 @@ export const useSubmenu = () => {
   const toggleDropDown = ({ target, type }: any): void => {
     if (type === "click") {
       const product = target.closest("div").textContent;
-      const category = target.closest("div").role;
+      const category = target.closest("div").dataset.category;
       dispatch(
         sortByCategory({
           product: product,

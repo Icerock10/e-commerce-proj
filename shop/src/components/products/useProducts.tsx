@@ -14,11 +14,10 @@ export const useProducts = () => {
 
   const { t } = useContext(LanguageContext);
 
-  const { categories, headings } = getJSONParsed(
-    t("products", { returnObjects: true })
-  );
-
   useEffect(() => {
+    const { categories, headings } = getJSONParsed(
+      t("products", { returnObjects: true })
+    );
     const translatedCategories = products.map((product, index) => ({
       ...product,
       category: categories[index],
@@ -27,7 +26,7 @@ export const useProducts = () => {
     dispatch(
       updateProducts(getLikedProductsFromLocalStorage(translatedCategories))
     );
-  }, [t]);
+  }, [t, dispatch]);
   const productsState = useAppSelector(selectAllProducts);
 
   const uniqueProducts = [

@@ -38,7 +38,7 @@ function useSwiper(products: ProductFields[]) {
       }
     }
     setPixelsDependingOnFlag();
-  }, [flag, containerRef.current]);
+  }, [flag, dispatch, products.length]);
 
   return [
     {
