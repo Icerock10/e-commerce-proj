@@ -11,8 +11,8 @@ export default function Input() {
       <input
         type="text"
         className="input__group_form"
-        onChange={(e) => dispatch(getUserValue(e.target.value))}
         placeholder={"search"}
+        onChange={(e) => dispatch(getUserValue(e.target.value))}
         onKeyDown={(e) => e.key === "Enter" && sortProductsByUserInput()}
         value={value}
       />

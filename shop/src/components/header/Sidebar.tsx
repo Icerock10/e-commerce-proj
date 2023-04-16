@@ -15,10 +15,8 @@ export const Sidebar = () => {
     <>
       {isSidebarShown && (
         <div className="sidebar" ref={sideBarRef}>
-          <div
-            onClick={() => toggleSidebarVisibility()}
-            className="sidebar__close"
-          >
+          <div onClick={() => 
+				toggleSidebarVisibility()} className="sidebar__close">       
             <Close />
           </div>
           <ul className="sidebar__menu">
