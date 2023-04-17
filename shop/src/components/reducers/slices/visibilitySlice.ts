@@ -6,7 +6,8 @@ const visibilityState: VisibilityConfig = {
 	isSidebarShown: false,
 	isLangListShown: false,
 	isCartShown: false,
-	isThankNotificationShown: false
+	isThankNotificationShown: false,
+	isPopupShown: false,
 }
 
 export const visibilitySlice = createSlice({

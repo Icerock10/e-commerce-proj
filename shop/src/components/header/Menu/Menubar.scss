@@ -8,6 +8,7 @@
 	.drop__toggle {
 		display: inline-block;
 		color: $main-color;
+		@include hover-animation(color, $secondary-color);
 		text-align: center;
 		font-size: 1rem;
 		background-color: $primary-color;

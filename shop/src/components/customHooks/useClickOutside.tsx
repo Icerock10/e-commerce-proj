@@ -6,6 +6,7 @@ export const useClickOutside = () => {
   const cartRef = useRef<HTMLDivElement>(null);
   const sideBarRef = useRef<HTMLDivElement>(null);
   const switcherRef = useRef<HTMLDivElement>(null);
+
   const {
     isThankNotificationShown,
     closeNotificationAndCart,
@@ -15,17 +16,21 @@ export const useClickOutside = () => {
 
   useEffect(() => {
     function handleClickOutside(event: any) {
-      if (refContainsClick(cartRef, event)) {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
         if (isThankNotificationShown) {
           closeNotificationAndCart();
           return;
         }
         toggleCartVisibility();
       }
-      if (refContainsClick(sideBarRef, event)) {
+      if (
+        sideBarRef.current &&
+        !event.target.closest(".sidebar") &&
+        !event.target.closest(".burger__menu")
+      ) {
         toggleSidebarVisibility();
       }
-      if (refContainsClick(switcherRef, event)) {
+      if (switcherRef.current && !event.target.closest(".switcher__group")) {
         showLanguagesList();
       }
     }
@@ -43,10 +48,6 @@ export const useClickOutside = () => {
     toggleSidebarVisibility,
     showLanguagesList,
   ]);
-
-  const refContainsClick = (ref: React.RefObject<HTMLElement>, event: any) => {
-    return ref.current && !ref.current.contains(event.target);
-  };
 
   return {
     cartRef,

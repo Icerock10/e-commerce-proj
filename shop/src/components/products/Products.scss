@@ -4,7 +4,6 @@
 .container__products {
 	top: 35rem;
 }
-
 .card__container {
 	display: flex;
 	gap: 0.7rem;
@@ -14,6 +13,7 @@
  
  .price__container {
 	margin-bottom: 4rem;
+	@include price-style;
  }
 
  .product {
@@ -58,6 +58,9 @@
 		border: none;
     	background-color: transparent;
 		@include hover-animation(color, $primary-color);
+	}
+	> span:hover {
+		// animation here
 	}
  }
 

@@ -70,8 +70,13 @@ export interface VisibilityConfig {
 	isLangListShown: boolean,
 	isCartShown: boolean,
 	isThankNotificationShown: boolean
+	isPopupShown: boolean
 }
-
+export type IChekout = {
+	handleNotification: () => void;
+	buttonTitle: string;
+ };
+ 
 export type IHeart = {
   id: number;
   liked: boolean;

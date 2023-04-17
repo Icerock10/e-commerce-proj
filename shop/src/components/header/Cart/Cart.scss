@@ -1,13 +1,15 @@
 @import '../../.././styles//mixins.scss';
 @import '../../.././styles//variables.scss';
+@import '../../.././styles/fonts.scss';
 
 .cart__wrapper {
 	background-color: #fff;
     height: 100vh;
-    width: 30%;
+	 font-family: "Roboto Mono";
+    min-width: 30%;
     position: absolute;
     z-index: 4;
-    right: 10rem;
+    right: 0;
 	 &_heading {
 		display: flex;
 		justify-content: space-between;
@@ -22,8 +24,8 @@
 	 }
 }
 .container__wrapper {
-		overflow-y: auto;
-		height: 60vh;
+	   overflow-y: auto;
+		height: 63vh;
 		@include custom-scrollbar(#f1f1f1, #888, #555);
 }
 .cart__container {
@@ -60,7 +62,16 @@
 		height: 85px;
 	}
 }
-
+.basket {
+	border-radius: 50%;
+	justify-content: center;
+	padding: 2rem;
+	max-width: 40%;
+	display: flex;
+	& img {
+		border-radius: 50%;
+	}
+}
 .quantity__elem {
 	border: 1px solid lightgray;
 	color: gray;
@@ -113,6 +124,7 @@
 
 .discount {
 	border-bottom: 1px solid rgb(223, 219, 219);
+	color: gray;
 }
 .notification__wrapper {
 	padding: 1rem;
@@ -122,24 +134,37 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
-	border-bottom: 1px solid lightgray;
-	&:last-child {
-		margin-bottom: 1rem;
-	}
+	border-bottom: 1px solid #eeeaea;
 }
 .notification__main {
 	display: flex;
     flex-direction: column;
     gap: 1rem;
-	 & > div {
-		border-bottom: 1px solid lightgray;
+	 & > div:after {
+		@include custom-divider;
 	 }
 }
 .notification__order {
 	display: flex;
 	flex-direction: column;
+	overflow-y: auto;
+	height: 20rem;
+	@include custom-scrollbar(#f1f1f1, #888, #555);
 	margin-top: 1rem;
 	gap: 1rem;
+	&_heading {
+		display: flex;
+    flex-direction: column;
+	}
+	&_price {
+		flex: 1 1 auto;
+    text-align: end;
+    padding-right: 1.5rem;
+	}
+	&_container {
+		display: flex;
+		border-bottom: 1px solid #eeeaea;
+	}
 	&_image {
 		width: 20%;
 		& img {
@@ -147,3 +172,13 @@
 		}
 	}
 }
+.notification__subtitle {
+	color: #a5aaaf;
+	font-size: 0.8rem;
+	padding-bottom: 1rem;
+}
+.quantity {
+	color: #a5aaaf;
+	padding-top: 0.5rem;
+}
+

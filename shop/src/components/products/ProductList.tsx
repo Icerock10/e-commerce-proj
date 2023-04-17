@@ -3,6 +3,7 @@ import useSwiper from "./useSwiper";
 import Heart from "./Heart";
 import { Title } from "../interfaces/interfaces";
 import { useCart } from "../header/Cart/useCart";
+import { priceFormatWithCommas } from "../../helpers/priceFormat";
 
 export const ProductList: FC<Title> = ({ title, products, t }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
@@ -28,7 +29,7 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
                 <h4>{heading}</h4>
                 <p className="price__container">
                   <span className="product__price">{t("price")}</span>
-                  <span>{price}</span>
+                  <span>{`$ ${priceFormatWithCommas(price)}`}</span>
                 </p>
                 <div className="product__image">
                   <img src={image} alt="img" />

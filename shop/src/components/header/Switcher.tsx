@@ -4,6 +4,7 @@ import { CartIcon } from "../../assets/images/icons/Icons";
 import useSwitcher from "./useSwitcher";
 import { useCart } from "./Cart/useCart";
 import { useClickOutside } from "../customHooks/useClickOutside";
+import { useVisibility } from "../customHooks/useVisibility";
 
 function Switcher() {
   const {
@@ -14,15 +15,15 @@ function Switcher() {
     t,
     productsLength,
   } = useSwitcher();
-
   const { toggleCartVisibility } = useCart();
+  const { isPopupShown, togglePopUpVisibility } = useVisibility();
   const { switcherRef } = useClickOutside();
 
   return (
     <div className="header__box">
       <div className="header__box_switcher">
         <div className="switcher__group">
-          <span onClick={showLanguagesList} className="lang">
+          <span onClick={() => showLanguagesList()} className="lang">
             <img alt="switcher" src={languages[languageText]} />
             <span className="lang_text">{languageText}</span>
           </span>
@@ -45,7 +46,15 @@ function Switcher() {
             </div>
           )}
         </div>
-        <div className="cart" onClick={toggleCartVisibility}>
+        <div
+          className="cart"
+          onClick={toggleCartVisibility}
+          onMouseEnter={togglePopUpVisibility}
+          onMouseLeave={togglePopUpVisibility}
+        >
+          <div className={`${isPopupShown ? "popup" : "hidden"}`}>
+            <span>The cart is empty...</span>
+          </div>
           <CartIcon className="cart__icon" />
           {productsLength ? (
             <span className="cart__number">{productsLength}</span>

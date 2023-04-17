@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../reducers/hooks";
+import { getProductsInCartLength } from "../reducers/slices/cartSlice";
 import {
   toggleVisibility,
   getVisibilityState,
@@ -7,12 +8,24 @@ import {
 
 export const useVisibility = () => {
   const dispatch = useAppDispatch();
+  const productsInCartLength = useAppSelector(getProductsInCartLength);
   const {
     isLangListShown,
     isSidebarShown,
     isCartShown,
     isThankNotificationShown,
+    isPopupShown,
   } = useAppSelector(getVisibilityState);
+
+  useEffect(() => {
+    if (isCartShown || isThankNotificationShown) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, [isThankNotificationShown, isCartShown]);
+
   const showLanguagesList = () => {
     dispatch(toggleVisibility("isLangListShown"));
   };
@@ -23,7 +36,12 @@ export const useVisibility = () => {
     dispatch(toggleVisibility("isThankNotificationShown"));
   };
   const toggleCartVisibility = () => {
+    if (!productsInCartLength) return;
     dispatch(toggleVisibility("isCartShown"));
+  };
+  const togglePopUpVisibility = () => {
+    if (productsInCartLength) return;
+    dispatch(toggleVisibility("isPopupShown"));
   };
   return {
     showLanguagesList,
@@ -34,5 +52,7 @@ export const useVisibility = () => {
     isThankNotificationShown,
     showThankNotification,
     toggleCartVisibility,
+    isPopupShown,
+    togglePopUpVisibility,
   };
 };

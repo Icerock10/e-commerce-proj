@@ -11,7 +11,6 @@ import { LanguageContext } from "../../helpers/languageContext";
 
 export const useProducts = () => {
   const dispatch = useAppDispatch();
-
   const { t } = useContext(LanguageContext);
 
   useEffect(() => {
@@ -27,6 +26,7 @@ export const useProducts = () => {
       updateProducts(getLikedProductsFromLocalStorage(translatedCategories))
     );
   }, [t, dispatch]);
+
   const productsState = useAppSelector(selectAllProducts);
 
   const uniqueProducts = [

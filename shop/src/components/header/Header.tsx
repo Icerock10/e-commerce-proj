@@ -26,7 +26,9 @@ export const Header = () => {
             style={{ color: "#fff" }}
             onClick={() => toggleSidebarVisibility()}
           >
-            <Menu />
+            <div className="burger__menu">
+              <Menu />
+            </div>
           </div>
           <Menubar />
           <Input />

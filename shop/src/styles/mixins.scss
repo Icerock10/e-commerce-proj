@@ -1,8 +1,23 @@
 @import './variables';
+@import './fonts';
 
 @mixin btn-style {
 	border-radius: 0.25rem;
    padding: 0.3rem 0.75rem;
+}
+
+@mixin price-style {
+	font-family: 'Crimson Text SemiBold';
+	font-size: 1.2rem;
+}
+
+@mixin custom-divider {
+	content: "";
+		display: block;
+		position: absolute;
+		height: 1px;
+		width: 95%;
+		border-bottom: 1px solid #eeeaea;
 }
 
 @mixin custom-scrollbar($track-color, $thumb-color, $thumb-hover-color) {
