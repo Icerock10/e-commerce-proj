@@ -1,61 +1,82 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { LIBRARIES } from "../interfaces/interfaces";
+import { GoogleMap } from "@react-google-maps/api";
 
+type LatLngLiteral = google.maps.LatLngLiteral;
+type MapOptions = google.maps.MapOptions;
+type DirectionsResult = google.maps.DirectionsResult;
 export const useMap = () => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     libraries: LIBRARIES,
   });
 
-  const center = { lat: 49.845545, lng: 24.029465 };
-  const [directionsResponse, setDirectionsResponse] = useState<any>(null);
-  const [address, setAddress] = useState<any>(null);
-  const originRef = useRef<HTMLInputElement>(null);
-  const destinationRef = useRef<HTMLInputElement>(null);
+  const center = useMemo<LatLngLiteral>(
+    () => ({ lat: 49.845545, lng: 24.029465 }),
+    []
+  );
+  const options = useMemo<MapOptions>(
+    () => ({
+      zoomControl: false,
+      streetViewControl: false,
+      mapTypeControl: false,
+      fullscreenControl: false,
+      mapId: "fc62ab7465fa1af0",
+    }),
+    []
+  );
 
-  useEffect(() => {
-    if (isLoaded) {
-      const geocoder = new window.google.maps.Geocoder();
-      const latLng = center;
-      geocoder.geocode({ location: latLng }, (results, status) => {
-        if (status === "OK") {
-          if (results && results[0]) {
-            const address = results[0].formatted_address;
-            setAddress(address);
-          }
+  const userRef = useRef<HTMLInputElement>(null);
+  const mapRef = useRef<GoogleMap>();
+  const onLoad = useCallback((map: any) => (mapRef.current = map), []);
+
+  const [directions, setDirections] = useState<DirectionsResult | null>();
+
+  const fetchDirections = () => {
+    if (!userRef.current) return;
+    const service = new google.maps.DirectionsService();
+    service.route(
+      {
+        origin: center,
+        destination: userRef.current.value,
+        travelMode: google.maps.TravelMode.DRIVING,
+      },
+      (result, status) => {
+        if (status === "OK" && result) {
+          setDirections(result);
         }
-      });
-    }
-  }, [center, isLoaded]);
-
-  const calculateRoute = async () => {
-    if (!originRef.current || !destinationRef.current) return;
-    const directionsService = new google.maps.DirectionsService();
-    const results = await directionsService.route({
-      origin: address,
-      destination: destinationRef.current.value,
-      travelMode: google.maps.TravelMode.DRIVING,
-    });
-    setDirectionsResponse(results);
+      }
+    );
   };
 
-  const clearRoute = () => {
-    if (!originRef.current || !destinationRef.current) {
-      return;
-    }
-    originRef.current.value = "";
-    destinationRef.current.value = "";
-    setDirectionsResponse(null);
+  const clearDirections = () => {
+    if (!userRef.current) return;
+    setDirections(null);
+    mapRef.current?.panTo(center);
+    userRef.current.value = "";
   };
+
+  const backToInitialPosition = () => {
+    mapRef.current?.panTo(center);
+    (mapRef.current as unknown as google.maps.Map)?.setZoom(15);
+  };
+
   return {
     center,
-    directionsResponse,
-    destinationRef,
-    originRef,
-    calculateRoute,
-    clearRoute,
     isLoaded,
-    address,
+    options,
+    fetchDirections,
+    userRef,
+    directions,
+    clearDirections,
+    onLoad,
+    backToInitialPosition,
   };
 };

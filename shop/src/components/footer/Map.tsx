@@ -12,18 +12,14 @@ import {
 export const Map = () => {
   const {
     center,
-    directionsResponse,
-    destinationRef,
-    originRef,
-    calculateRoute,
-    clearRoute,
-    isLoaded,
-    address,
+    options,
+    fetchDirections,
+    userRef,
+    directions,
+    clearDirections,
+    onLoad,
+    backToInitialPosition,
   } = useMap();
-
-  if (!isLoaded) {
-    return <div>Preload...</div>;
-  }
 
   return (
     <>
@@ -31,43 +27,30 @@ export const Map = () => {
         center={center}
         zoom={15}
         mapContainerStyle={{ width: "100%", height: "100%" }}
-        options={{
-          zoomControl: false,
-          streetViewControl: false,
-          mapTypeControl: false,
-          fullscreenControl: false,
-        }}
+        options={options}
+        onLoad={onLoad}
       >
-        {directionsResponse && (
-          <DirectionsRenderer directions={directionsResponse} />
-        )}
-        <MarkerF position={center}>
-          <InfoWindow position={center}>
-            <div className="huy">{address}</div>
-          </InfoWindow>
-        </MarkerF>
+        {directions && <DirectionsRenderer directions={directions} />}
+        <MarkerF position={center}></MarkerF>
       </GoogleMap>
       <div className="map__widget">
         <div className="map__widget_item">
           <Autocomplete>
-            <input className="origin" ref={originRef} defaultValue={address} />
-          </Autocomplete>
-          <Autocomplete>
             <input
               className="destination"
-              placeholder="destination"
-              ref={destinationRef}
+              placeholder="Pick your location"
+              ref={userRef}
             />
           </Autocomplete>
-          <button onClick={calculateRoute} className="btn__calculate">
+          <button onClick={fetchDirections} className="btn__calculate">
             Calculate
           </button>
-          <button onClick={clearRoute}>X</button>
+          <button onClick={clearDirections}>X</button>
         </div>
         <div className="map__widget_item result">
           <span>Distance </span>
           <span>Duration </span>
-          <span>Back</span>
+          <span onClick={backToInitialPosition}>Back</span>
         </div>
       </div>
     </>
