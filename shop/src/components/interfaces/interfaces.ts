@@ -66,6 +66,14 @@ export type SortByCategoryPayload = {
 	value: string,
 	flag: boolean
 }
+export type DistanceProps = {
+	leg: google.maps.DirectionsLeg | undefined;
+	getToInitialPos: () => void;
+ };
+
+ export type LatLngLiteral = google.maps.LatLngLiteral;
+ export type MapOptions = google.maps.MapOptions;
+ export type DirectionsResult = google.maps.DirectionsResult;
 
 export interface VisibilityConfig {
 	isSidebarShown: boolean,

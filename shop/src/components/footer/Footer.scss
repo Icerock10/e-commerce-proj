@@ -1,17 +1,17 @@
 @import '../..//styles/variables';
+@import '../..//styles/mixins';
+@import '../..//styles/fonts';
 
 footer {
-	background-color: $primary-color;
     position: relative;
     height: 30rem;
     top: 70vh;
 	 display: flex;
-	 justify-content: flex-end;
-	 padding: 0.5rem;
+	 max-width: 100%;
 }
 
 .footer__map {
-	width: 70%;
+	width: 100%;
     height: auto;
 	 position: relative;
 }
@@ -19,14 +19,16 @@ footer {
 .map__widget {
 	background-color: #fff;
 	border-radius: 0.5rem;
-	padding: 1rem;
+	padding: 0.7rem;
+	width: 25%;
 	top: 1rem;
-	right: 20%;
+	left: 5%;
 	position: absolute;
 }
 .map__widget_item {
 	display:flex;
 	justify-content: space-between;
+	font-family: 'Crimson Text SemiBold';
 }
 
 .origin, .destination {
@@ -42,6 +44,7 @@ footer {
 
 .result {
 	margin-top: 1rem;
+
 }
 
 .btn__calculate {
@@ -52,4 +55,19 @@ footer {
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+	 @include hover-animation(background-color, $secondary-color);
+}
+
+.footer__divider {
+	background-color: #252525;
+	padding: 2rem;
+}
+.borderless {
+	border: none;
+    background: transparent;
+}
+.result__distance, .result__duration {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }

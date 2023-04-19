@@ -4,7 +4,6 @@ import frameSlice from './slices/frameSlice';
 import switcherSlice from './slices/switcherSlice';
 import visibilitySlice from './slices/visibilitySlice';
 import  cartSlice from "./slices/cartSlice";
-
 export const store = configureStore({
   reducer: {
     products: productsSlice,
@@ -12,7 +11,7 @@ export const store = configureStore({
 	 switcher: switcherSlice,
 	 visibility: visibilitySlice,
 	 cart: cartSlice,
-  }
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,40 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CheckMarkIcon } from "../../../assets/images/icons/Icons";
 import { getTodayDate } from "../../../helpers/dateFormatter";
 import { useCart } from "./useCart";
+import { LanguageContext } from "../../../helpers/languageContext";
 import { Checkout } from "./Checkout";
 import { priceFormatWithCommas } from "../../../helpers/priceFormat";
 
 export const ThankNotification = () => {
   const { productsInCart, closeNotificationAndCart } = useCart();
+  const { t } = useContext(LanguageContext);
 
   return (
     <div className="notification__wrapper">
       <div className="notification__header">
         <CheckMarkIcon />
-        <h2>Thanks for your order!</h2>
-        <p style={{ marginBottom: "1rem" }}>
-          The order confirmation sent to your email
-        </p>
+        <h2>{t("order")}</h2>
+        <p style={{ marginBottom: "1rem" }}>{t("confirmationOrder")}</p>
       </div>
       <div className="notification__main">
         <div style={{ marginTop: "1rem" }} className="notification__main_date">
-          <p>Transaction Date</p>
+          <p>{t("date")}</p>
           <p className="notification__subtitle">{getTodayDate()}</p>
         </div>
         <div className="notification__main_payment">
-          <p>Payment method</p>
-          <p className="notification__subtitle">Mastercard ending with ****</p>
+          <p>{t("paymentMethod")}</p>
+          <p className="notification__subtitle">{t("card")}</p>
         </div>
         <div className="notification__main_shipping">
-          <p>Shipping method</p>
-          <p className="notification__subtitle">
-            Express delivery (1-3 business days)
-          </p>
+          <p>{t("shippingMethod")}</p>
+          <p className="notification__subtitle">{t("delivery")}</p>
         </div>
       </div>
       <div className="notification__order">
-        <p>Your order</p>
+        <p>{t("yourOrder")}</p>
         {productsInCart.map((product: any) => {
           return (
             <div key={product.id} className="notification__order_container">
@@ -54,7 +52,7 @@ export const ThankNotification = () => {
       </div>
       <Checkout
         handleNotification={closeNotificationAndCart}
-        buttonTitle="Continue shopping"
+        buttonTitle={t("continueShopping")}
       />
     </div>
   );

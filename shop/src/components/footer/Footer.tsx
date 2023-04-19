@@ -1,14 +1,13 @@
 import "./Footer.scss";
 import React from "react";
-import { Map } from "./Map";
-import { useMap } from "./useMap";
+import { Map } from "./Map/Map";
+import { useMap } from "./Map/useMap";
 
 export const Footer = () => {
   const { isLoaded } = useMap();
 
   return (
     <footer>
-      <div className="footer__content"></div>
       <div className="footer__map">
         {!isLoaded ? <div>Loading...</div> : <Map />}
       </div>

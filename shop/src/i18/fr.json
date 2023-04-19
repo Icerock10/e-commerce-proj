@@ -56,5 +56,21 @@
 	"search": "Cherchez dans ce blog...",
 	"cart": "Panier",
 	"buyButton": "ACHETER",
-	"price": "Prix"
+	"price": "Prix",
+	"remove": "Retirer",
+	"product": "Produit",
+	"quantity": "Quantité",
+	"subtotal": "Total",
+	"discount": "Rabais",
+	"grandtotal": "Grand",
+	"checkout": "Passer à la caisse",
+	"order": "Merci pour votre commande!",
+	"confirmationOrder": "La confirmation de commande envoyée à votre email",
+	"date": "Date de la transaction",
+	"paymentMethod": "Mode de paiement",
+	"shippingMethod": "Mode de livraison",
+	"delivery": "Livraison express (1-3 jours ouvrables)",
+	"card": "Mastercard se terminant par ****",
+	"yourOrder": "Votre commande",
+	"continueShopping": "Continuer vos achats"
 }

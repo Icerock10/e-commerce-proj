@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../../../helpers/languageContext";
 import "./Cart.scss";
 import { useCart } from "./useCart";
 import { Checkbox } from "./Checkbox";
@@ -22,6 +23,8 @@ export const Cart = () => {
     showThankNotification,
   } = useCart();
 
+  const { t } = useContext(LanguageContext);
+
   return (
     <div className="overlay">
       <div className="cart__wrapper" ref={cartRef}>
@@ -30,10 +33,10 @@ export const Cart = () => {
         ) : (
           <>
             <div className="cart__wrapper_heading">
-              <h2>Cart</h2>
+              <h2>{t("cart")}</h2>
               <div className="cart__wrapper_remove">
                 <Button handleClick={() => removeSelectedProducts(isChecked)} />
-                <span>Remove</span>
+                <span>{t("remove")}</span>
               </div>
             </div>
             <div className="cart__container cart__container_header">
@@ -43,16 +46,16 @@ export const Cart = () => {
                   checkedProp={isChecked}
                   handleChange={() => selectAllCheckboxes(isChecked)}
                 />{" "}
-                <span style={{ marginLeft: ".5rem" }}>Product</span>
+                <span style={{ marginLeft: ".5rem" }}>{t("product")}</span>
               </div>
               <div
                 style={{ textAlign: "center" }}
                 className="cart__container_elem quantity"
               >
-                <span>Quantity</span>
+                <span>{t("quantity")}</span>
               </div>
               <div className="cart__container_elem price">
-                <span>Price</span>
+                <span>{t("price")}</span>
               </div>
             </div>
             <div className="container__wrapper">
@@ -96,7 +99,7 @@ export const Cart = () => {
                         <Button
                           handleClick={() => handleProductRemove(product.id)}
                         />
-                        <span>Remove</span>
+                        <span>{t("remove")}</span>
                       </div>
                     </div>
                     <div className="cart__container_elem price">
@@ -112,7 +115,7 @@ export const Cart = () => {
             </div>
             <Checkout
               handleNotification={showThankNotification}
-              buttonTitle="Checkout NOW"
+              buttonTitle={t("checkout")}
             />
           </>
         )}
