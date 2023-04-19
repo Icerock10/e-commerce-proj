@@ -11,7 +11,7 @@ export const store = configureStore({
 	 frames: frameSlice,
 	 switcher: switcherSlice,
 	 visibility: visibilitySlice,
-	 cart: cartSlice
+	 cart: cartSlice,
   }
 });
 

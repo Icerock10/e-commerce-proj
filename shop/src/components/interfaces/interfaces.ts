@@ -1,6 +1,8 @@
 export interface BreakpointsTypes {
 	scrollTo: number
 }
+
+export const LIBRARIES: any = ["places"];
 export interface ICart{
 	productsInCart: ProductFields[]
 	isChecked: boolean,

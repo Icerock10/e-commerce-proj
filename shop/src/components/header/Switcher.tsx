@@ -16,7 +16,7 @@ function Switcher() {
     productsLength,
   } = useSwitcher();
   const { toggleCartVisibility } = useCart();
-  const { isPopupShown, togglePopUpVisibility } = useVisibility();
+  const { togglePopUpVisibility, isPopupShown } = useVisibility();
   const { switcherRef } = useClickOutside();
 
   return (

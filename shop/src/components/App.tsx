@@ -3,6 +3,7 @@ import Slider from "./slider/Slider";
 import { Header } from "./header/Header";
 import { useTranslation } from "react-i18next";
 import { LanguageContext } from ".././helpers/languageContext";
+import { Footer } from "./footer/Footer";
 import Products from "./products/Products";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Slider />
       <Products />
+      <Footer />
     </LanguageContext.Provider>
   );
 }

@@ -1,0 +1,55 @@
+@import '../..//styles/variables';
+
+footer {
+	background-color: $primary-color;
+    position: relative;
+    height: 30rem;
+    top: 70vh;
+	 display: flex;
+	 justify-content: flex-end;
+	 padding: 0.5rem;
+}
+
+.footer__map {
+	width: 70%;
+    height: auto;
+	 position: relative;
+}
+
+.map__widget {
+	background-color: #fff;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	top: 1rem;
+	right: 20%;
+	position: absolute;
+}
+.map__widget_item {
+	display:flex;
+	justify-content: space-between;
+}
+
+.origin, .destination {
+	border-radius: 0.25rem;
+    padding: 0.2rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid lightgrey;
+	 outline: none;
+}
+
+.result {
+	margin-top: 1rem;
+}
+
+.btn__calculate {
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    background-color: #252525;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}

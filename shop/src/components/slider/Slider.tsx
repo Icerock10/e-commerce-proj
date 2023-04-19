@@ -3,6 +3,7 @@ import "./Slider.scss";
 import { useSlider } from "./useSlider";
 import { LeftArrow, RightArrow } from "../../assets/images/icons/Icons";
 import Button from "./Button";
+import { useVisibility } from "../customHooks/useVisibility";
 
 const Slider = () => {
   const [
@@ -14,12 +15,20 @@ const Slider = () => {
       t,
     },
   ] = useSlider();
+  const { toggleCartVisibility, togglePopUpVisibility } = useVisibility();
   return (
     <>
       <div className="container container_btn__section">
         <div className="slider_btn__section">
           <Button role="back" icon={<LeftArrow />} onClick={goToPrevFrame} />
-          <button className="buynow__btn">{t("buyButton")}</button>
+          <button
+            onClick={toggleCartVisibility}
+            onMouseEnter={togglePopUpVisibility}
+            onMouseLeave={togglePopUpVisibility}
+            className="buynow__btn"
+          >
+            {t("buyButton")}
+          </button>
           <Button
             role="forward"
             icon={<RightArrow />}
