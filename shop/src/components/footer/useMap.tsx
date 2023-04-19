@@ -4,7 +4,7 @@ import { LIBRARIES } from "../interfaces/interfaces";
 
 export const useMap = () => {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBOkhlkLPJQCD79EQmYzMnPk7ijBVxZvx0",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     libraries: LIBRARIES,
   });
 

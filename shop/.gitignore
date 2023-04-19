@@ -10,7 +10,7 @@ node_modules
 dist
 dist-ssr
 *.local
-.eslintrc
+.env
 
 # Editor directories and files
 .vscode/*
