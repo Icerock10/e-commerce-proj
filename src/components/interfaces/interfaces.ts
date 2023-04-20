@@ -1,8 +1,8 @@
-
+import { ButtonRoles } from "../../enums/buttonRoles";
 
 export interface ArrowButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  role?: "back" | "forward" | "top" | "bottom";
+  role?: ButtonRoles;
   className: string;
   handleClick: () => void;
 }
@@ -14,7 +14,7 @@ export interface IconButtonProps
 
 export interface RoundedButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  role?: "back" | "forward" | "buyButton";
+  role?: ButtonRoles;
   className: string;
   handleClick: () => void;
   togglePopUp?: () => void;

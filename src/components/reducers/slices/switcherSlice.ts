@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from '.././store';
+import { LocalStorageKeys } from "../../../enums/localStorageKeys";
 
-const currentLanguage: string | null = localStorage.getItem("i18nextLng");
+const currentLanguage: string | null = localStorage.getItem(LocalStorageKeys.I_18_NEXT_LANG);
 
 const switcher: { languageText: string } = {
 	languageText: currentLanguage === 'fr' ? 'French' : 'English',

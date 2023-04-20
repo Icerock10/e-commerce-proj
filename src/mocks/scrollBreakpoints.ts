@@ -1,7 +1,7 @@
 export const scrollBreakpoints: {scrollTo: number}[] = [
 	{
-	  scrollTo: 0,
-	},
+		scrollTo: 0,
+	 },
 	{
 	  scrollTo: 725,
 	},

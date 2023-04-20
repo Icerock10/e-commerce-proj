@@ -10,7 +10,7 @@ import {
   selectAllProductsInCart,
   getProductIdAsync,
 } from "../../reducers/slices/cartSlice";
-import { useVisibility } from "../../customHooks/useVisibility";
+import { useVisibility } from "../../commonHooks/useVisibility";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();

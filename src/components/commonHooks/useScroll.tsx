@@ -1,8 +1,18 @@
 import React from "react";
 import { scrollBreakpoints } from "../../mocks/scrollBreakpoints";
 
-function useScroll() {
-  const scrollToSection = (position: number): void => {
+export const useScroll = () => {
+  const scrollToSection = (position: number, e?: any): void => {
+    if (window.innerWidth < 640) {
+      const titles = document.querySelectorAll(".fashion_title");
+      titles.forEach((title) => {
+        if (title.textContent === e.target.textContent) {
+          title.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+      return;
+    }
+
     const { scrollTo } = scrollBreakpoints[position];
     window.scrollTo({
       top: scrollTo,
@@ -26,6 +36,4 @@ function useScroll() {
     scrollBreakpoints,
     scrollIntoViewDependingOnDirection,
   };
-}
-
-export default useScroll;
+};

@@ -6,9 +6,9 @@ import {
   getLanguageText,
 } from ".././reducers/slices/switcherSlice";
 import { getProductsInCartLength } from "../reducers/slices/cartSlice";
-import { useVisibility } from "../customHooks/useVisibility";
+import { useVisibility } from "../commonHooks/useVisibility";
 
-function useSwitcher() {
+export const useSwitcher = () => {
   const { showLanguagesList, isLangListShown } = useVisibility();
   const { t, i18n } = useContext(LanguageContext);
   const languageText = useAppSelector(getLanguageText);
@@ -29,6 +29,4 @@ function useSwitcher() {
     t,
     productsLength,
   };
-}
-
-export default useSwitcher;
+};

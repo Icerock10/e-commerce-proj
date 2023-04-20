@@ -1,12 +1,12 @@
 import React from "react";
-import SidebarLogic from "./useScroll";
+import { useScroll } from "../commonHooks/useScroll";
 import { Close } from "../.././assets/images/icons/Icons";
-import { useClickOutside } from "../customHooks/useClickOutside";
-import { useVisibility } from "../customHooks/useVisibility";
+import { useClickOutside } from "../commonHooks/useClickOutside";
+import { useVisibility } from "../commonHooks/useVisibility";
 import { useProducts } from "../products/useProducts";
 
 export const Sidebar = () => {
-  const { scrollToSection } = SidebarLogic();
+  const { scrollToSection } = useScroll();
   const { uniqueProducts } = useProducts();
   const { toggleSidebarVisibility, isSidebarShown } = useVisibility();
   const { sideBarRef } = useClickOutside();
@@ -26,7 +26,7 @@ export const Sidebar = () => {
               return (
                 <li
                   key={`key-${index}`}
-                  onClick={() => scrollToSection(index + 1)}
+                  onClick={(e) => scrollToSection(index + 1, e)}
                 >
                   {product}
                 </li>

@@ -3,7 +3,7 @@ import { Search } from "../../assets/images/icons/Icons";
 import { InputLogic } from "./InputLogic";
 import { IconButton } from "../Buttons/IconButton";
 
-export default function Input() {
+export const Input = () => {
   const { dispatch, value, getUserValue, sortProductsByUserInput } =
     InputLogic();
 
@@ -25,4 +25,4 @@ export default function Input() {
       </IconButton>
     </div>
   );
-}
+};

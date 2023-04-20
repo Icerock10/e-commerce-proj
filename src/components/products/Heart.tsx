@@ -4,7 +4,7 @@ import { useAppDispatch } from "../reducers/hooks";
 import { sortByLikes } from "../reducers/slices/productsSlice";
 import { IHeart } from "../interfaces/interfaces";
 
-export default function Heart({ id, liked }: IHeart) {
+export const Heart = ({ id, liked }: IHeart) => {
   const dispatch = useAppDispatch();
 
   const handleChange = (e: any) => {
@@ -21,4 +21,4 @@ export default function Heart({ id, liked }: IHeart) {
       <HeartIcon fill={liked ? "red" : "#152642"} data={id} />
     </span>
   );
-}
+};

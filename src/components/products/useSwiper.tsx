@@ -6,7 +6,7 @@ import {
   selectResetPixelsFlag,
 } from "../reducers/slices/productsSlice";
 
-function useSwiper(products: ProductFields[]) {
+export const useSwiper = (products: ProductFields[]) => {
   const flag = useAppSelector(selectResetPixelsFlag);
   const dispatch = useAppDispatch();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,6 +50,4 @@ function useSwiper(products: ProductFields[]) {
       px,
     },
   ];
-}
-
-export default useSwiper;
+};

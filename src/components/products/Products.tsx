@@ -4,15 +4,16 @@ import { ProductList } from "./ProductList";
 import { useProducts } from "./useProducts";
 import { ChevronDown, ChevronUp } from "../../assets/images/icons/Icons";
 import { ArrowButton } from "../Buttons/ArrowButton";
-import useScroll from "../header/useScroll";
-export default function Products() {
+import { ButtonRoles } from "../../enums/buttonRoles";
+import { useScroll } from "../commonHooks/useScroll";
+export const Products = () => {
   const { uniqueProducts, productsState, t } = useProducts();
   const { scrollIntoViewDependingOnDirection } = useScroll();
 
   return (
     <div className="container container__products">
       <ArrowButton
-        role="bottom"
+        role={ButtonRoles.BOTTOM}
         className="jumping-element"
         handleClick={() => scrollIntoViewDependingOnDirection("bottom")}
       >
@@ -34,7 +35,7 @@ export default function Products() {
         ))
       )}
       <ArrowButton
-        role="top"
+        role={ButtonRoles.TOP}
         className="jumping-element"
         handleClick={() => scrollIntoViewDependingOnDirection("top")}
       >
@@ -42,4 +43,4 @@ export default function Products() {
       </ArrowButton>
     </div>
   );
-}
+};

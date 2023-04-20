@@ -1,12 +1,12 @@
 import React from "react";
 import { languages } from "../../helpers/languages";
 import { CartIcon } from "../../assets/images/icons/Icons";
-import useSwitcher from "./useSwitcher";
+import { useSwitcher } from "./useSwitcher";
 import { useCart } from "./Cart/useCart";
-import { useClickOutside } from "../customHooks/useClickOutside";
-import { useVisibility } from "../customHooks/useVisibility";
+import { useClickOutside } from "../commonHooks/useClickOutside";
+import { useVisibility } from "../commonHooks/useVisibility";
 
-function Switcher() {
+export const Switcher = () => {
   const {
     showLanguagesList,
     languageText,
@@ -64,6 +64,4 @@ function Switcher() {
       </div>
     </div>
   );
-}
-
-export default Switcher;
+};

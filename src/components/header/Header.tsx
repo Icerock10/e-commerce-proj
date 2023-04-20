@@ -1,13 +1,13 @@
 import React from "react";
 import logo from "../../assets/images/logo.png";
 import { Menu } from "../../assets/images/icons/Icons";
-import Switcher from "./Switcher";
-import Input from "./Input";
+import { Switcher } from "./Switcher";
+import { Input } from "./Input";
 import "./Header.scss";
 import { Sidebar } from "./Sidebar";
 import { Menubar } from "./Menu/Menubar";
 import { Cart } from "./Cart/Cart";
-import { useVisibility } from "../customHooks/useVisibility";
+import { useVisibility } from "../commonHooks/useVisibility";
 
 export const Header = () => {
   const { toggleSidebarVisibility, isCartShown, productsInCartLength } =

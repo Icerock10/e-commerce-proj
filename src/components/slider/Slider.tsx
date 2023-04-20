@@ -2,10 +2,11 @@ import React from "react";
 import "./Slider.scss";
 import { useSlider } from "./useSlider";
 import { LeftArrow, RightArrow } from "../../assets/images/icons/Icons";
-import { useVisibility } from "../customHooks/useVisibility";
+import { useVisibility } from "../commonHooks/useVisibility";
 import { ArrowButton } from "../Buttons/ArrowButton";
 import { RoundedButton } from "../Buttons/RoundedButton";
-const Slider = () => {
+import { ButtonRoles } from "../../enums/buttonRoles";
+export const Slider = () => {
   const [
     {
       framesWithMultiLanguageTitles,
@@ -22,7 +23,7 @@ const Slider = () => {
         <div className="slider_btn__section">
           <ArrowButton
             className="slider__btn"
-            role="back"
+            role={ButtonRoles.BACK}
             handleClick={goToPrevFrame}
           >
             <LeftArrow />
@@ -31,13 +32,13 @@ const Slider = () => {
             handleClick={toggleCartVisibility}
             togglePopUp={togglePopUpVisibility}
             className="buynow__btn"
-            role="buyButton"
+            role={ButtonRoles.BUY_BUTTON}
           >
             {t("buyButton")}
           </RoundedButton>
           <ArrowButton
             className="slider__btn"
-            role="forward"
+            role={ButtonRoles.FORWARD}
             handleClick={goToNextFrame}
           >
             <RightArrow />
@@ -63,5 +64,3 @@ const Slider = () => {
     </>
   );
 };
-
-export default Slider;

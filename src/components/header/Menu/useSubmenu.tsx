@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { useAppDispatch } from "../../reducers/hooks";
 import { sortByCategory } from "../../reducers/slices/productsSlice";
-import SidebarLogic from "../useScroll";
+import { useScroll } from "../../commonHooks/useScroll";
 import { LanguageContext } from "../../../helpers/languageContext";
 import { getJSONParsed } from "../../../helpers/jsonParser";
 
 export const useSubmenu = () => {
   const dispatch = useAppDispatch();
-  const { scrollToSection } = SidebarLogic();
+  const { scrollToSection } = useScroll();
   const [isDropDownShown, setIsDropDownShown] = useState<boolean>(false);
   const { t } = useContext(LanguageContext);
 

@@ -14,8 +14,8 @@ export const visibilitySlice = createSlice({
 	name: "visibility",
 	initialState: visibilityState,
 	reducers: {
-		toggleVisibility: (state, action: PayloadAction<string>) => {
-			const fieldName = action.payload as keyof VisibilityConfig;
+		toggleVisibility: (state, action: PayloadAction<keyof VisibilityConfig>) => {
+			const fieldName = action.payload;
 			state[fieldName] = !state[fieldName];
 		 },
 	}
