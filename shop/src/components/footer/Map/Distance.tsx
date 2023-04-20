@@ -2,8 +2,8 @@ import React from "react";
 import commute from "../.././../assets/images/commute.png";
 import near from "../.././../assets/images/near.png";
 import { AlarmIcon } from "../../../assets/images/icons/Icons";
-import { Button } from "./Button";
 import { DistanceProps } from "../../interfaces/interfaces";
+import { IconButton } from "../../Buttons/IconButton";
 
 export const Distance = ({ leg, getToInitialPos }: DistanceProps) => {
   return (
@@ -15,10 +15,12 @@ export const Distance = ({ leg, getToInitialPos }: DistanceProps) => {
       <div className="result__duration">
         <AlarmIcon />
         <span>Duration: {leg?.duration?.text}</span>
+        <div className="btn__nav">
+          <IconButton className="borderless" handleClick={getToInitialPos}>
+            <img src={near} alt="location" />
+          </IconButton>
+        </div>
       </div>
-      <Button className="borderless" handleButtonClick={getToInitialPos}>
-        <img src={near} alt="location" />
-      </Button>
     </div>
   );
 };

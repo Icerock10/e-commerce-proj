@@ -1,6 +1,7 @@
 import React from "react";
 import { Search } from "../../assets/images/icons/Icons";
 import { InputLogic } from "./InputLogic";
+import { IconButton } from "../Buttons/IconButton";
 
 export default function Input() {
   const { dispatch, value, getUserValue, sortProductsByUserInput } =
@@ -16,16 +17,12 @@ export default function Input() {
         onKeyDown={(e) => e.key === "Enter" && sortProductsByUserInput()}
         value={value}
       />
-      <div className="input-group-append">
-        <button
-          className="btn btn-secondary"
-          type="button"
-          onClick={sortProductsByUserInput}
-          style={{ backgroundColor: "#f26522", borderColor: "#f26522" }}
-        >
-          <Search />
-        </button>
-      </div>
+      <IconButton
+        className="btn btn-secondary"
+        handleClick={sortProductsByUserInput}
+      >
+        <Search />
+      </IconButton>
     </div>
   );
 }

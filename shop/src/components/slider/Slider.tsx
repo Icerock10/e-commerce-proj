@@ -2,9 +2,9 @@ import React from "react";
 import "./Slider.scss";
 import { useSlider } from "./useSlider";
 import { LeftArrow, RightArrow } from "../../assets/images/icons/Icons";
-import Button from "./Button";
 import { useVisibility } from "../customHooks/useVisibility";
-
+import { ArrowButton } from "../Buttons/ArrowButton";
+import { RoundedButton } from "../Buttons/RoundedButton";
 const Slider = () => {
   const [
     {
@@ -20,28 +20,28 @@ const Slider = () => {
     <>
       <div className="container container_btn__section">
         <div className="slider_btn__section">
-          <Button
+          <ArrowButton
             className="slider__btn"
             role="back"
             handleClick={goToPrevFrame}
           >
             <LeftArrow />
-          </Button>
-          <Button
+          </ArrowButton>
+          <RoundedButton
             handleClick={toggleCartVisibility}
             togglePopUp={togglePopUpVisibility}
             className="buynow__btn"
             role="buyButton"
           >
             {t("buyButton")}
-          </Button>
-          <Button
+          </RoundedButton>
+          <ArrowButton
             className="slider__btn"
             role="forward"
             handleClick={goToNextFrame}
           >
             <RightArrow />
-          </Button>
+          </ArrowButton>
         </div>
       </div>
       {framesWithMultiLanguageTitles.map(

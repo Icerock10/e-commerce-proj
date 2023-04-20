@@ -3,7 +3,7 @@ import "./Products.scss";
 import { ProductList } from "./ProductList";
 import { useProducts } from "./useProducts";
 import { ChevronDown, ChevronUp } from "../../assets/images/icons/Icons";
-import { Button } from "./Button";
+import { ArrowButton } from "../Buttons/ArrowButton";
 import useScroll from "../header/useScroll";
 export default function Products() {
   const { uniqueProducts, productsState, t } = useProducts();
@@ -11,12 +11,13 @@ export default function Products() {
 
   return (
     <div className="container container__products">
-      <Button
+      <ArrowButton
         role="bottom"
+        className="jumping-element"
         handleClick={() => scrollIntoViewDependingOnDirection("bottom")}
       >
         <ChevronDown />
-      </Button>
+      </ArrowButton>
       {!productsState.length ? (
         <h1 style={{ textAlign: "center" }}>Nothing was found...</h1>
       ) : (
@@ -32,12 +33,13 @@ export default function Products() {
           />
         ))
       )}
-      <Button
+      <ArrowButton
         role="top"
+        className="jumping-element"
         handleClick={() => scrollIntoViewDependingOnDirection("top")}
       >
         <ChevronUp />
-      </Button>
+      </ArrowButton>
     </div>
   );
 }

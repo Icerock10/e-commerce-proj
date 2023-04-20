@@ -4,6 +4,7 @@ import { useCart } from "./useCart";
 import { LanguageContext } from "../../../helpers/languageContext";
 import { priceFormatWithCommas } from "../../../helpers/priceFormat";
 import { IChekout } from "../../interfaces/interfaces";
+import { RoundedButton } from "../../Buttons/RoundedButton";
 
 export const Checkout = ({ handleNotification, buttonTitle }: IChekout) => {
   const { t } = useContext(LanguageContext);
@@ -27,9 +28,12 @@ export const Checkout = ({ handleNotification, buttonTitle }: IChekout) => {
             {`$ ${priceFormatWithCommas(calculateTotalAmount(productsInCart))}`}
           </span>
         </div>
-        <button className="checkout__button" onClick={handleNotification}>
+        <RoundedButton
+          className="checkout__button"
+          handleClick={handleNotification}
+        >
           {buttonTitle}
-        </button>
+        </RoundedButton>
       </div>
     </div>
   );

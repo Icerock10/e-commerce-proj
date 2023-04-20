@@ -8,22 +8,22 @@ import { IFrame } from "../components/interfaces/interfaces";
 export const frames: IFrame[] = [
   {
     id: 1,
-    image: `${banner}`,
+    image: banner,
   },
   {
     id: 2,
-    image: `${Frame1}`,
+    image: Frame1,
   },
   {
     id: 3,
-    image: `${Frame3}`,
+    image: Frame3,
   },
   {
     id: 5,
-    image: `${Frame5}`,
+    image: Frame5,
   },
   {
     id: 6,
-    image: `${Frame6}`,
+    image: Frame6,
   },
 ];

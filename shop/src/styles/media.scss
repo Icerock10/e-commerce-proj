@@ -5,10 +5,6 @@
 		max-width: $container-md;
 		transition: max-width 400ms ease-in-out 0s;
 	}
-	.buynow__btn {
-		top: 9rem;
-		
-	}
 	.banner__text {
 		font-size: 1.5rem;
 		transition: font-size 0.5s;
@@ -17,9 +13,19 @@
   @media (max-width: 985px) {
 	.container {
 	  max-width: $container-sm;
+	  padding: 0 0.35rem;
 	}
+	.slider {
+		height: 40rem;
+	}
+	.container__products {
+		top: 28rem;
+  }
 	.container_btn__section {
 		top: 7rem;
+	}
+	.product__image {
+		height: 200px;
 	}
 	.main {
 		gap: 1rem;
@@ -30,7 +36,6 @@
 
  }
  @media (max-width: 760px) {
-	
 	.drop {display: none;}
 	.container {
 		max-width: $container-xs;
@@ -38,18 +43,29 @@
 	.header__box_switcher {
 		gap: 1rem;
 	}
+
 	.banner__text {
 		font-size: 1.1rem;
 	}
 }
 
+
   @media (max-width: 640px) {
 		.container {
 			width: 100%;
-			padding: 0 35px;
 		}
+		.container__products {
+			top: 25rem;
+	  }
+	  .card__container {
+		 flex-direction: column;
+		 padding: 0.5rem;
+	  }
+	  .radio_container {
+		display: none;
+	  }
 		.buynow__btn {
-			top: 7rem;
+			top: 12rem;
 		}
 		.main {
 			flex-wrap: wrap-reverse;
@@ -74,12 +90,19 @@
 		.container_btn__section {
 			top: 5rem;
 		}
+		footer {
+			top: 42vh;
+		}
    }
+	.jumping-element {
+		margin: 2rem auto;
+	}
 	@media (max-width: 420px) {
 		.container {
 			width: 100%;
 			padding: 0 15px;
 		}
+		
 		.main__menu > img {
 			height: 35px;
 		}

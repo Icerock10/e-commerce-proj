@@ -4,6 +4,7 @@ import Heart from "./Heart";
 import { Title } from "../interfaces/interfaces";
 import { useCart } from "../header/Cart/useCart";
 import { priceFormatWithCommas } from "../../helpers/priceFormat";
+import { RoundedButton } from "../Buttons/RoundedButton";
 
 export const ProductList: FC<Title> = ({ title, products, t }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
@@ -18,7 +19,7 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
       </h1>
       <div className="card__container" ref={containerRef}>
         {products.map((product) => {
-          const { id, heading, price, image, liked } = product;
+          const { id, heading, category, price, image, liked } = product;
           return (
             <div
               className="product"
@@ -32,12 +33,19 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
                   <span>{`$ ${priceFormatWithCommas(price)}`}</span>
                 </p>
                 <div className="product__image">
-                  <img src={image} alt="img" />
+                  <img
+                    style={{ height: `${category === "Laptops" && "70%"}` }}
+                    src={image}
+                    alt="img"
+                  />
                 </div>
                 <div className="card__footer">
-                  <button onClick={() => addProduct(product)}>
+                  <RoundedButton
+                    className="card__footer_btn"
+                    handleClick={() => addProduct(product)}
+                  >
                     {t("buyButton")}
-                  </button>
+                  </RoundedButton>
                   <Heart id={id} liked={liked} />
                 </div>
               </div>

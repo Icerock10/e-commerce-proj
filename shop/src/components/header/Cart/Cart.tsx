@@ -3,12 +3,12 @@ import { LanguageContext } from "../../../helpers/languageContext";
 import "./Cart.scss";
 import { useCart } from "./useCart";
 import { Checkbox } from "./Checkbox";
-import Button from "./Button";
 import { useClickOutside } from "../../customHooks/useClickOutside";
 import { priceFormatWithCommas } from "../../../helpers/priceFormat";
-import { PlusIcon, MinusIcon } from "../../../assets/images/icons/Icons";
+import { PlusIcon, MinusIcon, Trash } from "../../../assets/images/icons/Icons";
 import { ThankNotification } from "./ThankNotification";
 import { Checkout } from "./Checkout";
+import { IconButton } from "../../Buttons/IconButton";
 export const Cart = () => {
   const { cartRef } = useClickOutside();
   const {
@@ -34,8 +34,13 @@ export const Cart = () => {
           <>
             <div className="cart__wrapper_heading">
               <h2>{t("cart")}</h2>
-              <div className="cart__wrapper_remove">
-                <Button handleClick={() => removeSelectedProducts(isChecked)} />
+              <div
+                className="cart__wrapper_remove"
+                onClick={() => removeSelectedProducts(isChecked)}
+              >
+                <IconButton className="cart__button_remove">
+                  <Trash />
+                </IconButton>
                 <span>{t("remove")}</span>
               </div>
             </div>
@@ -59,59 +64,58 @@ export const Cart = () => {
               </div>
             </div>
             <div className="container__wrapper">
-              {productsInCart.map((product: any) => {
-                return (
-                  <div key={product.id} className="cart__container">
-                    <div className="cart__container_elem product-cart">
-                      <Checkbox
-                        checkedProp={product.checked}
-                        handleChange={getProductId}
-                        id={product.id}
-                      />
-                      <div className="cart__image">
-                        <img alt="product" src={product.image} />
-                      </div>
-                      <span style={{ marginLeft: "1rem" }}>
-                        {product.heading}
-                      </span>
-                    </div>
-                    <div className="cart__container_elem">
-                      <div className="quantity__elem">
-                        <div
-                          className="quantity__elem_operand"
-                          onClick={() =>
-                            calculateQuantityAmount(product.id, "subtract")
-                          }
-                        >
-                          <MinusIcon />
-                        </div>
-                        <span>{product.quantity}</span>
-                        <div
-                          className="quantity__elem_operand"
-                          onClick={() =>
-                            calculateQuantityAmount(product.id, "add")
-                          }
-                        >
-                          <PlusIcon />
-                        </div>
-                      </div>
-                      <div className="cart__wrapper_remove">
-                        <Button
-                          handleClick={() => handleProductRemove(product.id)}
+              {productsInCart.map(
+                ({ id, checked, image, heading, quantity, price }: any) => {
+                  return (
+                    <div key={id} className="cart__container">
+                      <div className="cart__container_elem product-cart">
+                        <Checkbox
+                          checkedProp={checked}
+                          handleChange={getProductId}
+                          id={id}
                         />
-                        <span>{t("remove")}</span>
+                        <div className="cart__image">
+                          <img alt="product" src={image} />
+                        </div>
+                        <span style={{ marginLeft: "1rem" }}>{heading}</span>
+                      </div>
+                      <div className="cart__container_elem">
+                        <div className="quantity__elem">
+                          <div
+                            className="quantity__elem_operand"
+                            onClick={() =>
+                              calculateQuantityAmount(id, "subtract")
+                            }
+                          >
+                            <MinusIcon />
+                          </div>
+                          <span>{quantity}</span>
+                          <div
+                            className="quantity__elem_operand"
+                            onClick={() => calculateQuantityAmount(id, "add")}
+                          >
+                            <PlusIcon />
+                          </div>
+                        </div>
+                        <div
+                          className="cart__wrapper_remove"
+                          onClick={() => handleProductRemove(id)}
+                        >
+                          <IconButton className="cart__button_remove">
+                            <Trash />
+                          </IconButton>
+                          <span>{t("remove")}</span>
+                        </div>
+                      </div>
+                      <div className="cart__container_elem price">
+                        <span>
+                          {`$${priceFormatWithCommas(price * quantity)}`}
+                        </span>
                       </div>
                     </div>
-                    <div className="cart__container_elem price">
-                      <span>
-                        {`$${priceFormatWithCommas(
-                          product.price * product.quantity
-                        )}`}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                }
+              )}
             </div>
             <Checkout
               handleNotification={showThankNotification}

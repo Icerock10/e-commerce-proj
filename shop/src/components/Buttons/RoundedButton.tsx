@@ -1,6 +1,6 @@
 import React from "react";
 
-interface ForwardBackButtonProps
+interface RoundedButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   role?: "back" | "forward" | "buyButton";
   className: string;
@@ -8,13 +8,13 @@ interface ForwardBackButtonProps
   togglePopUp?: () => void;
 }
 
-export default function Button({
+export const RoundedButton = ({
   role,
   handleClick,
   className,
   togglePopUp,
   children,
-}: ForwardBackButtonProps) {
+}: RoundedButtonProps) => {
   return (
     <button
       role={role}
@@ -26,4 +26,4 @@ export default function Button({
       {children}
     </button>
   );
-}
+};

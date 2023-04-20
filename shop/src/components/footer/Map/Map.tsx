@@ -8,8 +8,9 @@ import {
   Autocomplete,
 } from "@react-google-maps/api";
 import { Distance } from "./Distance";
-import { CloseInCircle } from "../../.././assets/images/icons/Icons";
-import { Button } from "./Button";
+import { Close } from "../../.././assets/images/icons/Icons";
+import { RoundedButton } from "../../Buttons/RoundedButton";
+import { IconButton } from "../../Buttons/IconButton";
 export const Map = () => {
   const {
     center,
@@ -53,15 +54,15 @@ export const Map = () => {
               ref={userRef}
             />
           </Autocomplete>
-          <Button
-            handleButtonClick={fetchDirections}
+          <RoundedButton
+            handleClick={fetchDirections}
             className="btn__calculate"
           >
             Calculate
-          </Button>
-          <Button className="borderless" handleButtonClick={clearDirections}>
-            <CloseInCircle />
-          </Button>
+          </RoundedButton>
+          <IconButton className="borderless" handleClick={clearDirections}>
+            <Close />
+          </IconButton>
         </div>
         <Distance
           leg={directions?.routes[0].legs[0]}
