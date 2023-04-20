@@ -1,10 +1,5 @@
 import React from "react";
-
-interface IconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  handleClick?: () => void;
-  className?: string;
-}
+import { IconButtonProps } from "../interfaces/interfaces";
 
 export const IconButton = ({
   className,

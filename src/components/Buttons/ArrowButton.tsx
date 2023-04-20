@@ -1,11 +1,5 @@
 import React from "react";
-
-interface ArrowButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  role?: "back" | "forward" | "top" | "bottom";
-  className: string;
-  handleClick: () => void;
-}
+import { ArrowButtonProps } from "../interfaces/interfaces";
 
 export const ArrowButton = ({
   role,

@@ -1,6 +1,4 @@
-import { BreakpointsTypes } from "../components/interfaces/interfaces";
-
-export const scrollBreakpoints: BreakpointsTypes[] = [
+export const scrollBreakpoints: {scrollTo: number}[] = [
 	{
 	  scrollTo: 0,
 	},

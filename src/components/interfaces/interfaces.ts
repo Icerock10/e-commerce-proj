@@ -1,5 +1,23 @@
-export interface BreakpointsTypes {
-	scrollTo: number
+
+
+export interface ArrowButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  role?: "back" | "forward" | "top" | "bottom";
+  className: string;
+  handleClick: () => void;
+}
+export interface IconButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  handleClick?: () => void;
+  className?: string;
+}
+
+export interface RoundedButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  role?: "back" | "forward" | "buyButton";
+  className: string;
+  handleClick: () => void;
+  togglePopUp?: () => void;
 }
 
 export const LIBRARIES: any = ["places"];
@@ -9,12 +27,12 @@ export interface ICart{
 	checkBoxIds: number[],
 }
  
- export type Quantity = {
+ export interface Quantity {
 	id: number,
 	operand: string
 }
 
-export type LikesPayloadProps = {
+export interface LikesPayloadProps {
 	productId: number, 
 	isProductLiked: boolean
 }
@@ -56,17 +74,17 @@ export interface ProductFields {
 	value: string
 }
 
-export type SortByCategoryPayload = {
+export interface SortByCategoryPayload {
 	product: string;
 	categoryOrSubCategory: 'category' | 'subCategory';
 	flag: boolean;
  };
 
- export type sortByKeyWordsPayload = {
+ export interface sortByKeyWordsPayload {
 	value: string,
 	flag: boolean
 }
-export type DistanceProps = {
+export interface DistanceProps {
 	leg: google.maps.DirectionsLeg | undefined;
 	getToInitialPos: () => void;
  };
@@ -82,12 +100,12 @@ export interface VisibilityConfig {
 	isThankNotificationShown: boolean
 	isPopupShown: boolean
 }
-export type IChekout = {
+export interface IChekout {
 	handleNotification: () => void;
 	buttonTitle: string;
  };
  
-export type IHeart = {
+export interface IHeart {
   id: number;
   liked: boolean;
 };
@@ -101,7 +119,7 @@ export interface SubmenuOptions {
 	dropdownClass?: string;
 	t?: any;
  }
- export type Menu = {
+ export interface Menu {
 	title: string,
 	submenu: string[]
 }

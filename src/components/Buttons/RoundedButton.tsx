@@ -1,12 +1,5 @@
 import React from "react";
-
-interface RoundedButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  role?: "back" | "forward" | "buyButton";
-  className: string;
-  handleClick: () => void;
-  togglePopUp?: () => void;
-}
+import { RoundedButtonProps } from "../interfaces/interfaces";
 
 export const RoundedButton = ({
   role,
