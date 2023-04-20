@@ -10,12 +10,13 @@ import { Cart } from "./Cart/Cart";
 import { useVisibility } from "../customHooks/useVisibility";
 
 export const Header = () => {
-  const { toggleSidebarVisibility, isCartShown } = useVisibility();
+  const { toggleSidebarVisibility, isCartShown, productsInCartLength } =
+    useVisibility();
 
   return (
     <>
       <Sidebar />
-      {isCartShown && <Cart />}
+      {productsInCartLength && isCartShown && <Cart />}
       <div className="container" style={{ zIndex: 3 }}>
         <div className="container__logo">
           <img alt="logo" src={logo}></img>

@@ -2,7 +2,7 @@
 @import "../../styles/mixins";
 
 .container__products {
-	top: 35rem;
+	top: 33rem;
 }
 .card__container {
 	display: flex;
@@ -60,14 +60,17 @@
 		@include hover-animation(color, $primary-color);
 	}
 	> span:hover {
-		// animation here
+		animation-name: jump;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
 	}
  }
 
  .radio_container {
 	display: flex;
 	justify-content: center;
-	padding-bottom: 5rem;
+	padding-bottom: 2rem;
  }
 
  .radio__overlay {
@@ -113,3 +116,28 @@
     color: #30302e;
     font-weight: 700;
 }
+
+
+.jumping-element {
+	position: relative;
+	border: none; 
+	background: transparent;
+	margin: 0 auto;
+	max-width: fit-content;
+	animation-name: jump;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+ }
+ 
+ @keyframes jump {
+	0% {
+	  transform: translateY(0);
+	}
+	50% {
+	  transform: translateY(-10px);
+	}
+	100% {
+	  transform: translateY(0);
+	}
+ }

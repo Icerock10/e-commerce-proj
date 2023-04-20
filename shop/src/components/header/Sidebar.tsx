@@ -1,5 +1,5 @@
 import React from "react";
-import SidebarLogic from "./SidebarLogic";
+import SidebarLogic from "./useScroll";
 import { Close } from "../.././assets/images/icons/Icons";
 import { useClickOutside } from "../customHooks/useClickOutside";
 import { useVisibility } from "../customHooks/useVisibility";

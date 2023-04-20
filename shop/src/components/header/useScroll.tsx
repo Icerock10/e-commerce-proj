@@ -1,7 +1,7 @@
 import React from "react";
 import { scrollBreakpoints } from "../../mocks/scrollBreakpoints";
 
-function SidebarLogic() {
+function useScroll() {
   const scrollToSection = (position: number): void => {
     const { scrollTo } = scrollBreakpoints[position];
     window.scrollTo({
@@ -10,10 +10,22 @@ function SidebarLogic() {
       behavior: "smooth",
     });
   };
+
+  const scrollIntoViewDependingOnDirection = (
+    direction: "top" | "bottom"
+  ): void => {
+    window.scrollTo({
+      top: direction === "top" ? 0 : document.body.scrollHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return {
     scrollToSection,
     scrollBreakpoints,
+    scrollIntoViewDependingOnDirection,
   };
 }
 
-export default SidebarLogic;
+export default useScroll;

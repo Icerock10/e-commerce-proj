@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useAppDispatch } from "../../reducers/hooks";
 import { sortByCategory } from "../../reducers/slices/productsSlice";
-import SidebarLogic from "../SidebarLogic";
+import SidebarLogic from "../useScroll";
 import { LanguageContext } from "../../../helpers/languageContext";
 import { getJSONParsed } from "../../../helpers/jsonParser";
 

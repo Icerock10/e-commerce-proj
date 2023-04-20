@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../reducers/hooks";
 import { sortByKeyWords, getUserValue } from "../reducers/slices/productsSlice";
-import SidebarLogic from "./SidebarLogic";
+import SidebarLogic from "./useScroll";
 
 export const InputLogic = () => {
   const dispatch = useAppDispatch();

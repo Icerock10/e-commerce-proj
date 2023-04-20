@@ -20,20 +20,28 @@ const Slider = () => {
     <>
       <div className="container container_btn__section">
         <div className="slider_btn__section">
-          <Button role="back" icon={<LeftArrow />} onClick={goToPrevFrame} />
-          <button
-            onClick={toggleCartVisibility}
-            onMouseEnter={togglePopUpVisibility}
-            onMouseLeave={togglePopUpVisibility}
+          <Button
+            className="slider__btn"
+            role="back"
+            handleClick={goToPrevFrame}
+          >
+            <LeftArrow />
+          </Button>
+          <Button
+            handleClick={toggleCartVisibility}
+            togglePopUp={togglePopUpVisibility}
             className="buynow__btn"
+            role="buyButton"
           >
             {t("buyButton")}
-          </button>
+          </Button>
           <Button
+            className="slider__btn"
             role="forward"
-            icon={<RightArrow />}
-            onClick={goToNextFrame}
-          />
+            handleClick={goToNextFrame}
+          >
+            <RightArrow />
+          </Button>
         </div>
       </div>
       {framesWithMultiLanguageTitles.map(

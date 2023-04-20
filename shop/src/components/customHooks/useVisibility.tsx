@@ -54,5 +54,6 @@ export const useVisibility = () => {
     toggleCartVisibility,
     isPopupShown,
     togglePopUpVisibility,
+    productsInCartLength,
   };
 };
