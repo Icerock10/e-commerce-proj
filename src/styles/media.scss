@@ -96,6 +96,33 @@
 			width: 100%;
 			padding: 0 0.9rem;
 		}
+		.cart__image + span{
+			margin-left: 0.5rem !important;
+		}
+		.notification__header, .notification__main {
+			font-size: small;
+			gap: 0.5rem;
+		}
+		.notification__order {
+			height: 17rem;
+		}
+		.notification__order_heading {
+			flex: 1 1 auto;
+		}
+		.cart__container {
+			padding: 0.5rem;
+		}
+		.product__cart {
+			flex: 0 0 55%;
+		}
+		.quantity__elem {
+			padding: 0.2rem;
+		}
+		.cart__wrapper {
+			width: 100%;
+			padding: 0.5rem;
+			font-size: small;
+				}
 		.map__widget {
 			max-width: 20rem;
 		}
