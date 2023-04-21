@@ -1,17 +1,21 @@
 import React from "react";
 import logo from "../../assets/images/logo.png";
-import { Menu } from "../../assets/images/icons/Icons";
+import { Menu, Search } from "../../assets/images/icons/Icons";
+import { IconButton } from "../Buttons/IconButton";
 import { Switcher } from "./Switcher";
-import { Input } from "./Input";
 import "./Header.scss";
 import { Sidebar } from "./Sidebar";
 import { Menubar } from "./Menu/Menubar";
 import { Cart } from "./Cart/Cart";
 import { useVisibility } from "../commonHooks/useVisibility";
+import { Input } from "../Inputs/Input";
+import { InputLogic } from "./InputLogic";
 
 export const Header = () => {
   const { toggleSidebarVisibility, isCartShown, productsInCartLength } =
     useVisibility();
+  const { dispatch, value, getUserValue, sortProductsByUserInput } =
+    InputLogic();
 
   return (
     <>
@@ -32,7 +36,23 @@ export const Header = () => {
             </div>
           </div>
           <Menubar />
-          <Input />
+          <div className="input__group" style={{ position: "relative" }}>
+            <Input
+              value={value}
+              className="input__group_form"
+              placeholder={"search"}
+              handleChange={(e) => dispatch(getUserValue(e.target.value))}
+              handleKeyDown={(e) =>
+                e.key === "Enter" && sortProductsByUserInput()
+              }
+            />
+            <IconButton
+              className="btn btn-secondary"
+              handleClick={sortProductsByUserInput}
+            >
+              <Search />
+            </IconButton>
+          </div>
           <Switcher />
         </div>
       </div>

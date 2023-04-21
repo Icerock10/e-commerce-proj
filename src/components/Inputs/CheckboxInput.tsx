@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { ICheckboxProps } from "../../interfaces/interfaces";
+import { ICheckboxProps } from "../interfaces/interfaces";
 
-export const Checkbox: FC<ICheckboxProps> = ({
+export const CheckboxInput: FC<ICheckboxProps> = ({
   checkedProp,
   id,
   handleChange,

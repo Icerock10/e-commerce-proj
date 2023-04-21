@@ -5,6 +5,7 @@ import { Title } from "../interfaces/interfaces";
 import { useCart } from "../header/Cart/useCart";
 import { priceFormatWithCommas } from "../../helpers/priceFormat";
 import { RoundedButton } from "../Buttons/RoundedButton";
+import { RadioInput } from "../Inputs/RadioInput";
 
 export const ProductList: FC<Title> = ({ title, products, t }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] =
@@ -61,10 +62,9 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
               htmlFor="bio"
               className="radio__overlay"
             >
-              <input
-                onClick={() => scrollToSelectedPage(index)}
+              <RadioInput
+                handleChange={() => scrollToSelectedPage(index)}
                 checked={currentPage === index}
-                readOnly
                 type="radio"
                 className={`radio_container__item`}
               />

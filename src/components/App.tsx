@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Slider />
       <Products />
-      {/* <Footer /> */}
+      <Footer />
     </LanguageContext.Provider>
   );
 }

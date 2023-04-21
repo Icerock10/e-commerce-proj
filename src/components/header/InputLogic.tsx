@@ -5,7 +5,7 @@ import { useScroll } from "../commonHooks/useScroll";
 
 export const InputLogic = () => {
   const dispatch = useAppDispatch();
-  const value = useAppSelector((state) => state.products.value);
+  const { value } = useAppSelector((state) => state.products);
   const { scrollToSection } = useScroll();
 
   const sortProductsByUserInput = (): void => {

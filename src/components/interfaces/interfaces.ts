@@ -36,7 +36,19 @@ export interface LikesPayloadProps {
 	productId: number, 
 	isProductLiked: boolean
 }
-
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  className?: string;
+  placeholder: string;
+  value?: string | number;
+}
+export interface RadioInputProps extends React.InputHTMLAttributes<HTMLInputElement> { 
+	handleChange: () => void;
+	className: string;
+	checked: boolean;
+}
  export interface ICheckboxProps {
 	checkedProp: undefined | boolean;
 	id: string | undefined;
@@ -98,7 +110,7 @@ export interface VisibilityConfig {
 	isLangListShown: boolean,
 	isCartShown: boolean,
 	isThankNotificationShown: boolean,
-	isPopupShown: boolean,
+	isPopupShown: boolean
 	isMapWidgetTextShown: boolean
 }
 export interface IChekout {

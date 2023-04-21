@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { LanguageContext } from "../../../helpers/languageContext";
 import "./Cart.scss";
 import { useCart } from "./useCart";
-import { Checkbox } from "./Checkbox";
+import { CheckboxInput } from "../../Inputs/CheckboxInput";
 import { useClickOutside } from "../../commonHooks/useClickOutside";
 import { priceFormatWithCommas } from "../../../helpers/priceFormat";
 import { PlusIcon, MinusIcon, Trash } from "../../../assets/images/icons/Icons";
@@ -46,7 +46,7 @@ export const Cart = () => {
             </div>
             <div className="cart__container cart__container_header">
               <div className="cart__container_elem product-cart">
-                <Checkbox
+                <CheckboxInput
                   id={undefined}
                   checkedProp={isChecked}
                   handleChange={() => selectAllCheckboxes(isChecked)}
@@ -69,7 +69,7 @@ export const Cart = () => {
                   return (
                     <div key={id} className="cart__container">
                       <div className="cart__container_elem product-cart">
-                        <Checkbox
+                        <CheckboxInput
                           checkedProp={checked}
                           handleChange={getProductId}
                           id={id}
