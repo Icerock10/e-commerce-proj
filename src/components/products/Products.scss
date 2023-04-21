@@ -1,143 +1,141 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
-.container__products, footer {
-	top: 35rem;
+.container__products,
+footer {
+  top: 35rem;
 }
 .card__container {
-	display: flex;
-	gap: 0.7rem;
-	overflow: hidden;
-	padding: 2rem;
- }
- 
- .price__container {
-	margin-bottom: 4rem;
-	@include price-style;
- }
+  display: flex;
+  gap: 0.7rem;
+  overflow: hidden;
+  padding: 2rem;
+}
 
- .product {
-	transition: transform 0.5s;
-	flex: 0 0 33.333333%;
-	box-shadow: 0 0 1.8rem 0.6rem #f0f0f0;
-	text-align: center;
-	height: max-content;
-	background-color: #fff;
-	padding: 1rem 1rem;
-	display: flex;
-	flex-direction: column;
-	&__price {
-		color: $secondary-color;
-	font-weight: 700;
-	margin-right: 1rem;
-	}
-	&__image {
-		height: 18rem;
-		object-fit: contain;
-		transition: all .5s;
-			&:hover {
-				transform: scale(1.1);
-				transition: all .5s;
-			}
-	}
- }
- 
- h4 {
-	font-size: calc(0.6rem + 0.7vw);
-    text-align: center;
+.price__container {
+  margin-bottom: 4rem;
+  @include price-style;
+}
+
+.product {
+  transition: transform 0.5s;
+  flex: 0 0 33.333333%;
+  box-shadow: 0 0 1.8rem 0.6rem #f0f0f0;
+  text-align: center;
+  height: max-content;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  &__price {
+    color: $secondary-color;
     font-weight: 700;
-    padding-bottom: 0.3rem;
- }
- 
- .card__footer {
-	padding-top: 3rem;
-	display: flex;
-	justify-content: space-between;
-	> span:hover {
-		animation-name: jump;
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
-	}
- }
+    margin-right: 1rem;
+  }
+  &__image {
+    height: 18rem;
+    object-fit: contain;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+  }
+}
+h4 {
+  font-size: calc(0.6rem + 0.7vw);
+  text-align: center;
+  font-weight: 700;
+  padding-bottom: 0.3rem;
+}
+.card__footer {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  > span:hover {
+    animation-name: jump;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+}
 .card__footer_btn {
-	color: $secondary-color;
-		font-weight: 700;
-		border: none;
-    	background-color: transparent;
-		@include hover-animation(color, $primary-color);
+  color: $secondary-color;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+  @include hover-animation(color, $primary-color);
 }
- .radio_container {
-	display: flex;
-	justify-content: center;
-	padding-bottom: 2rem;
- }
+.radio_container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
 
- .radio__overlay {
-	position: relative;
-	display: flex;
- }
- 
- input[type=radio] {
-	position: relative;
-	width: 0.9rem;
-	z-index: 1;
-	height: 1.2rem;
-	cursor: pointer;
-	opacity: 0;
-	&:checked + .circle:before {
-		background: $secondary-color;
-	 }
-	 &:hover + .circle {
-		border-color: $secondary-color;
-	}
- }
- .circle {
-	width: 1.25rem;
-	height: 1.25rem;
-	border: 3px solid #314547;
-	border-radius: 50%;
-	position: absolute;
- }
- .circle:before {
-	display: block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	height: 0.625rem;
-	width: 0.625rem;
-	content: "";
-	background: transparent;
-	border-radius: 50%;
- }
+.radio__overlay {
+  position: relative;
+  display: flex;
+}
+
+input[type="radio"] {
+  position: relative;
+  width: 0.9rem;
+  z-index: 1;
+  height: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  &:checked + .circle:before {
+    background: $secondary-color;
+  }
+  &:hover + .circle {
+    border-color: $secondary-color;
+  }
+}
+.circle {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 3px solid #314547;
+  border-radius: 50%;
+  position: absolute;
+}
+.circle:before {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 0.625rem;
+  width: 0.625rem;
+  content: "";
+  background: transparent;
+  border-radius: 50%;
+}
 .fashion_title {
-	font-size: calc(2.1rem + 0.9vw);
-    color: #30302e;
-    font-weight: 700;
+  font-size: calc(2.1rem + 0.9vw);
+  color: #30302e;
+  font-weight: 700;
 }
-
 
 .jumping-element {
-	position: relative;
-	border: none; 
-	background: transparent;
-	margin: 0 auto;
-	max-width: fit-content;
-	animation-name: jump;
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
- }
- 
- @keyframes jump {
-	0% {
-	  transform: translateY(0);
-	}
-	50% {
-	  transform: translateY(-0.5rem);
-	}
-	100% {
-	  transform: translateY(0);
-	}
- }
+  position: relative;
+  border: none;
+  background: transparent;
+  margin: 0 auto;
+  max-width: fit-content;
+  animation-name: jump;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

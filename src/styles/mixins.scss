@@ -1,75 +1,72 @@
-@import './variables';
-@import './fonts';
+@import "./variables";
+@import "./fonts";
 
 @mixin btn-style {
-	border-radius: 0.25rem;
-   padding: 0.3rem 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.3rem 0.75rem;
 }
 
 @mixin price-style {
-	font-family: 'Crimson Text SemiBold, sans-serif';
-	font-size: 1.2rem;
+  font-family: "Crimson Text SemiBold, sans-serif";
+  font-size: 1.2rem;
 }
- 
 
 @mixin custom-divider {
-	content: "";
-		display: block;
-		position: absolute;
-		height: 1px;
-		width: 95%;
-		border-bottom: 1px solid #eeeaea;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 95%;
+  border-bottom: 1px solid #eeeaea;
 }
 
 @mixin custom-scrollbar($track-color, $thumb-color, $thumb-hover-color) {
-	&::-webkit-scrollbar {
-	  width: 0.5em;
-	  height: 0.5em;
-	}
-	
-	&::-webkit-scrollbar-track {
-	  background-color: $track-color;
-	}
-	
-	&::-webkit-scrollbar-thumb {
-	  background-color: $thumb-color;
-	  border-radius: 1em;
-	}
-	
-	&::-webkit-scrollbar-thumb:hover {
-	  background-color: $thumb-hover-color;
-	}
-	&::-webkit-scrollbar-button {
-	  display: none;
-	}
- }
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
 
- @mixin hover-animation($property, $propertyColor) {
-	transition: all .5s ease-in-out;
-	cursor: pointer;
-	&:hover {
-	  #{$property}: #{$propertyColor};
-	}
- }
+  &::-webkit-scrollbar-track {
+    background-color: $track-color;
+  }
 
- @mixin hover-animation-switcher() {
-	transition: all .5s ease-in-out;
-	cursor: pointer;
-	&:hover {
-		background-color: $secondary-color;
-		color: $main-color;
-		opacity: 0.9;
-	 }
- }
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: 1em;
+  }
 
- @mixin custom-border {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	right: 10%;
-	height: 1px;
-	width: 80%;
-	border-bottom: 1px solid #eeeaea;
- }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $thumb-hover-color;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+}
 
- 
+@mixin hover-animation($property, $propertyColor) {
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    #{$property}: #{$propertyColor};
+  }
+}
+
+@mixin hover-animation-switcher() {
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: $secondary-color;
+    color: $main-color;
+    opacity: 0.9;
+  }
+}
+
+@mixin custom-border {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  height: 1px;
+  width: 80%;
+  border-bottom: 1px solid #eeeaea;
+}

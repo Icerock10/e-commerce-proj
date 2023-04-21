@@ -1,76 +1,126 @@
 {
-	"products": {
-		"categories": ["Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses", "Écouteuses",
-		"Téléphone", "Téléphone", "Téléphone",
-		"Portables", "Portables", "Portables", "Portables", "Portables", "Portables", "Portables", "Portables", "Portables"
-],
-"headings": ["Razer vert v2", "Razer Rose 21S", "Razer blanc v3", "Razer Requin v4", "Razer Noir X", "Sennheiser Noir", "HyperX Noir C2",
-	"HyperX Bleu V1", "HyperX Rouge v4", "Iphone 11 Rouge", "Iphone 12 Rouge", "Android 5 Rouge", "Acer Noir", "Asus Noir", "Bleu Acer", "Blanc d'Acer",
-	"Asus Blanc", "Blanc d'Acer","Acer doré", "Asus Doré", "Acer doré 3"
-]
-	 },
-	"frameTitles": {
-	"titles": ["Commencer", "Il y a plus", "Vendre uniquement", "Nous rendons la", "Prêt à fournissez"],
-	"subTitles": ["Vos courses préférées", "ici que vous ne le pensez", "les meilleures choses", "vente en ligne facile", "tout ce dont vous"]
-	},
-	"menuItems": [
-		{
-		  "submenu": [
-			{
-				"title": "Écouteuses",
-				"submenu": [
-				  {
-					 "title": "Razer"
-				  },
-				  {
-					 "title": "Hyperx"
-				  }
-				]
-			 },
-			 {
-				"title": "Téléphone",
-				"submenu": [
-				  {
-					 "title": "Iphone"
-				  },
-				  {
-					 "title": "Android"
-				  }
-				]
-			 },
-			 {
-				"title": "Portables",
-				"submenu": [
-				 {
-					"title": "Acer"
-				 },
-				 {
-					"title": "Asus"
-				 }
-			  ]
-			 }
-		  ]
-		}
-	 ],
-	"categories": "Catégories",
-	"search": "Cherchez dans ce blog...",
-	"cart": "Panier",
-	"buyButton": "ACHETER",
-	"price": "Prix",
-	"remove": "Retirer",
-	"product": "Produit",
-	"quantity": "Quantité",
-	"subtotal": "Total",
-	"discount": "Rabais",
-	"grandtotal": "Grand",
-	"checkout": "Passer à la caisse",
-	"order": "Merci pour votre commande!",
-	"confirmationOrder": "La confirmation de commande envoyée à votre email",
-	"date": "Date de la transaction",
-	"paymentMethod": "Mode de paiement",
-	"shippingMethod": "Mode de livraison",
-	"delivery": "Livraison express (1-3 jours ouvrables)",
-	"card": "Mastercard se terminant par ****",
-	"yourOrder": "Votre commande",
-	"continueShopping": "Continuer vos achats"
+  "products": {
+    "categories": [
+      "Écouteuses",
+      "Écouteuses",
+      "Écouteuses",
+      "Écouteuses",
+      "Écouteuses",
+      "Écouteuses",
+      "Écouteuses",
+      "Écouteuses",
+      "Écouteuses",
+      "Téléphone",
+      "Téléphone",
+      "Téléphone",
+      "Portables",
+      "Portables",
+      "Portables",
+      "Portables",
+      "Portables",
+      "Portables",
+      "Portables",
+      "Portables",
+      "Portables"
+    ],
+    "headings": [
+      "Razer vert v2",
+      "Razer Rose 21S",
+      "Razer blanc v3",
+      "Razer Requin v4",
+      "Razer Noir X",
+      "Sennheiser Noir",
+      "HyperX Noir C2",
+      "HyperX Bleu V1",
+      "HyperX Rouge v4",
+      "Iphone 11 Rouge",
+      "Iphone 12 Rouge",
+      "Android 5 Rouge",
+      "Acer Noir",
+      "Asus Noir",
+      "Bleu Acer",
+      "Blanc d'Acer",
+      "Asus Blanc",
+      "Blanc d'Acer",
+      "Acer doré",
+      "Asus Doré",
+      "Acer doré 3"
+    ]
+  },
+  "frameTitles": {
+    "titles": [
+      "Commencer",
+      "Il y a plus",
+      "Vendre uniquement",
+      "Nous rendons la",
+      "Prêt à fournissez"
+    ],
+    "subTitles": [
+      "Vos courses préférées",
+      "ici que vous ne le pensez",
+      "les meilleures choses",
+      "vente en ligne facile",
+      "tout ce dont vous"
+    ]
+  },
+  "menuItems": [
+    {
+      "submenu": [
+        {
+          "title": "Écouteuses",
+          "submenu": [
+            {
+              "title": "Razer"
+            },
+            {
+              "title": "Hyperx"
+            }
+          ]
+        },
+        {
+          "title": "Téléphone",
+          "submenu": [
+            {
+              "title": "Iphone"
+            },
+            {
+              "title": "Android"
+            }
+          ]
+        },
+        {
+          "title": "Portables",
+          "submenu": [
+            {
+              "title": "Acer"
+            },
+            {
+              "title": "Asus"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "categories": "Catégories",
+  "search": "Cherchez dans ce blog...",
+  "cart": "Panier",
+  "buyButton": "ACHETER",
+  "price": "Prix",
+  "remove": "Retirer",
+  "product": "Produit",
+  "quantity": "Quantité",
+  "subtotal": "Total",
+  "discount": "Rabais",
+  "grandtotal": "Grand",
+  "checkout": "Passer à la caisse",
+  "order": "Merci pour votre commande!",
+  "confirmationOrder": "La confirmation de commande envoyée à votre email",
+  "date": "Date de la transaction",
+  "paymentMethod": "Mode de paiement",
+  "shippingMethod": "Mode de livraison",
+  "delivery": "Livraison express (1-3 jours ouvrables)",
+  "card": "Mastercard se terminant par ****",
+  "yourOrder": "Votre commande",
+  "continueShopping": "Continuer vos achats"
 }

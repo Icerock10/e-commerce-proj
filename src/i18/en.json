@@ -1,79 +1,129 @@
 {
-	"products": {
-		"categories": ["Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones", "Headphones",
-		"Phones", "Phones", "Phones",
-		"Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops", "Laptops"
-	],
+  "products": {
+    "categories": [
+      "Headphones",
+      "Headphones",
+      "Headphones",
+      "Headphones",
+      "Headphones",
+      "Headphones",
+      "Headphones",
+      "Headphones",
+      "Headphones",
+      "Phones",
+      "Phones",
+      "Phones",
+      "Laptops",
+      "Laptops",
+      "Laptops",
+      "Laptops",
+      "Laptops",
+      "Laptops",
+      "Laptops",
+      "Laptops",
+      "Laptops"
+    ],
 
-	"headings": ["Razer Green v2", "Razer Pink 21S", "Razer White v3", "Razer Shark v4", "Razer Black X", "Senheiser Black", "HyperX Black C2",
-	"HyperX Blue V1", "HyperX Red v4", "Iphone 11 Red", "Iphone 12 Red", "Android 5 Red", "Acer Black", "Asus Black", "Acer Blue", "Acer White",
-	"Asus White", "Acer White","Acer Golden", "Asus Golden", "Acer Golden 3"
-]
-	 },
-	"frameTitles": {
-		"titles": ["Get start", "There's more", "Selling only", "We make", "Ready to"],
-		"subTitles": ["Your favorite shopping", "here than you expect", "the best things online", "selling superbly easy", "provide everything you need"]
-	},
-	
-	"menuItems": [
-		{
-		  "submenu": [
-			{
-				"title": "Headphones",
-				"submenu": [
-				  {
-					 "title": "Razer"
-				  },
-				  {
-					 "title": "Hyperx"
-				  }
-				]
-			 },
-			 {
-				"title": "Phones",
-				"submenu": [
-				  {
-					 "title": "Iphone"
-				  },
-				  {
-					 "title": "Android"
-				  }
-				]
-			 },
-			 {
-				"title": "Laptops",
-				"submenu": [
-				 {
-					"title": "Acer"
-				 },
-				 {
-					"title": "Asus"
-				 }
-			  ]
-			 }
-		  ]
-		}
-	 ],
-	 
-	"categories": "Categories",
-	"search": "Search this blog...",
-	"cart": "Cart",
-	"buyButton": "BUY NOW",
-	"price": "Price",
-	"remove": "Remove",
-	"product": "Product",
-	"quantity": "Quantity",
-	"subtotal": "Subtotal",
-	"discount": "Discount",
-	"grandtotal": "Grandtotal",
-	"checkout": "Checkout now",
-	"order": "Thanks for your order!",
-	"confirmationOrder": "The order confirmation sent to your email",
-	"date": "Transaction Date",
-	"paymentMethod": "Payment method",
-	"shippingMethod": "Shipping method",
-	"delivery": "Express delivery (1-3 business days)",
-	"card": "Mastercard ending with ****",
-	"yourOrder": "Your order",
-	"continueShopping": "Continue shopping"
+    "headings": [
+      "Razer Green v2",
+      "Razer Pink 21S",
+      "Razer White v3",
+      "Razer Shark v4",
+      "Razer Black X",
+      "Senheiser Black",
+      "HyperX Black C2",
+      "HyperX Blue V1",
+      "HyperX Red v4",
+      "Iphone 11 Red",
+      "Iphone 12 Red",
+      "Android 5 Red",
+      "Acer Black",
+      "Asus Black",
+      "Acer Blue",
+      "Acer White",
+      "Asus White",
+      "Acer White",
+      "Acer Golden",
+      "Asus Golden",
+      "Acer Golden 3"
+    ]
+  },
+  "frameTitles": {
+    "titles": [
+      "Get start",
+      "There's more",
+      "Selling only",
+      "We make",
+      "Ready to"
+    ],
+    "subTitles": [
+      "Your favorite shopping",
+      "here than you expect",
+      "the best things online",
+      "selling superbly easy",
+      "provide everything you need"
+    ]
+  },
+
+  "menuItems": [
+    {
+      "submenu": [
+        {
+          "title": "Headphones",
+          "submenu": [
+            {
+              "title": "Razer"
+            },
+            {
+              "title": "Hyperx"
+            }
+          ]
+        },
+        {
+          "title": "Phones",
+          "submenu": [
+            {
+              "title": "Iphone"
+            },
+            {
+              "title": "Android"
+            }
+          ]
+        },
+        {
+          "title": "Laptops",
+          "submenu": [
+            {
+              "title": "Acer"
+            },
+            {
+              "title": "Asus"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "categories": "Categories",
+  "search": "Search this blog...",
+  "cart": "Cart",
+  "buyButton": "BUY NOW",
+  "price": "Price",
+  "remove": "Remove",
+  "product": "Product",
+  "quantity": "Quantity",
+  "subtotal": "Subtotal",
+  "discount": "Discount",
+  "grandtotal": "Grandtotal",
+  "checkout": "Checkout now",
+  "order": "Thanks for your order!",
+  "confirmationOrder": "The order confirmation sent to your email",
+  "date": "Transaction Date",
+  "paymentMethod": "Payment method",
+  "shippingMethod": "Shipping method",
+  "delivery": "Express delivery (1-3 business days)",
+  "card": "Mastercard ending with ****",
+  "yourOrder": "Your order",
+  "continueShopping": "Continue shopping"
 }

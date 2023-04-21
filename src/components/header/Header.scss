@@ -1,227 +1,224 @@
-@import '../../styles/variables';
-@import '../../styles/mixins.scss';
-
-
+@import "../../styles/variables";
+@import "../../styles/mixins.scss";
 
 .notification {
-	position: fixed;
-	top: 0;
-	margin: 0 auto;
-	left: 45%;
-	padding: 2rem;
-	background-color: #495057;
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  left: 45%;
+  padding: 2rem;
+  background-color: #495057;
 }
 
 .sidebar {
-	position: fixed;
-	width: 15rem;
-	z-index: 4;
-	height: 100%;
-	background-color: $primary-color;
-	left: 0;
-	right: 0;
-	&__menu {
-		color: #fff;
-		font-size: 1.5rem;
-		position: relative;
-		> li {
-			padding: 0.5rem;
-			width: 50%;
-    		margin-left: 20%;
-			@include hover-animation(color, $secondary-color)
-		}
-	}
-	&__close {
-		color: #fff;
-		display: flex;
-		justify-content: flex-end;
-		padding: 1rem;
-		@include hover-animation(color, $secondary-color)
-	}
+  position: fixed;
+  width: 15rem;
+  z-index: 4;
+  height: 100%;
+  background-color: $primary-color;
+  left: 0;
+  right: 0;
+  &__menu {
+    color: #fff;
+    font-size: 1.5rem;
+    position: relative;
+    > li {
+      padding: 0.5rem;
+      width: 50%;
+      margin-left: 20%;
+      @include hover-animation(color, $secondary-color);
+    }
+  }
+  &__close {
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    @include hover-animation(color, $secondary-color);
+  }
 }
 
 // header box section starts ---------------------------------------------------------------- >
 .header__box {
-	flex: 0 0 auto;
-	&_switcher {
-		display: flex;
-		gap: 1rem;
-		align-items: center;
-	}
+  flex: 0 0 auto;
+  &_switcher {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
 }
 
 .switcher__group {
-	display: flex;
-	flex-direction: column;
-	position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 .switcher__group_wrapper {
-	position: absolute;
-	top: 2.8rem;
-	&:after {
-		position: absolute;
-		top: -7px;
-		left: 10%;
-		width: 0;
-		height: 0;
-		border-left: 8px solid transparent;
-		border-right: 8px solid transparent;
-		border-bottom: 8px solid #fff;
-		content: '';
-		display: block;
+  position: absolute;
+  top: 2.8rem;
+  &:after {
+    position: absolute;
+    top: -7px;
+    left: 10%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    content: "";
+    display: block;
   }
 }
 .lang {
-	@include btn-style;
-	background-color: $main-color;
-	color: #222;
-	@include hover-animation(color, $secondary-color);
-	cursor: pointer;
-	&:after {
-		content: "";
-		display: inline-block;
-		 width: 0;
-		 height: 0;
-		 margin-left: 0.255em;
-		 vertical-align: 0.255em;
-		 border-top: 0.3em solid;
-		 border-right: 0.3em solid transparent;
-		 border-bottom: 0;
-		 border-left: 0.3em solid transparent;
-	}
-	&_text {
-		margin: 0 0.3rem;
-	}
+  @include btn-style;
+  background-color: $main-color;
+  color: #222;
+  @include hover-animation(color, $secondary-color);
+  cursor: pointer;
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }
+  &_text {
+    margin: 0 0.3rem;
+  }
 }
 .language__list {
-	display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end;
-	 margin-right: 6.7rem;
-	 &_item {
-	 display: flex;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 6.7rem;
+  &_item {
+    display: flex;
     background-color: #fff;
     padding: 0.6rem 2rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0 0.3rem 0.9rem;
     align-items: center;
     justify-content: center;
-	 @include hover-animation-switcher();
-}
+    @include hover-animation-switcher();
+  }
 
-&_item > img {
-	margin-right: 0.9rem;
- }
+  &_item > img {
+    margin-right: 0.9rem;
+  }
 }
 .selected {
-	background-color: rgb(231 218 218);
+  background-color: rgb(231 218 218);
 }
 
 // header box section ends ---------------------------------------------------------------- >
 
 .container {
-	margin: 0 auto;
-	max-width: $container-lg;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	position: inherit;
-	&__logo {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		padding: 1.8rem 0;
-	}
+  margin: 0 auto;
+  max-width: $container-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: inherit;
+  &__logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1.8rem 0;
+  }
 }
 
 .main {
-	display: flex;
-	gap: 2rem;
-	align-items: center;
-	&__menu {
-		display: contents;
-	}
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  &__menu {
+    display: contents;
+  }
 }
 .input__group {
-	display: flex;
-	flex: 1 1 auto;
-	&_form {
-		width: 100%;
-		@include btn-style;
-		font-size: 1rem;
-		line-height: 1.5;
-		color: #495057;
-		background-color: $main-color;
-		background-clip: padding-box;
-		border: 1px solid $main-color;
-		&:focus {
-			outline: none;
-			box-shadow:
-       inset 0 -1em 1em #f5f3f3,
-             0 0  0 1px rgb(255,255,255),
-             0.1em 0.1em 1em rgb(230, 220, 220);
-		}
+  display: flex;
+  flex: 1 1 auto;
+  &_form {
+    width: 100%;
+    @include btn-style;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: $main-color;
+    background-clip: padding-box;
+    border: 1px solid $main-color;
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 -1em 1em #f5f3f3, 0 0 0 1px rgb(255, 255, 255),
+        0.1em 0.1em 1em rgb(230, 220, 220);
+    }
   }
 }
 .btn-secondary {
-	@include btn-style;
-	position: relative;
-	padding: 0.4rem 0.4rem;
-	right: 0.1rem;
-	display: flex;
-	color: $main-color;
-	background-color: #f26522; 
-	border-color: #f26522;
+  @include btn-style;
+  position: relative;
+  padding: 0.4rem 0.4rem;
+  right: 0.1rem;
+  display: flex;
+  color: $main-color;
+  background-color: #f26522;
+  border-color: #f26522;
 }
 .cart {
-	display: flex;
-	color: $main-color;
-	align-items: center;
-	position: relative;
-	@include hover-animation(color, $secondary-color);
-	&__icon {
-		margin-right: 1rem;
-	}
-	&__text {
-		font-size: 1.5rem;
-	}
-	&__number {
-		position: absolute;
-		bottom: 1.5rem;
-		left: 1.5rem;
-		width: 1.5rem;
-		height: 1.5rem;
-		background-color: #222;
-		border-radius: 50%;
-		text-align: center;
-	}
+  display: flex;
+  color: $main-color;
+  align-items: center;
+  position: relative;
+  @include hover-animation(color, $secondary-color);
+  &__icon {
+    margin-right: 1rem;
+  }
+  &__text {
+    font-size: 1.5rem;
+  }
+  &__number {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #222;
+    border-radius: 50%;
+    text-align: center;
+  }
 }
 
 .popup {
-	background-color: #fff;
-	 position: absolute;
-	 padding: 0.5rem 0.7rem;
-	 width: 10rem;
-	 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	 z-index: 1;
-	 box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-	 color: black;
-	 left: 1.5rem;
-	 top: 3rem;
-	 border-radius: 5px;
-	&:after {
-	 position: absolute;
-	 top: -7px;
-	 left: 10%;
-	 width: 0;
-	 height: 0;
-	 border-left: 8px solid transparent;
-	 border-right: 8px solid transparent;
-	 border-bottom: 8px solid #fff;
-	 content: "";
-	 display: block;
-	}
+  background-color: #fff;
+  position: absolute;
+  padding: 0.5rem 0.7rem;
+  width: 10rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  color: black;
+  left: 1.5rem;
+  top: 3rem;
+  border-radius: 5px;
+  &:after {
+    position: absolute;
+    top: -7px;
+    left: 10%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    content: "";
+    display: block;
+  }
 }
 
 .hidden {
-	display: none;
+  display: none;
 }

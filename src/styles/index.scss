@@ -1,13 +1,13 @@
-@import './mixins.scss';
-@import './variables';
+@import "./mixins.scss";
+@import "./variables";
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-ul,li
- {
+ul,
+li {
   list-style-type: none;
   padding: 0;
 }
@@ -37,22 +37,24 @@ dd {
   margin: 0;
 }
 body {
-	min-height: 100vh;
-	font-family: $fontFamily;
-	scroll-behavior: smooth;
-	text-rendering: optimizeSpeed;
-	line-height: 1.5;
-	@include custom-scrollbar(#f1f1f1, #888, #555);
- }
+  min-height: 100vh;
+  font-family: $fontFamily;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  @include custom-scrollbar(#f1f1f1, #888, #555);
+}
 #root {
-	position: relative;
-	z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 a {
-  text-decoration: none;	
+  text-decoration: none;
 }
-button, a, svg {
-	cursor: pointer;
+button,
+a,
+svg {
+  cursor: pointer;
 }
 img {
   max-width: 100%;
