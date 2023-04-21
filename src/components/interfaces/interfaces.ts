@@ -97,8 +97,9 @@ export interface VisibilityConfig {
 	isSidebarShown: boolean,
 	isLangListShown: boolean,
 	isCartShown: boolean,
-	isThankNotificationShown: boolean
-	isPopupShown: boolean
+	isThankNotificationShown: boolean,
+	isPopupShown: boolean,
+	isMapWidgetTextShown: boolean
 }
 export interface IChekout {
 	handleNotification: () => void;

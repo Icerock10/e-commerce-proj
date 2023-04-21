@@ -34,7 +34,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 10px 10px;
+		padding: 0.6rem;
 		background-color: rgb(242,222,172,.8);
 		transition: color .5s ease-in-out;
 		&:hover {
@@ -62,13 +62,11 @@
 
 	.buynow__btn {
 			width: 10rem;
-			font-size: 16px;
 			border: none;
 			color: #fff;
 			background-color: #252525;
 			text-align: center;
-			padding: 10px 0;
-			border-radius: 5px;
+			border-radius: 0.2rem;
 			text-transform: uppercase;
 			font-weight: 700;
 			top: 15rem;

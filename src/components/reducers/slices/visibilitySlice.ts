@@ -8,6 +8,7 @@ const visibilityState: VisibilityConfig = {
 	isCartShown: false,
 	isThankNotificationShown: false,
 	isPopupShown: false,
+	isMapWidgetTextShown: true,
 }
 
 export const visibilitySlice = createSlice({

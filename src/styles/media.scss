@@ -18,14 +18,14 @@
 	.slider {
 		height: 40rem;
 	}
-	.container__products {
+	.container__products, footer {
 		top: 28rem;
   }
 	.container_btn__section {
 		top: 7rem;
 	}
 	.product__image {
-		height: 200px;
+		height: 12.5rem;
 	}
 	.main {
 		gap: 1rem;
@@ -54,7 +54,7 @@
 		.container {
 			width: 100%;
 		}
-		.container__products {
+		.container__products, footer {
 			top: 25rem;
 	  }
 	  .card__container {
@@ -90,21 +90,17 @@
 		.container_btn__section {
 			top: 5rem;
 		}
-		footer {
-			top: 42vh;
-		}
    }
-	.jumping-element {
-		margin: 2rem auto;
-	}
 	@media (max-width: 420px) {
 		.container {
 			width: 100%;
-			padding: 0 15px;
+			padding: 0 0.9rem;
 		}
-		
+		.map__widget {
+			max-width: 20rem;
+		}
 		.main__menu > img {
-			height: 35px;
+			height: 2.1rem;
 		}
 		.banner__text {
 			font-size: 0.5rem;

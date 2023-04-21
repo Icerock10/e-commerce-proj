@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <>
       <Sidebar />
-      {productsInCartLength && isCartShown && <Cart />}
+      {!productsInCartLength ? null : isCartShown && <Cart />}
       <div className="container" style={{ zIndex: 3 }}>
         <div className="container__logo">
           <img alt="logo" src={logo}></img>
@@ -27,7 +27,7 @@ export const Header = () => {
             style={{ color: "#fff" }}
             onClick={() => toggleSidebarVisibility()}
           >
-            <div className="burger__menu">
+            <div className="burger__menu" style={{ height: "50px" }}>
               <Menu />
             </div>
           </div>

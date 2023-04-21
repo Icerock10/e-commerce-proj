@@ -14,7 +14,7 @@
 
 .sidebar {
 	position: fixed;
-	width: 250px;
+	width: 15rem;
 	z-index: 4;
 	height: 100%;
 	background-color: $primary-color;
@@ -90,7 +90,7 @@
 		 border-left: 0.3em solid transparent;
 	}
 	&_text {
-		margin: 0 5px;
+		margin: 0 0.3rem;
 	}
 }
 .language__list {
@@ -102,14 +102,14 @@
 	 display: flex;
     background-color: #fff;
     padding: 0.6rem 2rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 0.3rem 0.9rem;
     align-items: center;
     justify-content: center;
 	 @include hover-animation-switcher();
 }
 
 &_item > img {
-	margin-right: 15px;
+	margin-right: 0.9rem;
  }
 }
 .selected {
@@ -129,7 +129,7 @@
 		width: 100%;
 		display: flex;
 		justify-content: center;
-		padding: 30px 0;
+		padding: 1.8rem 0;
 	}
 }
 
@@ -166,7 +166,7 @@
 	@include btn-style;
 	position: relative;
 	padding: 0.4rem 0.4rem;
-	right: 2px;
+	right: 0.1rem;
 	display: flex;
 	color: $main-color;
 	background-color: #f26522; 
@@ -179,7 +179,7 @@
 	position: relative;
 	@include hover-animation(color, $secondary-color);
 	&__icon {
-		margin-right: 16px;
+		margin-right: 1rem;
 	}
 	&__text {
 		font-size: 1.5rem;
@@ -188,8 +188,8 @@
 		position: absolute;
 		bottom: 1.5rem;
 		left: 1.5rem;
-		width: 25px;
-		height: 25px;
+		width: 1.5rem;
+		height: 1.5rem;
 		background-color: #222;
 		border-radius: 50%;
 		text-align: center;

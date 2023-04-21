@@ -13,6 +13,7 @@ import {
   LatLngLiteral,
   MapOptions,
 } from "../../interfaces/interfaces";
+import { useVisibility } from "../../commonHooks/useVisibility";
 
 export const useMap = () => {
   const { isLoaded } = useJsApiLoader({
@@ -20,7 +21,7 @@ export const useMap = () => {
     libraries: LIBRARIES,
     language: "en-US",
   });
-
+  const { toggleWidgetText } = useVisibility();
   const center = useMemo<LatLngLiteral>(
     () => ({ lat: 49.845545, lng: 24.029465 }),
     []
@@ -53,6 +54,7 @@ export const useMap = () => {
       (result, status) => {
         if (status === "OK" && result) {
           setDirections(result);
+          toggleWidgetText();
         }
       }
     );
@@ -61,6 +63,7 @@ export const useMap = () => {
   const clearDirections = () => {
     if (!userRef.current) return;
     setDirections(null);
+    toggleWidgetText();
     mapRef.current?.panTo(center);
     userRef.current.value = "";
   };

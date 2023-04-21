@@ -15,6 +15,7 @@ export const useVisibility = () => {
     isCartShown,
     isThankNotificationShown,
     isPopupShown,
+    isMapWidgetTextShown,
   } = useAppSelector(getVisibilityState);
 
   useEffect(() => {
@@ -34,6 +35,14 @@ export const useVisibility = () => {
   };
   const showThankNotification = () => {
     dispatch(toggleVisibility("isThankNotificationShown"));
+  };
+  const toggleWidgetText = () => {
+    const innerWidth = window.innerWidth;
+    if (innerWidth > 450) return;
+    if (innerWidth < 450) {
+      return dispatch(toggleVisibility("isMapWidgetTextShown"));
+    }
+    dispatch(toggleVisibility("isMapWidgetTextShown"));
   };
   const toggleCartVisibility = () => {
     if (!productsInCartLength) return;
@@ -55,5 +64,7 @@ export const useVisibility = () => {
     isPopupShown,
     togglePopUpVisibility,
     productsInCartLength,
+    isMapWidgetTextShown,
+    toggleWidgetText,
   };
 };

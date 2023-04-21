@@ -17,7 +17,11 @@ export const Heart = ({ id, liked }: IHeart) => {
   };
 
   return (
-    <span onClick={(e) => handleChange(e)} data-id={id}>
+    <span
+      onClick={(e) => handleChange(e)}
+      data-id={id}
+      style={{ display: "grid" }}
+    >
       <HeartIcon fill={liked ? "red" : "#152642"} data={id} />
     </span>
   );

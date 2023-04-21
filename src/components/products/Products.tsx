@@ -6,6 +6,7 @@ import { ChevronDown, ChevronUp } from "../../assets/images/icons/Icons";
 import { ArrowButton } from "../Buttons/ArrowButton";
 import { ButtonRoles } from "../../enums/buttonRoles";
 import { useScroll } from "../commonHooks/useScroll";
+
 export const Products = () => {
   const { uniqueProducts, productsState, t } = useProducts();
   const { scrollIntoViewDependingOnDirection } = useScroll();
