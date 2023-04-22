@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ProductFields } from "../interfaces/interfaces";
+import { ProductFields } from "../../interfaces/interfaces";
 import { useAppSelector, useAppDispatch } from "../globalHooks/reduxHooks";
 import {
   resetPixelsAfterNewCategory,

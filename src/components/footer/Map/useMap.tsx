@@ -6,13 +6,13 @@ import React, {
   useCallback,
 } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
-import { LIBRARIES } from "../../interfaces/interfaces";
+import { LIBRARIES } from "../../../interfaces/interfaces";
 import { GoogleMap } from "@react-google-maps/api";
 import {
   DirectionsResult,
   LatLngLiteral,
   MapOptions,
-} from "../../interfaces/interfaces";
+} from "../../../interfaces/interfaces";
 import { useVisibility } from "../../globalHooks/useVisibility";
 
 export const useMap = () => {

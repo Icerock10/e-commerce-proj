@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState, AppThunk } from "../store";
-import { ProductFields, Quantity, ICart } from "../../interfaces/interfaces";
+import { ProductFields, Quantity, ICart } from "../../../interfaces/interfaces";
 
 const cartState: ICart = {
   productsInCart: [],

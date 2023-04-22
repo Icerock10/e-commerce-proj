@@ -2,7 +2,7 @@ import React from "react";
 import commute from "../../../assets/images/commute.png";
 import near from "../../../assets/images/near.png";
 import { AlarmIcon } from "../../../assets/images/icons/Icons";
-import { DistanceProps } from "../../interfaces/interfaces";
+import { DistanceProps } from "../../../interfaces/interfaces";
 import { IconButton } from "../../Buttons/IconButton";
 import { useVisibility } from "../../globalHooks/useVisibility";
 

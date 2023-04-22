@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { VisibilityConfig } from "../../interfaces/interfaces";
+import { VisibilityConfig } from "../../../interfaces/interfaces";
 
 const visibilityState: VisibilityConfig = {
   isSidebarShown: false,

@@ -1,5 +1,5 @@
 import React from "react";
-import { InputProps } from "../interfaces/interfaces";
+import { InputProps } from "../../interfaces/interfaces";
 
 export const Input = ({ handleChange, handleKeyDown, ...rest }: InputProps) => {
   return (

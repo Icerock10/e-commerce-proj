@@ -1,5 +1,5 @@
-import { ButtonRoles } from "../../enums/buttonRoles";
-import { categoryKeys } from "../../enums/categoryKeys";
+import { ButtonRoles } from "../enums/buttonRoles";
+import { categoryKeys } from "../enums/categoryKeys";
 export interface ArrowButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   role?: ButtonRoles;

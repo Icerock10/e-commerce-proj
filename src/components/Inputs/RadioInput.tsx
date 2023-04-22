@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { RadioInputProps } from "../interfaces/interfaces";
+import { RadioInputProps } from "../../interfaces/interfaces";
 
 export const RadioInput: FC<RadioInputProps> = ({
   handleChange,

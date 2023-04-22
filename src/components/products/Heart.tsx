@@ -2,7 +2,7 @@ import React from "react";
 import { HeartIcon } from "../../assets/images/icons/Icons";
 import { useAppDispatch } from "../globalHooks/reduxHooks";
 import { sortByLikes } from "../reducers/slices/productsSlice";
-import { IHeart } from "../interfaces/interfaces";
+import { IHeart } from "../../interfaces/interfaces";
 
 export const Heart = ({ id, liked }: IHeart) => {
   const dispatch = useAppDispatch();

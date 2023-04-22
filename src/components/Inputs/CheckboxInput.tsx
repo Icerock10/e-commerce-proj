@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ICheckboxProps } from "../interfaces/interfaces";
+import { ICheckboxProps } from "../../interfaces/interfaces";
 
 export const CheckboxInput: FC<ICheckboxProps> = ({
   checkedProp,

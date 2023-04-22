@@ -1,4 +1,4 @@
-import { ProductFields } from "../components/interfaces/interfaces";
+import { ProductFields } from "../interfaces/interfaces";
 
 export const calculateTotalAmount = (products: ProductFields[]): number => {
   return products.reduce(

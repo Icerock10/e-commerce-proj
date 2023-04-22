@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButtonProps } from "../interfaces/interfaces";
+import { IconButtonProps } from "../../interfaces/interfaces";
 
 export const IconButton = ({
   className,

@@ -1,6 +1,6 @@
 import uk_Flag from "../assets/images/flag-uk.png";
 import fr_Flag from "../assets/images/flag-france.png";
-import { LanguageMap } from "../components/interfaces/interfaces";
+import { LanguageMap } from "../interfaces/interfaces";
 
 export const languages: LanguageMap = {
   French: fr_Flag,

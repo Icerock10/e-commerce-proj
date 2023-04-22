@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowButtonProps } from "../interfaces/interfaces";
+import { ArrowButtonProps } from "../../interfaces/interfaces";
 
 export const ArrowButton = ({
   role,

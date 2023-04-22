@@ -10,7 +10,7 @@ import {
   sortByKeyWordsPayload,
   ProductFields,
   LikesPayloadProps,
-} from "../../interfaces/interfaces";
+} from "../../../interfaces/interfaces";
 
 const initialState: IProduct = {
   products: [],

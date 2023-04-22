@@ -5,7 +5,7 @@ import {
   ChevronDoubleRight,
   ChevronDoubleDown,
 } from "../../../assets/images/icons/Icons";
-import { SubmenuOptions } from "../../interfaces/interfaces";
+import { SubmenuOptions } from "../../../interfaces/interfaces";
 
 export const Submenu: FC<SubmenuOptions> = ({
   items,

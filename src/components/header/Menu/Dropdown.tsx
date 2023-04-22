@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Submenu } from "./Submenu";
-import { DropdownConfig, Menu } from "../../interfaces/interfaces";
+import { DropdownConfig, Menu } from "../../../interfaces/interfaces";
 
 export const Dropdown: FC<DropdownConfig> = ({
   depthLevel,

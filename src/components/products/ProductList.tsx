@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useSwiper } from "./useSwiper";
 import { Heart } from "./Heart";
-import { Title } from "../interfaces/interfaces";
+import { Title } from "../../interfaces/interfaces";
 import { useCart } from "../header/Cart/useCart";
 import { priceFormatWithCommas } from "../../helpers/priceFormat";
 import { RoundedButton } from "../Buttons/RoundedButton";

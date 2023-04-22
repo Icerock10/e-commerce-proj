@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Menubar.scss";
 import { Submenu } from "./Submenu";
 import { useSubmenu } from "./useSubmenu";
-import { Menu } from "../../interfaces/interfaces";
+import { Menu } from "../../../interfaces/interfaces";
 export const Menubar = () => {
   const { menuItems, t } = useSubmenu();
 
