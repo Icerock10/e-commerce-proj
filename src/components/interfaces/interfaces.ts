@@ -1,5 +1,5 @@
 import { ButtonRoles } from "../../enums/buttonRoles";
-
+import { categoryKeys } from "../../enums/categoryKeys";
 export interface ArrowButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   role?: ButtonRoles;
@@ -89,7 +89,7 @@ export interface IProduct {
 
 export interface SortByCategoryPayload {
   product: string;
-  categoryOrSubCategory: "category" | "subCategory";
+  categoryOrSubCategory: categoryKeys;
   flag: boolean;
 }
 

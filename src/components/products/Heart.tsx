@@ -1,6 +1,6 @@
 import React from "react";
 import { HeartIcon } from "../../assets/images/icons/Icons";
-import { useAppDispatch } from "../reducers/hooks";
+import { useAppDispatch } from "../globalHooks/reduxHooks";
 import { sortByLikes } from "../reducers/slices/productsSlice";
 import { IHeart } from "../interfaces/interfaces";
 

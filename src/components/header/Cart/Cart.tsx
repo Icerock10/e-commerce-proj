@@ -3,7 +3,7 @@ import { LanguageContext } from "../../../helpers/languageContext";
 import "./Cart.scss";
 import { useCart } from "./useCart";
 import { CheckboxInput } from "../../Inputs/CheckboxInput";
-import { useClickOutside } from "../../commonHooks/useClickOutside";
+import { useClickOutside } from "../../globalHooks/useClickOutside";
 import { priceFormatWithCommas } from "../../../helpers/priceFormat";
 import { PlusIcon, MinusIcon, Trash } from "../../../assets/images/icons/Icons";
 import { ThankNotification } from "./ThankNotification";

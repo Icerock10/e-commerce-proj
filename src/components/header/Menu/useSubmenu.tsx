@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { useAppDispatch } from "../../reducers/hooks";
+import { useAppDispatch } from "../../globalHooks/reduxHooks";
 import { sortByCategory } from "../../reducers/slices/productsSlice";
-import { useScroll } from "../../commonHooks/useScroll";
+import { useScroll } from "../../globalHooks/useScroll";
 import { LanguageContext } from "../../../helpers/languageContext";
 import { getJSONParsed } from "../../../helpers/jsonParser";
 
@@ -21,6 +21,8 @@ export const useSubmenu = () => {
     if (type === "click") {
       const product = target.closest("div").textContent;
       const category = target.closest("div").dataset.category;
+      if (!category) return setIsDropDownShown(!isDropDownShown);
+
       dispatch(
         sortByCategory({
           product: product,

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useCallback } from "react";
 import { frames } from "../../mocks/frames";
 import { LanguageContext } from "../../helpers/languageContext";
-import { useAppSelector, useAppDispatch } from "../reducers/hooks";
+import { useAppSelector, useAppDispatch } from "../globalHooks/reduxHooks";
 import { getFramesAsync, getCurrentFrame } from "../reducers/slices/frameSlice";
 import { getJSONParsed } from "../../helpers/jsonParser";
 

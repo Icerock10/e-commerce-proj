@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../reducers/hooks";
+import { useAppDispatch, useAppSelector } from "../globalHooks/reduxHooks";
 import { getProductsInCartLength } from "../reducers/slices/cartSlice";
 import {
   toggleVisibility,
@@ -52,6 +52,10 @@ export const useVisibility = () => {
     if (productsInCartLength) return;
     dispatch(toggleVisibility("isPopupShown"));
   };
+  const isCartShownDependingOnLength = () => {
+    if (!productsInCartLength) return null;
+    return isCartShown;
+  };
   return {
     showLanguagesList,
     isLangListShown,
@@ -66,5 +70,6 @@ export const useVisibility = () => {
     productsInCartLength,
     isMapWidgetTextShown,
     toggleWidgetText,
+    isCartShownDependingOnLength,
   };
 };

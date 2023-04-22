@@ -3,8 +3,9 @@ import { languages } from "../../helpers/languages";
 import { CartIcon } from "../../assets/images/icons/Icons";
 import { useSwitcher } from "./useSwitcher";
 import { useCart } from "./Cart/useCart";
-import { useClickOutside } from "../commonHooks/useClickOutside";
-import { useVisibility } from "../commonHooks/useVisibility";
+import { useClickOutside } from "../globalHooks/useClickOutside";
+import { useVisibility } from "../globalHooks/useVisibility";
+import { languageListClasses } from "../classUtils/classUtils";
 
 export const Switcher = () => {
   const {
@@ -24,7 +25,11 @@ export const Switcher = () => {
       <div className="header__box_switcher">
         <div className="switcher__group">
           <span onClick={() => showLanguagesList()} className="lang">
-            <img alt="switcher" src={languages[languageText]} />
+            <img
+              style={{ height: "0.6rem" }}
+              alt="switcher"
+              src={languages[languageText]}
+            />
             <span className="lang_text">{languageText}</span>
           </span>
           {isLangListShown && (
@@ -33,12 +38,14 @@ export const Switcher = () => {
                 return (
                   <span
                     key={`key-${i}`}
-                    className={`language__list_item ${
-                      languageText === language && "selected"
-                    }`}
+                    className={languageListClasses(language, languageText)}
                     onClick={() => getLanguageSwitched(language)}
                   >
-                    <img src={languages[language]} alt="flags" />
+                    <img
+                      src={languages[language]}
+                      alt="flags"
+                      style={{ height: "0.6rem" }}
+                    />
                     {language}
                   </span>
                 );

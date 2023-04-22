@@ -74,6 +74,7 @@ export const cartSlice = createSlice({
       const { id, operand } = action.payload;
       const updatedProducts = state.productsInCart.map((product) => {
         if (product.id === id) {
+          if (product.quantity === 10 && operand === "add") return product;
           return {
             ...product,
             quantity:

@@ -100,7 +100,6 @@
     display: flex;
     background-color: #fff;
     padding: 0.6rem 2rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0 0.3rem 0.9rem;
     align-items: center;
     justify-content: center;
     @include hover-animation-switcher();
@@ -142,6 +141,13 @@
 .input__group {
   display: flex;
   flex: 1 1 auto;
+  &_close-btn {
+    border: none;
+    position: absolute;
+    right: 2.5rem;
+    bottom: 0;
+    color: #495057;
+  }
   &_form {
     width: 100%;
     @include btn-style;

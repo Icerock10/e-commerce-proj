@@ -2,8 +2,9 @@ import React from "react";
 import "./Slider.scss";
 import { useSlider } from "./useSlider";
 import { LeftArrow, RightArrow } from "../../assets/images/icons/Icons";
-import { useVisibility } from "../commonHooks/useVisibility";
+import { useVisibility } from "../globalHooks/useVisibility";
 import { ArrowButton } from "../Buttons/ArrowButton";
+import { sliderClasses } from "../classUtils/classUtils";
 import { RoundedButton } from "../Buttons/RoundedButton";
 import { ButtonRoles } from "../../enums/buttonRoles";
 export const Slider = () => {
@@ -55,7 +56,7 @@ export const Slider = () => {
               </h1>
             </div>
             <div
-              className={`slider ${index === currentFrame ? "active" : ""}`}
+              className={sliderClasses(index, currentFrame)}
               style={{ backgroundImage: `url(${image})` }}
             ></div>
           </div>

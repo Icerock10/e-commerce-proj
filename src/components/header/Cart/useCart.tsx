@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../reducers/hooks";
+import { useAppDispatch, useAppSelector } from "../../globalHooks/reduxHooks";
 import {
   addProductToCart,
   removeProduct,
@@ -10,7 +10,7 @@ import {
   selectAllProductsInCart,
   getProductIdAsync,
 } from "../../reducers/slices/cartSlice";
-import { useVisibility } from "../../commonHooks/useVisibility";
+import { useVisibility } from "../../globalHooks/useVisibility";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();

@@ -1,7 +1,11 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../reducers/hooks";
-import { sortByKeyWords, getUserValue } from "../reducers/slices/productsSlice";
-import { useScroll } from "../commonHooks/useScroll";
+import { useAppDispatch, useAppSelector } from "../globalHooks/reduxHooks";
+import {
+  sortByKeyWords,
+  getUserValue,
+  resetSearch,
+} from "../reducers/slices/productsSlice";
+import { useScroll } from "../globalHooks/useScroll";
 
 export const InputLogic = () => {
   const dispatch = useAppDispatch();
@@ -12,10 +16,14 @@ export const InputLogic = () => {
     dispatch(sortByKeyWords({ value: value, flag: true }));
     scrollToSection(1);
   };
+  const resetSortProducts = () => {
+    dispatch(resetSearch());
+  };
   return {
     dispatch,
     value,
     getUserValue,
     sortProductsByUserInput,
+    resetSortProducts,
   };
 };

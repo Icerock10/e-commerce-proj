@@ -1,8 +1,8 @@
 import React from "react";
-import { useScroll } from "../commonHooks/useScroll";
+import { useScroll } from "../globalHooks/useScroll";
 import { Close } from "../.././assets/images/icons/Icons";
-import { useClickOutside } from "../commonHooks/useClickOutside";
-import { useVisibility } from "../commonHooks/useVisibility";
+import { useClickOutside } from "../globalHooks/useClickOutside";
+import { useVisibility } from "../globalHooks/useVisibility";
 import { useProducts } from "../products/useProducts";
 
 export const Sidebar = () => {

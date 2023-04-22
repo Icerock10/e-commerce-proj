@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ProductFields } from "../interfaces/interfaces";
-import { useAppSelector, useAppDispatch } from "../reducers/hooks";
+import { useAppSelector, useAppDispatch } from "../globalHooks/reduxHooks";
 import {
   resetPixelsAfterNewCategory,
   selectResetPixelsFlag,
@@ -13,7 +13,7 @@ export const useSwiper = (products: ProductFields[]) => {
 
   const [px, setPx] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const pages: number = Math.floor(products.length / 3);
+  const pages: number = Math.round(products.length / 3);
 
   const scrollToSelectedPage = (index: number): void => {
     const scrollPixelGap: number = 14;

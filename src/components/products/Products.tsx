@@ -5,7 +5,7 @@ import { useProducts } from "./useProducts";
 import { ChevronDown, ChevronUp } from "../../assets/images/icons/Icons";
 import { ArrowButton } from "../Buttons/ArrowButton";
 import { ButtonRoles } from "../../enums/buttonRoles";
-import { useScroll } from "../commonHooks/useScroll";
+import { useScroll } from "../globalHooks/useScroll";
 
 export const Products = () => {
   const { uniqueProducts, productsState, t } = useProducts();

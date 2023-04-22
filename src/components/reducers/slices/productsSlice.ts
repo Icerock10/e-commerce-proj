@@ -30,6 +30,12 @@ export const productsSlice = createSlice({
         originalProduts: action.payload,
       };
     },
+    resetSearch: (state) => {
+      return {
+        ...state,
+        products: state.originalProduts,
+      };
+    },
     getUserValue: (state, action: PayloadAction<string>) => {
       return {
         ...state,
@@ -39,28 +45,21 @@ export const productsSlice = createSlice({
     sortByCategory: (state, action: PayloadAction<SortByCategoryPayload>) => {
       const { product, categoryOrSubCategory, flag } = action.payload;
       const filteredProductsByCategory = filterProductsByCategory(
-        categoryOrSubCategory === "category"
-          ? state.originalProduts
-          : state.products,
+        state.originalProduts,
         categoryOrSubCategory,
         product
       );
       return {
         ...state,
-        products: filteredProductsByCategory.length
-          ? filteredProductsByCategory
-          : state.originalProduts,
+        products: filteredProductsByCategory,
         resetPixels: flag,
       };
     },
     sortByKeyWords: (state, action: PayloadAction<sortByKeyWordsPayload>) => {
       const { value, flag } = action.payload;
-      const searchedProducts = filterProductsByUserInput(value, state.products);
       return {
         ...state,
-        products: searchedProducts.length
-          ? searchedProducts
-          : filterProductsByUserInput(value, state.originalProduts),
+        products: filterProductsByUserInput(value, state.originalProduts),
         resetPixels: flag,
         value: "",
       };
@@ -73,21 +72,18 @@ export const productsSlice = createSlice({
     },
     sortByLikes: (state, action: PayloadAction<LikesPayloadProps>) => {
       const { productId, isProductLiked } = action.payload;
-
-      const updatedProducts = state.products.map(
-        ({ id, liked, ...product }) => {
-          if (id === productId) {
-            localStorage.setItem(`heart${productId}`, productId.toString());
-            const storageKey = localStorage.getItem(`heart${productId}`);
-            if (!isProductLiked && Number(storageKey) === productId) {
-              localStorage.removeItem(`heart${productId}`);
-            }
-            return { ...product, id, liked: isProductLiked };
+      const updatedProducts = state.products.map((product) => {
+        const storageKey = `heart${product.id}`;
+        if (product.id === productId) {
+          if (isProductLiked) {
+            localStorage.setItem(storageKey, productId.toString());
+          } else {
+            localStorage.removeItem(storageKey);
           }
-          return { ...product, id, liked };
+          return { ...product, liked: isProductLiked };
         }
-      );
-
+        return product;
+      });
       return {
         ...state,
         products: updatedProducts,
@@ -103,6 +99,7 @@ export const {
   getUserValue,
   sortByLikes,
   updateProducts,
+  resetSearch,
 } = productsSlice.actions;
 
 export const selectAllProducts = (state: RootState) => state.products.products;

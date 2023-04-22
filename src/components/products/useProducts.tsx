@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../reducers/hooks";
+import { useAppSelector, useAppDispatch } from "../globalHooks/reduxHooks";
 import { getJSONParsed } from "../../helpers/jsonParser";
 import { products } from "../../mocks/products";
 import { getLikedProductsFromLocalStorage } from "../../helpers/getLikesFromStorage";

@@ -4,7 +4,7 @@ import near from "../../../assets/images/near.png";
 import { AlarmIcon } from "../../../assets/images/icons/Icons";
 import { DistanceProps } from "../../interfaces/interfaces";
 import { IconButton } from "../../Buttons/IconButton";
-import { useVisibility } from "../../commonHooks/useVisibility";
+import { useVisibility } from "../../globalHooks/useVisibility";
 
 export const Distance = ({ leg, getToInitialPos }: DistanceProps) => {
   const { isMapWidgetTextShown } = useVisibility();

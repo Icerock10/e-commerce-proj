@@ -13,7 +13,7 @@ import {
   LatLngLiteral,
   MapOptions,
 } from "../../interfaces/interfaces";
-import { useVisibility } from "../../commonHooks/useVisibility";
+import { useVisibility } from "../../globalHooks/useVisibility";
 
 export const useMap = () => {
   const { isLoaded } = useJsApiLoader({

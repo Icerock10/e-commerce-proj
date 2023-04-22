@@ -1,26 +1,31 @@
 import React from "react";
 import logo from "../../assets/images/logo.png";
-import { Menu, Search } from "../../assets/images/icons/Icons";
+import { Menu, Search, Close } from "../../assets/images/icons/Icons";
 import { IconButton } from "../Buttons/IconButton";
 import { Switcher } from "./Switcher";
 import "./Header.scss";
 import { Sidebar } from "./Sidebar";
 import { Menubar } from "./Menu/Menubar";
 import { Cart } from "./Cart/Cart";
-import { useVisibility } from "../commonHooks/useVisibility";
+import { useVisibility } from "../globalHooks/useVisibility";
 import { Input } from "../Inputs/Input";
 import { InputLogic } from "./InputLogic";
 
 export const Header = () => {
-  const { toggleSidebarVisibility, isCartShown, productsInCartLength } =
+  const { toggleSidebarVisibility, isCartShownDependingOnLength } =
     useVisibility();
-  const { dispatch, value, getUserValue, sortProductsByUserInput } =
-    InputLogic();
+  const {
+    dispatch,
+    value,
+    getUserValue,
+    sortProductsByUserInput,
+    resetSortProducts,
+  } = InputLogic();
 
   return (
     <>
       <Sidebar />
-      {!productsInCartLength ? null : isCartShown && <Cart />}
+      {isCartShownDependingOnLength() && <Cart />}
       <div className="container" style={{ zIndex: 3 }}>
         <div className="container__logo">
           <img alt="logo" src={logo}></img>
@@ -46,6 +51,12 @@ export const Header = () => {
                 e.key === "Enter" && sortProductsByUserInput()
               }
             />
+            <IconButton
+              className="input__group_close-btn"
+              handleClick={resetSortProducts}
+            >
+              <Close />
+            </IconButton>
             <IconButton
               className="btn btn-secondary"
               handleClick={sortProductsByUserInput}

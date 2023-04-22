@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { LanguageContext } from "../../helpers/languageContext";
-import { useAppSelector, useAppDispatch } from "../reducers/hooks";
+import { useAppSelector, useAppDispatch } from "../globalHooks/reduxHooks";
 import {
   changeLanguage,
   getLanguageText,
 } from ".././reducers/slices/switcherSlice";
 import { getProductsInCartLength } from "../reducers/slices/cartSlice";
-import { useVisibility } from "../commonHooks/useVisibility";
+import { useVisibility } from "../globalHooks/useVisibility";
 
 export const useSwitcher = () => {
   const { showLanguagesList, isLangListShown } = useVisibility();
