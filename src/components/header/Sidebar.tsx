@@ -1,9 +1,9 @@
-import React from "react";
-import { useScroll } from "../globalHooks/useScroll";
-import { Close } from "../.././assets/images/icons/Icons";
-import { useClickOutside } from "../globalHooks/useClickOutside";
-import { useVisibility } from "../globalHooks/useVisibility";
-import { useProducts } from "../products/useProducts";
+import React from 'react';
+import { useScroll } from '../globalHooks/useScroll';
+import { Close } from '../.././assets/images/icons/Icons';
+import { useClickOutside } from '../globalHooks/useClickOutside';
+import { useVisibility } from '../globalHooks/useVisibility';
+import { useProducts } from '../products/useProducts';
 
 export const Sidebar = () => {
   const { scrollToSection } = useScroll();
@@ -14,20 +14,14 @@ export const Sidebar = () => {
   return (
     <>
       {isSidebarShown && (
-        <div className="sidebar" ref={sideBarRef}>
-          <div
-            onClick={() => toggleSidebarVisibility()}
-            className="sidebar__close"
-          >
+        <div className='sidebar' ref={sideBarRef}>
+          <div onClick={() => toggleSidebarVisibility()} className='sidebar__close'>
             <Close />
           </div>
-          <ul className="sidebar__menu">
+          <ul className='sidebar__menu'>
             {uniqueProducts.map((product, index) => {
               return (
-                <li
-                  key={`key-${index}`}
-                  onClick={(e) => scrollToSection(index + 1, e)}
-                >
+                <li key={`key-${index}`} onClick={(e) => scrollToSection(index + 1, e)}>
                   {product}
                 </li>
               );

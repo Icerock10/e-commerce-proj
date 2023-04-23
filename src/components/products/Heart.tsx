@@ -1,14 +1,14 @@
-import React from "react";
-import { HeartIcon } from "../../assets/images/icons/Icons";
-import { useAppDispatch } from "../globalHooks/reduxHooks";
-import { sortByLikes } from "../reducers/slices/productsSlice";
-import { IHeart } from "../../interfaces/interfaces";
+import React from 'react';
+import { HeartIcon } from '../../assets/images/icons/Icons';
+import { useAppDispatch } from '../globalHooks/reduxHooks';
+import { sortByLikes } from '../reducers/slices/productsSlice';
+import { IHeart } from '../../interfaces/interfaces';
 
 export const Heart = ({ id, liked }: IHeart) => {
   const dispatch = useAppDispatch();
 
   const handleChange = (e: any) => {
-    const currentID = e.currentTarget.getAttribute("data-id");
+    const currentID = e.currentTarget.getAttribute('data-id');
     const productId = Number(currentID);
     if (productId === id) {
       dispatch(sortByLikes({ productId: id, isProductLiked: !liked }));
@@ -17,12 +17,8 @@ export const Heart = ({ id, liked }: IHeart) => {
   };
 
   return (
-    <span
-      onClick={(e) => handleChange(e)}
-      data-id={id}
-      style={{ display: "grid" }}
-    >
-      <HeartIcon fill={liked ? "red" : "#152642"} data={id} />
+    <span onClick={(e) => handleChange(e)} data-id={id} style={{ display: 'grid' }}>
+      <HeartIcon fill={liked ? 'red' : '#152642'} data={id} />
     </span>
   );
 };

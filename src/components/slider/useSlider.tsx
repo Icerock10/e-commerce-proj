@@ -1,9 +1,9 @@
-import React, { useEffect, useContext, useCallback } from "react";
-import { frames } from "../../mocks/frames";
-import { LanguageContext } from "../../helpers/languageContext";
-import { useAppSelector, useAppDispatch } from "../globalHooks/reduxHooks";
-import { getFramesAsync, getCurrentFrame } from "../reducers/slices/frameSlice";
-import { getJSONParsed } from "../../helpers/jsonParser";
+import React, { useEffect, useContext, useCallback } from 'react';
+import { frames } from '../../mocks/frames';
+import { LanguageContext } from '../../helpers/languageContext';
+import { useAppSelector, useAppDispatch } from '../globalHooks/reduxHooks';
+import { getFramesAsync, getCurrentFrame } from '../reducers/slices/frameSlice';
+import { getJSONParsed } from '../../helpers/jsonParser';
 
 export const useSlider = () => {
   const currentFrame = useAppSelector(getCurrentFrame);
@@ -12,7 +12,7 @@ export const useSlider = () => {
   const totalFrames: number = frames.length;
 
   const { titles, subTitles } = getJSONParsed(
-    t("frameTitles", {
+    t('frameTitles', {
       returnObjects: true,
     })
   );
@@ -24,11 +24,11 @@ export const useSlider = () => {
   }));
 
   const goToNextFrame = useCallback((): void => {
-    dispatch(getFramesAsync(totalFrames, "next"));
+    dispatch(getFramesAsync(totalFrames, 'next'));
   }, [dispatch, totalFrames]);
 
   const goToPrevFrame = (): void => {
-    dispatch(getFramesAsync(totalFrames, "prev"));
+    dispatch(getFramesAsync(totalFrames, 'prev'));
   };
   useEffect(() => {
     const framesInterval = setInterval(() => {

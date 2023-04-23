@@ -1,26 +1,23 @@
-import { ButtonRoles } from "../enums/buttonRoles";
-import { categoryKeys } from "../enums/categoryKeys";
-export interface ArrowButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+import { ButtonRoles } from '../enums/buttonRoles';
+import { categoryKeys } from '../enums/categoryKeys';
+export interface ArrowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   role?: ButtonRoles;
   className: string;
   handleClick: () => void;
 }
-export interface IconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   handleClick?: () => void;
   className?: string;
 }
 
-export interface RoundedButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface RoundedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   role?: ButtonRoles;
   className: string;
   handleClick: () => void;
   togglePopUp?: () => void;
 }
 
-export const LIBRARIES: any = ["places"];
+export const LIBRARIES: any = ['places'];
 export interface ICart {
   productsInCart: ProductFields[];
   isChecked: boolean;
@@ -36,16 +33,14 @@ export interface LikesPayloadProps {
   productId: number;
   isProductLiked: boolean;
 }
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   className?: string;
   placeholder: string;
   value?: string | number;
 }
-export interface RadioInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   handleChange: () => void;
   className: string;
   checked: boolean;

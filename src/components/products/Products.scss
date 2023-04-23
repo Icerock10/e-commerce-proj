@@ -1,5 +1,5 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .container__products,
 footer {
@@ -77,7 +77,7 @@ h4 {
   display: flex;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   position: relative;
   width: 0.9rem;
   z-index: 1;
@@ -106,7 +106,7 @@ input[type="radio"] {
   transform: translate(-50%, -50%);
   height: 0.625rem;
   width: 0.625rem;
-  content: "";
+  content: '';
   background: transparent;
   border-radius: 50%;
 }

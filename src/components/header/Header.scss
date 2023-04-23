@@ -1,5 +1,5 @@
-@import "../../styles/variables";
-@import "../../styles/mixins.scss";
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
 
 .notification {
   position: fixed;
@@ -65,7 +65,7 @@
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid #fff;
-    content: "";
+    content: '';
     display: block;
   }
 }
@@ -76,7 +76,7 @@
   @include hover-animation(color, $secondary-color);
   cursor: pointer;
   &:after {
-    content: "";
+    content: '';
     display: inline-block;
     width: 0;
     height: 0;
@@ -204,10 +204,9 @@
   position: absolute;
   padding: 0.5rem 0.7rem;
   width: 10rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   z-index: 1;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   color: black;
   left: 1.5rem;
   top: 3rem;
@@ -221,7 +220,7 @@
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid #fff;
-    content: "";
+    content: '';
     display: block;
   }
 }

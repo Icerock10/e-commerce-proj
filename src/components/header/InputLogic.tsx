@@ -1,11 +1,7 @@
-import React from "react";
-import { useAppDispatch, useAppSelector } from "../globalHooks/reduxHooks";
-import {
-  sortByKeyWords,
-  getUserValue,
-  resetSearch,
-} from "../reducers/slices/productsSlice";
-import { useScroll } from "../globalHooks/useScroll";
+import React from 'react';
+import { useAppDispatch, useAppSelector } from '../globalHooks/reduxHooks';
+import { sortByKeyWords, getUserValue, resetSearch } from '../reducers/slices/productsSlice';
+import { useScroll } from '../globalHooks/useScroll';
 
 export const InputLogic = () => {
   const dispatch = useAppDispatch();

@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-import { ProductFields } from "../../interfaces/interfaces";
-import { useAppSelector, useAppDispatch } from "../globalHooks/reduxHooks";
+import React, { useRef, useEffect, useState } from 'react';
+import { ProductFields } from '../../interfaces/interfaces';
+import { useAppSelector, useAppDispatch } from '../globalHooks/reduxHooks';
 import {
   resetPixelsAfterNewCategory,
   selectResetPixelsFlag,
-} from "../reducers/slices/productsSlice";
+} from '../reducers/slices/productsSlice';
 
 export const useSwiper = (products: ProductFields[]) => {
   const flag = useAppSelector(selectResetPixelsFlag);

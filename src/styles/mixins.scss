@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./fonts";
+@import './variables';
+@import './fonts';
 
 @mixin btn-style {
   border-radius: 0.25rem;
@@ -7,12 +7,12 @@
 }
 
 @mixin price-style {
-  font-family: "Crimson Text SemiBold, sans-serif";
+  font-family: 'Crimson Text SemiBold, sans-serif';
   font-size: 1.2rem;
 }
 
 @mixin custom-divider {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   height: 1px;
@@ -62,7 +62,7 @@
 }
 
 @mixin custom-border {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   right: 10%;

@@ -1,26 +1,23 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
-import {
-  filterProductsByCategory,
-  filterProductsByUserInput,
-} from "../../../helpers/filters";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '../store';
+import { filterProductsByCategory, filterProductsByUserInput } from '../../../helpers/filters';
 import {
   IProduct,
   SortByCategoryPayload,
   sortByKeyWordsPayload,
   ProductFields,
   LikesPayloadProps,
-} from "../../../interfaces/interfaces";
+} from '../../../interfaces/interfaces';
 
 const initialState: IProduct = {
   products: [],
   originalProduts: [],
   resetPixels: false,
-  value: "",
+  value: '',
 };
 
 export const productsSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {
     updateProducts: (state, action: PayloadAction<ProductFields[]>) => {
@@ -61,7 +58,7 @@ export const productsSlice = createSlice({
         ...state,
         products: filterProductsByUserInput(value, state.originalProduts),
         resetPixels: flag,
-        value: "",
+        value: '',
       };
     },
     resetPixelsAfterNewCategory: (state, action: PayloadAction<boolean>) => {
@@ -103,6 +100,5 @@ export const {
 } = productsSlice.actions;
 
 export const selectAllProducts = (state: RootState) => state.products.products;
-export const selectResetPixelsFlag = (state: RootState) =>
-  state.products.resetPixels;
+export const selectResetPixelsFlag = (state: RootState) => state.products.resetPixels;
 export default productsSlice.reducer;

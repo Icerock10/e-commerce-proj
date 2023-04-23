@@ -1,17 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from ".././store";
-import { LocalStorageKeys } from "../../../enums/localStorageKeys";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '.././store';
+import { LocalStorageKeys } from '../../../enums/localStorageKeys';
 
-const currentLanguage: string | null = localStorage.getItem(
-  LocalStorageKeys.I_18_NEXT_LANG
-);
+const currentLanguage: string | null = localStorage.getItem(LocalStorageKeys.I_18_NEXT_LANG);
 
 const switcher: { languageText: string } = {
-  languageText: currentLanguage === "fr" ? "French" : "English",
+  languageText: currentLanguage === 'fr' ? 'French' : 'English',
 };
 
 export const switcherSlice = createSlice({
-  name: "switcher",
+  name: 'switcher',
   initialState: switcher,
   reducers: {
     changeLanguage: (state, action: PayloadAction<string>) => {
@@ -21,6 +19,5 @@ export const switcherSlice = createSlice({
 });
 
 export const { changeLanguage } = switcherSlice.actions;
-export const getLanguageText = (state: RootState) =>
-  state.switcher.languageText;
+export const getLanguageText = (state: RootState) => state.switcher.languageText;
 export default switcherSlice.reducer;

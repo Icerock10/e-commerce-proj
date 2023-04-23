@@ -1,5 +1,5 @@
-import React from "react";
-import { RoundedButtonProps } from "../../interfaces/interfaces";
+import React from 'react';
+import { RoundedButtonProps } from '../../interfaces/interfaces';
 
 export const RoundedButton = ({
   role,

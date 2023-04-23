@@ -1,16 +1,15 @@
-import React, { FC } from "react";
-import { Submenu } from "./Submenu";
-import { DropdownConfig, Menu } from "../../../interfaces/interfaces";
+import React, { FC } from 'react';
+import { Submenu } from './Submenu';
+import { DropdownConfig, Menu } from '../../../interfaces/interfaces';
+import { dropdownClasses } from '../../classUtils/classUtils';
 
-export const Dropdown: FC<DropdownConfig> = ({
-  depthLevel,
-  submenus,
-  dropdown,
-}) => {
+export const Dropdown: FC<DropdownConfig> = ({ depthLevel, submenus, dropdown }) => {
   depthLevel += 1;
-  const dropdownClass = depthLevel > 1 ? "dropdown__submenu" : "";
+
+  const dropdownClass = depthLevel > 1 ? 'dropdown__submenu' : '';
+
   return (
-    <ul className={`dropdown ${dropdownClass} ${dropdown ? "show" : ""}`}>
+    <ul className={`${dropdownClass} ${dropdownClasses(dropdown)}`}>
       {submenus.map((submenu: Menu, index: number) => (
         <Submenu
           key={index}

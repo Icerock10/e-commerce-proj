@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState, AppThunk } from "../store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { RootState, AppThunk } from '../store';
 
 export const frameSlice = createSlice({
-  name: "frames",
+  name: 'frames',
   initialState: 0,
   reducers: {
     nextFrame: (state, action: PayloadAction<number>) => {
@@ -19,8 +19,8 @@ export const getCurrentFrame = (state: RootState) => state.frames;
 export default frameSlice.reducer;
 
 export const getFramesAsync =
-  (totalFrames: number, direction: "prev" | "next"): AppThunk =>
+  (totalFrames: number, direction: 'prev' | 'next'): AppThunk =>
   (dispatch) => {
-    const action = direction === "prev" ? prevFrame : nextFrame;
+    const action = direction === 'prev' ? prevFrame : nextFrame;
     return dispatch(action(totalFrames));
   };

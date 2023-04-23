@@ -1,4 +1,4 @@
 export enum categoryKeys {
-  CATEGORY = "category",
-  SUBCATEGORY = "subCategory",
+  CATEGORY = 'category',
+  SUBCATEGORY = 'subCategory',
 }

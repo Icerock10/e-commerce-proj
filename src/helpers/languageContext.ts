@@ -1,5 +1,5 @@
-import i18n from "i18next";
-import React, { createContext } from "react";
+import i18n from 'i18next';
+import React, { createContext } from 'react';
 
 interface TranslationContextValue {
   t: (key: string, options?: {}) => string;

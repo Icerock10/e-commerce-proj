@@ -1,4 +1,4 @@
-import { ProductFields } from "../interfaces/interfaces";
+import { ProductFields } from '../interfaces/interfaces';
 
 export function filterProductsByCategory(
   state: ProductFields[],
@@ -18,10 +18,7 @@ export function filterProductsByUserInput(
   products.forEach((product) => {
     let score = 0;
     Object.values(product).forEach((value) => {
-      if (
-        typeof value === "string" &&
-        value.toLowerCase().includes(userInput.toLowerCase())
-      ) {
+      if (typeof value === 'string' && value.toLowerCase().includes(userInput.toLowerCase())) {
         score += userInput.length;
       }
     });
