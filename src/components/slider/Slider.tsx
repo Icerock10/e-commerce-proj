@@ -43,10 +43,9 @@ export const Slider = () => {
               {index === currentFrame && subTitle}
             </h1>
           </div>
-          <div
-            className={sliderClasses(index, currentFrame)}
-            style={{ backgroundImage: `url(${image})` }}
-          ></div>
+          <div className={sliderClasses(index, currentFrame)}>
+            <img src={image} height='100%' width='100%' alt='slider-img' />
+          </div>
         </div>
       ))}
     </>

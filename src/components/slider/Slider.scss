@@ -1,12 +1,10 @@
-@import "../../styles/variables";
-@import "../../styles/mixins.scss";
+@import '../../styles/variables';
+@import '../../styles/mixins.scss';
 
 // ----------------------------------------------------------------> slider section
 .slider {
   display: flex;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  justify-content: center;
   transition: opacity 0.5s ease-in-out;
   opacity: 0;
   width: 100%;
