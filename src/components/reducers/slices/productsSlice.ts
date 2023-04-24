@@ -31,6 +31,7 @@ export const productsSlice = createSlice({
       return {
         ...state,
         products: state.originalProduts,
+        resetPixels: !state.resetPixels,
       };
     },
     getUserValue: (state, action: PayloadAction<string>) => {

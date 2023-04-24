@@ -10,7 +10,8 @@ export const InputLogic = () => {
 
   const sortProductsByUserInput = (): void => {
     dispatch(sortByKeyWords({ value: value, flag: true }));
-    scrollToSection(1);
+    if (window.innerWidth < 640) return;
+    scrollToSection(1, null);
   };
   const resetSortProducts = () => {
     dispatch(resetSearch());

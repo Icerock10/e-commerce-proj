@@ -11,7 +11,6 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
   const [{ scrollToSelectedPage, containerRef, currentPage, pages, px }] = useSwiper(products);
 
   const { addProduct } = useCart();
-
   return (
     <>
       <h1 style={{ textAlign: 'center' }} className='fashion_title'>
@@ -24,7 +23,7 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
             <div
               className='product'
               key={id}
-              style={{ transform: `translate3d(${px}px, 0px, 0px)` }}
+              style={{ transform: `translate3d(${window.innerWidth > 640 && px}px, 0px, 0px)` }}
             >
               <div className='product__container'>
                 <h4>{heading}</h4>

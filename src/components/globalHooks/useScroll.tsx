@@ -1,13 +1,13 @@
-import React from "react";
-import { scrollBreakpoints } from "../../mocks/scrollBreakpoints";
+import React from 'react';
+import { scrollBreakpoints } from '../../mocks/scrollBreakpoints';
 
 export const useScroll = () => {
-  const scrollToSection = (position: number, e?: any): void => {
+  const scrollToSection = (position: number, e: any): void => {
     if (window.innerWidth < 640) {
-      const titles = document.querySelectorAll(".fashion_title");
+      const titles = document.querySelectorAll('.fashion_title')!;
       titles.forEach((title) => {
         if (title.textContent === e.target.textContent) {
-          title.scrollIntoView({ behavior: "smooth" });
+          title.scrollIntoView({ behavior: 'smooth' });
         }
       });
       return;
@@ -17,17 +17,15 @@ export const useScroll = () => {
     window.scrollTo({
       top: scrollTo,
       left: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
-  const scrollIntoViewDependingOnDirection = (
-    direction: "top" | "bottom"
-  ): void => {
+  const scrollIntoViewDependingOnDirection = (direction: 'top' | 'bottom'): void => {
     window.scrollTo({
-      top: direction === "top" ? 0 : document.body.scrollHeight,
+      top: direction === 'top' ? 0 : document.body.scrollHeight,
       left: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
