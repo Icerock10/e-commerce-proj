@@ -29,7 +29,7 @@ export const useSubmenu = () => {
           flag: true,
         })
       );
-      scrollToSection(1);
+      scrollToSection(1, null);
       return setIsDropDownShown(!isDropDownShown);
     }
     if (type === 'mouseleave') return setIsDropDownShown(false);
