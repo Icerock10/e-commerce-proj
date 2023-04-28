@@ -50,6 +50,9 @@ export const Switcher = () => {
         onMouseEnter={togglePopUpVisibility}
         onMouseLeave={togglePopUpVisibility}
       >
+        <div className={`${isPopupShown ? 'popup' : 'hidden'}`}>
+          <span>The cart is empty...</span>
+        </div>
         <CartIcon className='cart-toggler__icon' />
         {productsLength ? (
           <span className='cart-toggler__products-number'>{productsLength}</span>
