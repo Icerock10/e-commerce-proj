@@ -2,7 +2,7 @@
 <h1 align="center">E-Commerce project "Shop"</h1>
 <div align="center">
 <img src="https://github.com/Icerock10/e-commerce-proj/blob/main/shop.gif" width="400px"/>
-<div><a href="https://e-commerce-pet.netlify.app/">View Demo</a></div>
+<div><a https://e-commerce-petp.netlify.app">View Demo</a></div>
 </div>
 
 
