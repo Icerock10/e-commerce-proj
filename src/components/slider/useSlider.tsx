@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useCallback } from 'react';
+import React, { useLayoutEffect, useContext, useCallback } from 'react';
 import { frames } from '../../mocks/frames';
 import { LanguageContext } from '../../helpers/languageContext';
 import { useAppSelector, useAppDispatch } from '../globalHooks/reduxHooks';
@@ -30,7 +30,7 @@ export const useSlider = () => {
   const goToPrevFrame = (): void => {
     dispatch(getFramesAsync(totalFrames, 'prev'));
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     const framesInterval = setInterval(() => {
       goToNextFrame();
     }, 3000);

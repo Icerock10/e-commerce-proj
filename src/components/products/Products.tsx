@@ -12,10 +12,10 @@ export const Products = () => {
   const { scrollIntoViewDependingOnDirection } = useScroll();
 
   return (
-    <div className='container container__products'>
+    <div className='container products'>
       <ArrowButton
         role={ButtonRoles.BOTTOM}
-        className='jumping-element'
+        className='products__chevron'
         handleClick={() => scrollIntoViewDependingOnDirection('bottom')}
       >
         <ChevronDown />
@@ -35,7 +35,7 @@ export const Products = () => {
       )}
       <ArrowButton
         role={ButtonRoles.TOP}
-        className='jumping-element'
+        className='products__chevron'
         handleClick={() => scrollIntoViewDependingOnDirection('top')}
       >
         <ChevronUp />

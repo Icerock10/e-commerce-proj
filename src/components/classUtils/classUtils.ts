@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 
 export const languageListClasses = (selectedLanguage: string, languageText: string) =>
-  clsx('language__list_item', {
+  clsx('submenu__item', {
     selected: languageText === selectedLanguage,
   });
 

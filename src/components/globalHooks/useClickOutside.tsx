@@ -1,17 +1,13 @@
-import React, { useRef, useEffect } from "react";
-import { useCart } from "../header/Cart/useCart";
-import { useVisibility } from "./useVisibility";
+import React, { useRef, useEffect } from 'react';
+import { useCart } from '../header/Cart/useCart';
+import { useVisibility } from './useVisibility';
 
 export const useClickOutside = () => {
   const cartRef = useRef<HTMLDivElement>(null);
   const sideBarRef = useRef<HTMLDivElement>(null);
   const switcherRef = useRef<HTMLDivElement>(null);
 
-  const {
-    isThankNotificationShown,
-    closeNotificationAndCart,
-    toggleCartVisibility,
-  } = useCart();
+  const { isThankNotificationShown, closeNotificationAndCart, toggleCartVisibility } = useCart();
   const { showLanguagesList, toggleSidebarVisibility } = useVisibility();
 
   useEffect(() => {
@@ -25,18 +21,18 @@ export const useClickOutside = () => {
       }
       if (
         sideBarRef.current &&
-        !event.target.closest(".sidebar") &&
-        !event.target.closest(".burger__menu")
+        !event.target.closest('.sidebar') &&
+        !event.target.closest('.main__burger')
       ) {
         toggleSidebarVisibility();
       }
-      if (switcherRef.current && !event.target.closest(".switcher__group")) {
+      if (switcherRef.current && !event.target.closest('.switcher')) {
         showLanguagesList();
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [
     cartRef,

@@ -11,7 +11,6 @@ function App() {
 
   return (
     <LanguageContext.Provider value={{ t, i18n }}>
-      <Header />
       <Slider />
       <Products />
       <Footer />

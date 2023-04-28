@@ -4,7 +4,7 @@ import { scrollBreakpoints } from '../../mocks/scrollBreakpoints';
 export const useScroll = () => {
   const scrollToSection = (position: number, e: any): void => {
     if (window.innerWidth < 640) {
-      const titles = document.querySelectorAll('.fashion_title')!;
+      const titles = document.querySelectorAll('.products__title')!;
       titles.forEach((title) => {
         if (title.textContent === e.target.textContent) {
           title.scrollIntoView({ behavior: 'smooth' });

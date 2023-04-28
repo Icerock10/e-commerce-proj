@@ -13,10 +13,8 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
   const { addProduct } = useCart();
   return (
     <>
-      <h1 style={{ textAlign: 'center' }} className='fashion_title'>
-        {title}
-      </h1>
-      <div className='card__container' ref={containerRef}>
+      <h1 className='products__title'>{title}</h1>
+      <div className='products__container' ref={containerRef}>
         {products.map((product) => {
           const { id, heading, category, price, image, liked } = product;
           return (
@@ -25,44 +23,39 @@ export const ProductList: FC<Title> = ({ title, products, t }) => {
               key={id}
               style={{ transform: `translate3d(${window.innerWidth > 640 && px}px, 0px, 0px)` }}
             >
-              <div className='product__container'>
-                <h4>{heading}</h4>
-                <p className='price__container'>
-                  <span className='product__price'>{t('price')}</span>
-                  <span>{`$ ${priceFormatWithCommas(price)}`}</span>
-                </p>
-                <div className='product__image'>
-                  <img
-                    style={{ height: `${category === 'Laptops' && '70%'}` }}
-                    src={image}
-                    alt='img'
-                  />
-                </div>
-                <div className='card__footer'>
-                  <RoundedButton
-                    className='card__footer_btn'
-                    handleClick={() => addProduct(product)}
-                  >
-                    {t('buyButton')}
-                  </RoundedButton>
-                  <Heart id={id} liked={liked} />
-                </div>
+              <h4>{heading}</h4>
+              <div className='product__price'>
+                <span className='product__text'>{t('price')}</span>
+                <span>{`$ ${priceFormatWithCommas(price)}`}</span>
+              </div>
+              <div className='product__image'>
+                <img
+                  style={{ height: `${category === 'Laptops' && '70%'}` }}
+                  src={image}
+                  alt='img'
+                />
+              </div>
+              <div className='product__footer'>
+                <RoundedButton className='product__button' handleClick={() => addProduct(product)}>
+                  {t('buyButton')}
+                </RoundedButton>
+                <Heart id={id} liked={liked} />
               </div>
             </div>
           );
         })}
       </div>
-      <div className='radio_container'>
+      <div className='radio'>
         {[...Array(pages)].map((_, index) => {
           return (
-            <label key={`key-${index}`} htmlFor='bio' className='radio__overlay'>
+            <label key={`key-${index}`} className='radio__overlay'>
               <RadioInput
                 handleChange={() => scrollToSelectedPage(index)}
                 checked={currentPage === index}
                 type='radio'
-                className={`radio_container__item`}
+                className='radio__input'
               />
-              <div className='circle'></div>
+              <div className='radio__circle'></div>
             </label>
           );
         })}

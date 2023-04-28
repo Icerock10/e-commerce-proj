@@ -7,7 +7,7 @@ export const Menubar = () => {
   const { menuItems, t } = useSubmenu();
 
   return (
-    <div className='drop'>
+    <div className='main__dropdown'>
       {Array.isArray(menuItems) &&
         menuItems.map((menu: Menu, index: number) => {
           return <Submenu items={menu} key={index} depthLevel={0} t={t} />;

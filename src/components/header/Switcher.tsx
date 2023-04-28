@@ -21,43 +21,40 @@ export const Switcher = () => {
   const { switcherRef } = useClickOutside();
 
   return (
-    <div className='header__box'>
-      <div className='header__box_switcher'>
-        <div className='switcher__group'>
-          <span onClick={() => showLanguagesList()} className='lang'>
-            <img style={{ height: '0.6rem' }} alt='switcher' src={languages[languageText]} />
-            <span className='lang_text'>{languageText}</span>
-          </span>
-          {isLangListShown && (
-            <div className='switcher__group_wrapper' ref={switcherRef}>
-              {Object.keys(languages).map((language, i) => {
-                return (
-                  <span
-                    key={`key-${i}`}
-                    className={languageListClasses(language, languageText)}
-                    onClick={() => getLanguageSwitched(language)}
-                  >
-                    <img src={languages[language]} alt='flags' style={{ height: '0.6rem' }} />
-                    {language}
-                  </span>
-                );
-              })}
-            </div>
-          )}
-        </div>
-        <div
-          className='cart'
-          onClick={toggleCartVisibility}
-          onMouseEnter={togglePopUpVisibility}
-          onMouseLeave={togglePopUpVisibility}
-        >
-          <div className={`${isPopupShown ? 'popup' : 'hidden'}`}>
-            <span>The cart is empty...</span>
+    <div className='main__cart-switcher'>
+      <div className='switcher'>
+        <span onClick={() => showLanguagesList()} className='switcher__language'>
+          <img alt='switcher' src={languages[languageText]} />
+          <span className='switcher__text'>{languageText}</span>
+        </span>
+        {isLangListShown && (
+          <div className='submenu' ref={switcherRef}>
+            {Object.keys(languages).map((language, i) => {
+              return (
+                <span
+                  key={`key-${i}`}
+                  className={languageListClasses(language, languageText)}
+                  onClick={() => getLanguageSwitched(language)}
+                >
+                  <img src={languages[language]} alt='flags' />
+                  {language}
+                </span>
+              );
+            })}
           </div>
-          <CartIcon className='cart__icon' />
-          {productsLength ? <span className='cart__number'>{productsLength}</span> : null}
-          <span className='cart__text'>{t('cart')}</span>
-        </div>
+        )}
+      </div>
+      <div
+        className='cart-toggler'
+        onClick={toggleCartVisibility}
+        onMouseEnter={togglePopUpVisibility}
+        onMouseLeave={togglePopUpVisibility}
+      >
+        <CartIcon className='cart-toggler__icon' />
+        {productsLength ? (
+          <span className='cart-toggler__products-number'>{productsLength}</span>
+        ) : null}
+        <span className='cart-toggler__text'>{t('cart')}</span>
       </div>
     </div>
   );

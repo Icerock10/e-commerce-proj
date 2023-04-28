@@ -2,7 +2,7 @@
 @import '../../../styles//variables.scss';
 @import '../../../styles/fonts.scss';
 
-.cart__wrapper {
+.cart {
   background-color: #fff;
   height: 100vh;
   font-family: 'Roboto Mono';
@@ -10,29 +10,34 @@
   position: absolute;
   z-index: 4;
   right: 0;
-  &_heading {
+  &__title {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
   }
-  &_remove {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &__remove {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
     font-size: 0.8rem;
-    margin-top: 0.5rem;
     cursor: pointer;
   }
 }
-.container__wrapper {
+.remove__button {
+  background-color: transparent;
+  border: none;
+  display: grid;
+}
+.cart__products {
   overflow-y: auto;
-  height: 60%;
+  height: 55vh;
   overflow-x: hidden;
   @include custom-scrollbar(#f1f1f1, #888, #555);
 }
-.cart__container {
+.cart__subtitle {
   display: flex;
   padding: 1rem;
+  color: $text-color;
   position: relative;
   align-items: flex-start;
   &::after {
@@ -43,25 +48,29 @@
     width: 95%;
     border-bottom: 1px solid #eeeaea;
   }
-  &_elem {
-    flex: 1 1 auto;
-    max-height: 5rem;
+  &_default_color {
+    color: black;
   }
-  .product-cart {
+}
+.subtitle__elem {
+  flex: 1 1 auto;
+  max-height: 5rem;
+  padding-left: 0.5rem;
+  &_spaced {
     flex: 0 0 60%;
     display: flex;
   }
-  .price {
+  &_direction_right {
     display: grid;
     justify-content: end;
   }
 }
-
 .cart__image {
   width: 25%;
   text-align: center;
   & img {
     height: 85px;
+    object-fit: unset !important;
   }
 }
 .basket {
@@ -74,88 +83,88 @@
     border-radius: 50%;
   }
 }
-.quantity__elem {
+.subtitle__quantity {
   border: 1px solid lightgray;
   color: gray;
   border-radius: 5px;
   display: flex;
+  margin-bottom: 0.2rem;
   justify-content: space-between;
   align-items: center;
-  max-height: 2.5rem;
+  max-height: 1rem;
   padding: 1rem;
-  &_operand {
+  .subtitle__operand {
     height: 18px;
   }
 }
 
-.cart__button_remove {
-  background-color: transparent;
-  border: none;
-}
-
-.cart__container_header {
-  color: $text-color;
-}
-
-.checkout__section-wrapper {
+.checkout {
   padding: 1rem;
   position: absolute;
-  bottom: 0;
-  height: auto;
+  bottom: 4rem;
+  height: 20vh;
   background: #fff;
   left: 0;
   width: 100%;
-  .checkout__section {
+  &__button {
+    @include rounded-button;
+    width: 100%;
+    top: 0;
+  }
+  &__section {
     border: 1px solid lightgrey;
     border-radius: 5px;
     padding: 1rem;
-    &_item {
-      display: flex;
-      justify-content: space-between;
-      margin: 1rem;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    &_discount {
+      border-bottom: 1px solid rgb(223, 219, 219);
+      color: gray;
     }
   }
 }
 
-.checkout__button {
-  width: 100%;
-  border: none;
-  color: #fff;
-  background-color: #252525;
-  text-align: center;
-  padding: 10px 0;
-  border-radius: 5px;
-  text-transform: uppercase;
-  font-weight: 700;
-  @include hover-animation(background-color, $secondary-color);
-}
-
-.discount {
-  border-bottom: 1px solid rgb(223, 219, 219);
-  color: gray;
-}
-.notification__wrapper {
+.notification {
   padding: 1rem;
   height: 100%;
-}
-.notification__header {
-  display: flex;
-  height: 15%;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  border-bottom: 1px solid #eeeaea;
-  border-bottom-width: 90%;
-}
-.notification__main {
-  display: flex;
-  height: 25%;
-  flex-direction: column;
-  gap: 0.5rem;
-  & > div:after {
-    @include custom-divider;
+  &__image {
+    width: 20%;
+    & img {
+      height: 80px;
+    }
+  }
+  &__price {
+    flex: 1 1 auto;
+    text-align: end;
+    padding-right: 1.5rem;
+  }
+  &__heading {
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    display: flex;
+    height: 15%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    border-bottom: 1px solid #eeeaea;
+    border-bottom-width: 90%;
+  }
+  &__main {
+    display: flex;
+    height: 25%;
+    flex-direction: column;
+    gap: 0.5rem;
+    & > div:after {
+      @include custom-divider;
+    }
   }
 }
+
 .notification__order {
   display: flex;
   flex-direction: column;
@@ -165,31 +174,13 @@
   @include custom-scrollbar(#f1f1f1, #888, #555);
   margin-top: 1rem;
   gap: 1rem;
-  &_heading {
-    display: flex;
-    flex-direction: column;
-  }
-  &_price {
-    flex: 1 1 auto;
-    text-align: end;
-    padding-right: 1.5rem;
-  }
-  &_container {
-    display: flex;
-    border-bottom: 1px solid #eeeaea;
-  }
-  &_image {
-    width: 20%;
-    & img {
-      height: 80px;
-    }
-  }
+}
+.notification__wrapper {
+  display: flex;
+  border-bottom: 1px solid #eeeaea;
 }
 .notification__subtitle {
   color: #a5aaaf;
   font-size: 0.8rem;
   padding-bottom: 1rem;
-}
-.quantity {
-  color: #a5aaaf;
 }

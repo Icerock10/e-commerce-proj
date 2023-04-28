@@ -45,15 +45,18 @@ export const Map = () => {
           </InfoWindowF>
         </MarkerF>
       </GoogleMap>
-      <div className='map__widget'>
-        <div className='map__widget_item'>
-          <Autocomplete>
-            <input className='destination' placeholder='Pick your location' ref={userRef} />
+      <div className='widget'>
+        <div className='widget__item'>
+          <Autocomplete className='widget__autocomplete'>
+            <input className='widget__input' placeholder='Pick your location' ref={userRef} />
           </Autocomplete>
-          <RoundedButton handleClick={fetchDirections} className='btn__calculate'>
+          <RoundedButton handleClick={fetchDirections} className='widget__calculate-btn'>
             Calculate
           </RoundedButton>
-          <IconButton className='borderless' handleClick={clearDirections}>
+          <IconButton
+            className='close-button close-button_transparent'
+            handleClick={clearDirections}
+          >
             <Close />
           </IconButton>
         </div>

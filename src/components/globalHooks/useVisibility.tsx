@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../globalHooks/reduxHooks";
-import { getProductsInCartLength } from "../reducers/slices/cartSlice";
-import {
-  toggleVisibility,
-  getVisibilityState,
-} from "../reducers/slices/visibilitySlice";
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../globalHooks/reduxHooks';
+import { getProductsInCartLength } from '../reducers/slices/cartSlice';
+import { toggleVisibility, getVisibilityState } from '../reducers/slices/visibilitySlice';
 
 export const useVisibility = () => {
   const dispatch = useAppDispatch();
@@ -20,37 +17,37 @@ export const useVisibility = () => {
 
   useEffect(() => {
     if (isCartShown || isThankNotificationShown) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     }
     return () => {
-      document.body.style.overflow = "visible";
+      document.body.style.overflow = 'visible';
     };
   }, [isThankNotificationShown, isCartShown]);
 
   const showLanguagesList = () => {
-    dispatch(toggleVisibility("isLangListShown"));
+    dispatch(toggleVisibility('isLangListShown'));
   };
   const toggleSidebarVisibility = () => {
-    dispatch(toggleVisibility("isSidebarShown"));
+    dispatch(toggleVisibility('isSidebarShown'));
   };
   const showThankNotification = () => {
-    dispatch(toggleVisibility("isThankNotificationShown"));
+    dispatch(toggleVisibility('isThankNotificationShown'));
   };
   const toggleWidgetText = () => {
     const innerWidth = window.innerWidth;
     if (innerWidth > 450) return;
     if (innerWidth < 450) {
-      return dispatch(toggleVisibility("isMapWidgetTextShown"));
+      return dispatch(toggleVisibility('isMapWidgetTextShown'));
     }
-    dispatch(toggleVisibility("isMapWidgetTextShown"));
+    dispatch(toggleVisibility('isMapWidgetTextShown'));
   };
   const toggleCartVisibility = () => {
     if (!productsInCartLength) return;
-    dispatch(toggleVisibility("isCartShown"));
+    dispatch(toggleVisibility('isCartShown'));
   };
   const togglePopUpVisibility = () => {
     if (productsInCartLength) return;
-    dispatch(toggleVisibility("isPopupShown"));
+    dispatch(toggleVisibility('isPopupShown'));
   };
   const isCartShownDependingOnLength = () => {
     if (!productsInCartLength) return null;

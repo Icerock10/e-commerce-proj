@@ -7,47 +7,51 @@ import { ArrowButton } from '../Buttons/ArrowButton';
 import { sliderClasses } from '../classUtils/classUtils';
 import { RoundedButton } from '../Buttons/RoundedButton';
 import { ButtonRoles } from '../../enums/buttonRoles';
+import { Header } from '../header/Header';
 export const Slider = () => {
   const [{ framesWithMultiLanguageTitles, goToNextFrame, goToPrevFrame, currentFrame, t }] =
     useSlider();
   const { toggleCartVisibility, togglePopUpVisibility } = useVisibility();
   return (
-    <>
-      <div className='container container_btn__section'>
-        <div className='slider_btn__section'>
-          <ArrowButton className='slider__btn' role={ButtonRoles.BACK} handleClick={goToPrevFrame}>
+    <div className='wrapper'>
+      <Header />
+      {framesWithMultiLanguageTitles.map(({ id, image, subTitle, title }, index) => (
+        <React.Fragment key={id}>
+          <div className={sliderClasses(index, currentFrame)}>
+            <img src={image} width='100%' height='100%' alt='slider' />
+          </div>
+          <article className='heading'>
+            <h1 className='heading__title'>{index === currentFrame && title}</h1>
+            <h1 className='heading__subtitle'>{index === currentFrame && subTitle}</h1>
+          </article>
+        </React.Fragment>
+      ))}
+      <div className='container'>
+        <div className='slider-control'>
+          <ArrowButton
+            className='slider-control__arrow-btn'
+            role={ButtonRoles.BACK}
+            handleClick={goToPrevFrame}
+          >
             <LeftArrow />
           </ArrowButton>
-          <RoundedButton
-            handleClick={toggleCartVisibility}
-            togglePopUp={togglePopUpVisibility}
-            className='buynow__btn'
-            role={ButtonRoles.BUY_BUTTON}
-          >
-            {t('buyButton')}
-          </RoundedButton>
           <ArrowButton
-            className='slider__btn'
+            className='slider-control__arrow-btn'
             role={ButtonRoles.FORWARD}
             handleClick={goToNextFrame}
           >
             <RightArrow />
           </ArrowButton>
         </div>
+        <RoundedButton
+          handleClick={toggleCartVisibility}
+          togglePopUp={togglePopUpVisibility}
+          className='buy-btn'
+          role={ButtonRoles.BUY_BUTTON}
+        >
+          {t('buyButton')}
+        </RoundedButton>
       </div>
-      {framesWithMultiLanguageTitles.map(({ id, image, subTitle, title }, index) => (
-        <div key={id}>
-          <div className='banner__text'>
-            <h1 className='banner__text_title'>
-              <span>{index === currentFrame && title}</span>
-              {index === currentFrame && subTitle}
-            </h1>
-          </div>
-          <div className={sliderClasses(index, currentFrame)}>
-            <img src={image} height='100%' width='100%' alt='slider-img' />
-          </div>
-        </div>
-      ))}
-    </>
+    </div>
   );
 };

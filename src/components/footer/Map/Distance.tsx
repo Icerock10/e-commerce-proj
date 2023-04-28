@@ -9,24 +9,22 @@ import { useVisibility } from '../../globalHooks/useVisibility';
 export const Distance = ({ leg, getToInitialPos }: DistanceProps) => {
   const { isMapWidgetTextShown } = useVisibility();
   return (
-    <div className='map__widget_item result'>
-      <div className='result__distance'>
+    <div className='widget__item widget__item_space'>
+      <div className='widget__result'>
         <img src={commute} alt='commute' />
         <span>
           {isMapWidgetTextShown && 'Distance:'} {leg?.distance?.text}
         </span>
       </div>
-      <div className='result__duration'>
+      <div className='widget__result'>
         <AlarmIcon />
         <span>
           {isMapWidgetTextShown && 'Duration:'} {leg?.duration?.text}
         </span>
-        <div className='btn__nav'>
-          <IconButton className='borderless' handleClick={getToInitialPos}>
-            <img src={near} alt='location' />
-          </IconButton>
-        </div>
       </div>
+      <IconButton className='widget__button' handleClick={getToInitialPos}>
+        <img src={near} alt='location' />
+      </IconButton>
     </div>
   );
 };

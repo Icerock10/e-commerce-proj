@@ -20,39 +20,36 @@ export const Header = () => {
     <>
       <Sidebar />
       {isCartShownDependingOnLength() && <Cart />}
-      <div className='container' style={{ zIndex: 3 }}>
-        <div className='container__logo'>
-          <img alt='logo' src={logo}></img>
+      <header className='header container'>
+        <div className='header__logo'>
+          <img alt='logo' src={logo} />
         </div>
         <div className='main'>
-          <div
-            className='main__menu'
-            style={{ color: '#fff' }}
-            onClick={() => toggleSidebarVisibility()}
-          >
-            <div className='burger__menu' style={{ height: '50px' }}>
-              <Menu />
-            </div>
+          <div className='main__burger' onClick={toggleSidebarVisibility}>
+            <Menu />
           </div>
           <Menubar />
-          <div className='input__group' style={{ position: 'relative' }}>
+          <div className='input-group'>
             <Input
               value={value}
-              className='input__group_form'
+              className='input-group__input'
               placeholder={'search'}
               handleChange={(e) => dispatch(getUserValue(e.target.value))}
               handleKeyDown={(e) => e.key === 'Enter' && sortProductsByUserInput()}
             />
-            <IconButton className='input__group_close-btn' handleClick={resetSortProducts}>
+            <IconButton className='close-button' handleClick={resetSortProducts}>
               <Close />
             </IconButton>
-            <IconButton className='btn btn-secondary' handleClick={sortProductsByUserInput}>
+            <IconButton
+              className='input-group__search-button'
+              handleClick={sortProductsByUserInput}
+            >
               <Search />
             </IconButton>
           </div>
           <Switcher />
         </div>
-      </div>
+      </header>
     </>
   );
 };

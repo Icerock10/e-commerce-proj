@@ -21,7 +21,11 @@ export const Sidebar = () => {
           <ul className='sidebar__menu'>
             {uniqueProducts.map((product, index) => {
               return (
-                <li key={`key-${index}`} onClick={(e) => scrollToSection(index + 1, e)}>
+                <li
+                  className='sidebar__item'
+                  key={`key-${index}`}
+                  onClick={(e) => scrollToSection(index + 1, e)}
+                >
                   {product}
                 </li>
               );

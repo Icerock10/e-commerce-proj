@@ -9,21 +9,21 @@ export const Submenu: FC<SubmenuOptions> = ({ items, depthLevel, dropdownClass, 
   const { toggleDropDown, isDropDownShown } = useSubmenu();
   return (
     <li
-      className='menu__items'
+      className='main-menu'
       onMouseEnter={toggleDropDown}
       onMouseLeave={toggleDropDown}
       onClick={toggleDropDown}
     >
       <div
-        className={`${title === undefined ? 'hover__disabled' : ''}`}
+        className={`${title === undefined ? 'main-menu__disabled' : ''}`}
         data-category={`${dropdownClass ? 'subCategory' : 'category'}`}
       >
-        <span className='menu__items_title'>{title}</span>
+        <span className='main-menu__title'>{title}</span>
         {submenu &&
           (depthLevel === 0 ? (
-            <div className='drop__toggle'>{t('categories')}</div>
+            <div className='main-menu__toggle'>{t('categories')}</div>
           ) : (
-            <span style={{ opacity: 0.7 }} className='menu__items_title'>
+            <span className='main-menu__title'>
               {isDropDownShown ? <ChevronDoubleDown /> : <ChevronDoubleRight />}
             </span>
           ))}

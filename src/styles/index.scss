@@ -44,10 +44,6 @@ body {
   line-height: 1.5;
   @include custom-scrollbar(#f1f1f1, #888, #555);
 }
-#root {
-  position: relative;
-  z-index: 1;
-}
 a {
   text-decoration: none;
 }

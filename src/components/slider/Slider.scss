@@ -2,72 +2,66 @@
 @import '../../styles/mixins.scss';
 
 // ----------------------------------------------------------------> slider section
-.slider {
+
+.wrapper {
+  position: relative;
+  height: 45rem;
   display: flex;
-  justify-content: center;
-  transition: opacity 0.5s ease-in-out;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.slider {
+  height: inherit;
+  position: absolute;
   opacity: 0;
   width: 100%;
-  height: 45rem;
-  position: absolute;
-  top: 0;
+  transition: all 0.5s;
+  & img {
+    object-fit: cover;
+  }
+}
+
+.container {
+  @include default-container;
 }
 
 .slider.active {
   opacity: 1;
 }
 
-.slider_btn__section {
+.slider-control {
   display: flex;
   justify-content: space-between;
   position: relative;
-}
-.container_btn__section {
-  top: 10rem;
-  z-index: 2;
-}
-.slider__btn {
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.6rem;
-  background-color: rgb(242, 222, 172, 0.8);
-  transition: color 0.5s ease-in-out;
-  &:hover {
-    color: $main-color;
-  }
-}
-.banner__text {
-  z-index: 1;
-  position: relative;
-  top: 5rem;
-  color: $main-color;
-  font-size: 1.8rem;
-  display: flex;
-  justify-content: center;
-  font-family: Poppins, sans-serif;
-  &_title {
-    position: absolute;
-    text-transform: uppercase;
-    font-weight: 700;
+  &__arrow-btn {
+    border: none;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 0.6rem;
+    background-color: rgb(242, 222, 172, 0.8);
+    transition: color 0.5s ease-in-out;
+    &:hover {
+      color: $main-color;
+    }
   }
 }
 
-.buynow__btn {
-  width: 10rem;
-  border: none;
-  color: #fff;
-  background-color: #252525;
-  text-align: center;
-  border-radius: 0.2rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  top: 15rem;
+.heading {
+  display: grid;
+  place-items: center;
   position: relative;
-  @include hover-animation(background-color, $secondary-color);
+  font-size: 2.5rem;
+  top: 7rem;
+  &__title,
+  &__subtitle {
+    text-transform: uppercase;
+    color: $main-color;
+    font-family: Poppins, sans-serif;
+  }
+}
+.buy-btn {
+  @include rounded-button;
 }

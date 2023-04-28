@@ -1,9 +1,53 @@
 @import './variables';
 @import './fonts';
 
-@mixin btn-style {
+@mixin custom-border-style {
   border-radius: 0.25rem;
   padding: 0.3rem 0.75rem;
+}
+
+@mixin custom-tail {
+  &:after {
+    position: absolute;
+    top: -7px;
+    left: 10%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    content: '';
+    display: block;
+  }
+}
+
+@mixin default-container {
+  max-width: 75rem;
+  z-index: 1;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+@mixin custom-close-button {
+  border: none;
+  position: absolute;
+  height: 24px;
+  top: 4px;
+  right: 2.5rem;
+  bottom: 0;
+  color: #495057;
+}
+
+@mixin custom-search-button {
+  position: relative;
+  right: 0.1rem;
+  display: flex;
+  align-items: center;
+  color: $main-color;
+  background-color: $secondary-color;
+  border-color: $secondary-color;
 }
 
 @mixin price-style {
@@ -51,7 +95,25 @@
   }
 }
 
-@mixin hover-animation-switcher() {
+@mixin rounded-button {
+  width: 10rem;
+  border: none;
+  color: #fff;
+  background-color: #252525;
+  text-align: center;
+  border-radius: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  top: 10rem;
+  @include custom-border-style;
+  @include hover-animation(background-color, $secondary-color);
+  padding: 0.7rem 0.5rem;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+@mixin hover-animation-switcher {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
   &:hover {
