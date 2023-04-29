@@ -97,3 +97,35 @@
     display: none;
   }
 }
+
+@media (max-width: 450px) {
+  .cart {
+    width: 100%;
+    font-size: small;
+    &__subtitle {
+      padding-left: 0;
+    }
+    &__products {
+      height: 52vh;
+    }
+  }
+  .cart__image img {
+    height: 65px;
+  }
+  .notification__header {
+    height: 10vh;
+  }
+  .notification__main {
+    height: auto;
+  }
+  .notification__image img {
+    height: 65px;
+  }
+  .notification__order {
+    margin-top: 0.5rem;
+    height: 23%;
+    & p {
+      display: none;
+    }
+  }
+}

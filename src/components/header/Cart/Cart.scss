@@ -101,8 +101,8 @@
 .checkout {
   padding: 1rem;
   position: absolute;
-  bottom: 4rem;
-  height: 20vh;
+  bottom: 0;
+  min-height: 20vh;
   background: #fff;
   left: 0;
   width: 100%;
@@ -132,6 +132,7 @@
   height: 100%;
   &__image {
     width: 20%;
+    text-align: center;
     & img {
       height: 80px;
     }
@@ -168,9 +169,8 @@
 .notification__order {
   display: flex;
   flex-direction: column;
-  height: 35%;
+  height: 30%;
   overflow-y: auto;
-  height: 16rem;
   @include custom-scrollbar(#f1f1f1, #888, #555);
   margin-top: 1rem;
   gap: 1rem;
@@ -178,6 +178,7 @@
 .notification__wrapper {
   display: flex;
   border-bottom: 1px solid #eeeaea;
+  gap: 1rem;
 }
 .notification__subtitle {
   color: #a5aaaf;
